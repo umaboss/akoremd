@@ -21,7 +21,7 @@
 }
 /* ===== LIGHT (brand teal on light) ===== */
 body.light{
-  --bg:#EEF5F4;--bg-2:#FFFFFF;
+  --bg:#FFFFFF;--bg-2:#FFFFFF;
   --surface:rgba(255,255,255,.72);--surface-2:#E4EEED;
   --line:rgba(14,135,128,.16);--line-2:rgba(14,135,128,.08);
   --text:#08231F;--dim:#42605B;--faint:#86A39E;
@@ -31,7 +31,8 @@ body.light{
   --grad-text:linear-gradient(115deg,#0AA294 10%,#13B07A 90%);
   --btn-ink:#FFFFFF;
   --spot:rgba(13,169,158,.07);
-  --mesh-1:rgba(13,169,158,.12);--mesh-2:rgba(22,181,124,.09);
+  /* No teal wash over the white background in light mode (keeps the bg pure white). */
+  --mesh-1:transparent;--mesh-2:transparent;
   --footer-bg:rgba(228,238,237,.94);
 }
 *{margin:0;padding:0;box-sizing:border-box}
