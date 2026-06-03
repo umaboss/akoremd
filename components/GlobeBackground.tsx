@@ -8,6 +8,50 @@ import { useTheme } from './ThemeProvider';
 const R = 140;
 const N = 1400;
 
+// Payout pills anchored to globe nodes — revolve with the globe.
+// TODO: replace with the real live payout feed (country + amount).
+const PAYOUTS = [
+  { flag: '🇵🇰', name: 'Pakistan', amt: '$867K' },
+  { flag: '🇳🇵', name: 'Nepal', amt: '$1.3K' },
+  { flag: '🇧🇩', name: 'Bangladesh', amt: '$7.4K' },
+  { flag: '🇮🇳', name: 'India', amt: '$210K' },
+  { flag: '🇱🇦', name: 'Laos', amt: '$38.4K' },
+  { flag: '🇭🇰', name: 'Hong Kong', amt: '$1.5K' },
+  { flag: '🇻🇳', name: 'Vietnam', amt: '$254K' },
+  { flag: '🇹🇭', name: 'Thailand', amt: '$8K' },
+  { flag: '🇵🇭', name: 'Philippines', amt: '$94.5K' },
+  { flag: '🇲🇾', name: 'Malaysia', amt: '$159K' },
+  { flag: '🇸🇬', name: 'Singapore', amt: '$72K' },
+  { flag: '🇮🇩', name: 'Indonesia', amt: '$146K' },
+  { flag: '🇦🇪', name: 'UAE', amt: '$420K' },
+  { flag: '🇬🇧', name: 'UK', amt: '$188K' },
+  { flag: '🇩🇪', name: 'Germany', amt: '$96K' },
+  { flag: '🇧🇷', name: 'Brazil', amt: '$54K' },
+  { flag: '🇿🇦', name: 'South Africa', amt: '$31K' },
+  { flag: '🇯🇵', name: 'Japan', amt: '$77K' },
+  { flag: '🇺🇸', name: 'USA', amt: '$512K' },
+  { flag: '🇨🇦', name: 'Canada', amt: '$134K' },
+  { flag: '🇲🇽', name: 'Mexico', amt: '$41K' },
+  { flag: '🇦🇷', name: 'Argentina', amt: '$27K' },
+  { flag: '🇫🇷', name: 'France', amt: '$112K' },
+  { flag: '🇪🇸', name: 'Spain', amt: '$58K' },
+  { flag: '🇮🇹', name: 'Italy', amt: '$49K' },
+  { flag: '🇹🇷', name: 'Turkey', amt: '$63K' },
+  { flag: '🇪🇬', name: 'Egypt', amt: '$19K' },
+  { flag: '🇳🇬', name: 'Nigeria', amt: '$44K' },
+  { flag: '🇰🇪', name: 'Kenya', amt: '$12K' },
+  { flag: '🇸🇦', name: 'Saudi Arabia', amt: '$305K' },
+  { flag: '🇰🇷', name: 'South Korea', amt: '$88K' },
+  { flag: '🇦🇺', name: 'Australia', amt: '$97K' },
+  { flag: '🇵🇱', name: 'Poland', amt: '$22K' },
+  { flag: '🇲🇦', name: 'Morocco', amt: '$9K' },
+];
+
+// Reusable temporaries to avoid per-frame allocations.
+const _v = new THREE.Vector3();
+const _n = new THREE.Vector3();
+const _c = new THREE.Vector3();
+
 /** Round, soft radial sprite texture (teal) used for points, halo and travelers. */
 function makeSpriteTexture() {
   const c = document.createElement('canvas');
@@ -31,7 +75,9 @@ interface Traveler {
   sp: number;
 }
 
-function GlobeScene() {
+type LabelRefs = React.RefObject<(HTMLDivElement | null)[]>;
+
+function GlobeScene({ labelRefs }: { labelRefs: LabelRefs }) {
   const { isLight } = useTheme();
 
   // Build the entire scene graph once, imperatively — mirrors the mockup exactly.
@@ -73,25 +119,6 @@ function GlobeScene() {
       opacity: 0.1,
     });
     group.add(new THREE.Mesh(new THREE.SphereGeometry(R * 0.985, 36, 36), wireMat));
-
-    // Glowing OCTAGON torus ring (8 radial segments) — the brand logo motif.
-    const ringGroup = new THREE.Group();
-    group.add(ringGroup);
-    const octMat = new THREE.MeshBasicMaterial({
-      color: 0x19e6d6,
-      transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending,
-    });
-    const octGlowMat = new THREE.MeshBasicMaterial({
-      color: 0x19e6d6,
-      transparent: true,
-      opacity: 0.12,
-      blending: THREE.AdditiveBlending,
-    });
-    ringGroup.add(new THREE.Mesh(new THREE.TorusGeometry(R * 1.55, 9, 18, 8), octMat));
-    ringGroup.add(new THREE.Mesh(new THREE.TorusGeometry(R * 1.55, 20, 16, 8), octGlowMat));
-    ringGroup.rotation.set(0.5, 0.3, 0.2);
 
     // Soft halo sprite (lives at scene root, behind the group).
     const haloMat = new THREE.SpriteMaterial({
@@ -140,12 +167,19 @@ function GlobeScene() {
     }
     for (let i = 0; i < 13; i++) arc((rnd() * N) | 0, (rnd() * N) | 0);
 
-    return { group, ringGroup, halo, ptsMat, wireMat, octMat, octGlowMat, haloMat, lineMats, travMats, trav };
+    // Label anchors: spread evenly along the spiral, sitting just outside the
+    // surface so each pill hovers over a real node and revolves with the globe.
+    const anchors = PAYOUTS.map((_, k) => {
+      const idx = Math.floor(((k + 0.5) / PAYOUTS.length) * N) % N;
+      return pts[idx].clone().multiplyScalar(1.06);
+    });
+
+    return { group, halo, anchors, ptsMat, wireMat, haloMat, lineMats, travMats, trav };
   }, []);
 
   // Re-tint materials whenever the theme changes (mirrors setGlobeTheme).
   useEffect(() => {
-    const { ptsMat, wireMat, octMat, octGlowMat, haloMat, lineMats, travMats } = built;
+    const { ptsMat, wireMat, haloMat, lineMats, travMats } = built;
     if (isLight) {
       ptsMat.color.setHex(0x0fa89c);
       ptsMat.blending = THREE.NormalBlending;
@@ -153,11 +187,6 @@ function GlobeScene() {
       ptsMat.needsUpdate = true;
       wireMat.color.setHex(0x9fd6d0);
       wireMat.opacity = 0.18;
-      octMat.color.setHex(0x0fa89c);
-      octMat.blending = THREE.NormalBlending;
-      octMat.opacity = 0.9;
-      octMat.needsUpdate = true;
-      octGlowMat.opacity = 0.06;
       haloMat.opacity = 0.12;
       lineMats.forEach((m) => {
         m.color.setHex(0x0fa89c);
@@ -175,11 +204,6 @@ function GlobeScene() {
       ptsMat.needsUpdate = true;
       wireMat.color.setHex(0x0f6b66);
       wireMat.opacity = 0.1;
-      octMat.color.setHex(0x19e6d6);
-      octMat.blending = THREE.AdditiveBlending;
-      octMat.opacity = 0.85;
-      octMat.needsUpdate = true;
-      octGlowMat.opacity = 0.12;
       haloMat.opacity = 0.45;
       lineMats.forEach((m) => {
         m.color.setHex(0x19e6d6);
@@ -221,12 +245,10 @@ function GlobeScene() {
     };
   }, [built]);
 
-  useFrame(() => {
-    const { group, ringGroup, trav } = built;
+  useFrame((state) => {
+    const { group, trav, anchors } = built;
     const m = motion.current;
     group.rotation.y += 0.0012;
-    ringGroup.rotation.z += 0.0016;
-    ringGroup.rotation.x += 0.0006;
     m.mx += (m.tx - m.mx) * 0.05;
     m.my += (m.ty - m.my) * 0.05;
     group.rotation.x = -0.16 + m.my * 0.32 + m.sy * 0.00012;
@@ -236,6 +258,33 @@ function GlobeScene() {
       if (t.t > 1) t.t = 0;
       t.d.position.copy(t.cu.getPoint(t.t));
     });
+
+    // Project each label anchor to screen pixels so the pills revolve with the
+    // globe; fade out the ones rotating to the far (back) hemisphere.
+    const els = labelRefs.current;
+    if (els) {
+      group.updateMatrixWorld();
+      const { camera, size } = state;
+      const center = group.position; // sphere centre in world space
+      for (let i = 0; i < anchors.length; i++) {
+        const el = els[i];
+        if (!el) continue;
+        _v.copy(anchors[i]).applyMatrix4(group.matrixWorld); // world position
+        _n.copy(_v).sub(center).normalize(); // outward surface normal
+        _c.copy(camera.position).sub(_v).normalize(); // toward the camera
+        const facing = _n.dot(_c); // >0 => front hemisphere
+        const opacity = THREE.MathUtils.clamp((facing + 0.05) / 0.3, 0, 1);
+        if (opacity <= 0.001) {
+          el.style.opacity = '0';
+          continue;
+        }
+        _v.project(camera);
+        const x = (_v.x * 0.5 + 0.5) * size.width;
+        const y = (-_v.y * 0.5 + 0.5) * size.height;
+        el.style.transform = `translate(-50%,-50%) translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
+        el.style.opacity = opacity.toFixed(3);
+      }
+    }
   });
 
   return (
@@ -247,17 +296,37 @@ function GlobeScene() {
 }
 
 export default function GlobeBackground() {
+  const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
   return (
-    <Canvas
-      id="globe"
-      gl={{ alpha: true, antialias: true }}
-      dpr={[1, 2]}
-      camera={{ fov: 42, near: 1, far: 2000, position: [0, 0, 420] }}
-      // Override R3F's default inline `position: relative` so the canvas stays
-      // fixed behind all content. `#globe` stylesheet still drives opacity/transition.
-      style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-    >
-      <GlobeScene />
-    </Canvas>
+    <>
+      <Canvas
+        id="globe"
+        gl={{ alpha: true, antialias: true }}
+        dpr={[1, 2]}
+        camera={{ fov: 42, near: 1, far: 2000, position: [0, 0, 420] }}
+        // Override R3F's default inline `position: relative` so the canvas stays
+        // fixed behind all content. `#globe` stylesheet still drives opacity/transition.
+        style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
+      >
+        <GlobeScene labelRefs={labelRefs} />
+      </Canvas>
+      {/* Revolving payout pills — positioned each frame from the 3D anchors above. */}
+      <div className="globe-labels" aria-hidden="true">
+        {PAYOUTS.map((p, i) => (
+          <div
+            key={p.name}
+            className="glabel"
+            ref={(el) => {
+              labelRefs.current[i] = el;
+            }}
+          >
+            <span className="gdot" />
+            <span className="gflag">{p.flag}</span>
+            <span className="gname">{p.name}</span>
+            <span className="gamt">{p.amt}</span>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

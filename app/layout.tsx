@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>
+      <body className="light">
         <ThemeProvider>
           {/* Fixed full-viewport WebGL globe — rendered once, persists across routes. */}
           <GlobeMount />

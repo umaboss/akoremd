@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeProvider';
 
 function LogoMark() {
@@ -30,6 +31,7 @@ function LogoMark() {
 export default function Nav() {
   const { toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -42,19 +44,27 @@ export default function Nav() {
     <header id="hdr" className={scrolled ? 'scrolled' : undefined}>
       <div className="wrap">
         <div className="bar">
-          <a href="#" className="logo">
+          <a href="/" className="logo">
             <LogoMark />
             Capital<b>Chain</b>
           </a>
           <div className="nav-links">
-            <a href="#" className="on">
+            <a href="/" className={pathname === '/' ? 'on' : undefined}>
               Home
             </a>
-            <a href="#affiliate">Affiliate Program</a>
-            <a href="#why">About Us</a>
-            <a href="#community">Contact Us</a>
-            <a href="#">Terms of Use</a>
-            <a href="#faq">FAQ</a>
+            <a href="/affiliate" className={pathname === '/affiliate' ? 'on' : undefined}>
+              Affiliate Program
+            </a>
+            <a href="/about" className={pathname === '/about' ? 'on' : undefined}>
+              About Us
+            </a>
+            <a href="/contact" className={pathname === '/contact' ? 'on' : undefined}>
+              Contact Us
+            </a>
+            <a href="/terms" className={pathname === '/terms' ? 'on' : undefined}>
+              Terms of Use
+            </a>
+            <a href="/#faq">FAQ</a>
           </div>
           <div className="nav-cta">
             <button className="theme-tg" id="themeTg" aria-label="Toggle theme" onClick={toggleTheme}>
@@ -70,7 +80,7 @@ export default function Nav() {
             <a href="#" className="btn">
               Login / Signup
             </a>
-            <a href="#programs" className="btn btn-p" data-magnetic>
+            <a href="/#programs" className="btn btn-p" data-magnetic>
               Buy Evaluation →
             </a>
           </div>

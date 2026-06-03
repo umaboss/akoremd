@@ -48,6 +48,15 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:17px
 .scrim.v{background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 20%,transparent) 0%,transparent 16%,transparent 72%,color-mix(in srgb,var(--bg) 60%,transparent) 100%)}
 #spot{position:fixed;width:480px;height:480px;border-radius:50%;z-index:1;pointer-events:none;left:0;top:0;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--spot),transparent 65%);opacity:0;transition:opacity .4s}
 
+/* revolving payout pills anchored to globe nodes */
+.globe-labels{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.glabel{position:absolute;left:0;top:0;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;padding:6px 13px 6px 10px;border:1px solid var(--line);border-radius:100px;background:color-mix(in srgb,var(--surface-2) 80%,transparent);backdrop-filter:blur(9px);font-family:var(--fm);font-size:12.5px;line-height:1;white-space:nowrap;box-shadow:0 8px 24px -12px rgba(0,0,0,.6);opacity:0;will-change:transform,opacity}
+.glabel .gdot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);flex:none}
+.glabel .gflag{font-size:14px}
+.glabel .gname{color:var(--text);font-weight:500}
+.glabel .gamt{color:var(--green);font-weight:700}
+@media(max-width:1040px){.globe-labels{display:none}}
+
 .wrap{max-width:var(--w);margin:0 auto;padding:0 40px;position:relative;z-index:3}
 a{color:inherit;text-decoration:none}.mono{font-family:var(--fm)}
 .gt{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -334,3 +343,100 @@ footer{border-top:1px solid var(--line);padding:72px 0 40px;background:var(--foo
   .news input{width:100%}.news .form{flex-direction:column}
   .foot-grid{grid-template-columns:1fr 1fr}.sec{padding:90px 0}
 }
+
+/* ===== SUBPAGE LAYOUTS & REUSABLE UTILITIES ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 64px;
+  align-items: center;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.about-mission-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 32px;
+}
+.about-location-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 80px 48px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 40px 90px -40px rgba(0,0,0,0.7);
+}
+.about-location-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,10,20,0.4) 0%, rgba(5,10,20,0.92) 100%);
+  z-index: 1;
+}
+.about-location-card .loc-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.about-location-card h3 {
+  font-family: var(--fd);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  letter-spacing: -.02em;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+@media(max-width: 1040px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-mission-cols {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .terms-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .terms-grid aside {
+    position: static !important;
+  }
+}
+@media(max-width: 620px) {
+  .about-location-card {
+    padding: 48px 24px;
+  }
+}
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.terms-nav-link {
+  color: var(--dim);
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.terms-nav-link:hover {
+  color: var(--teal);
+}
+

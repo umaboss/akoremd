@@ -1,0 +1,172 @@
+'use client';
+
+import { useState } from 'react';
+
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: 'support',
+    message: '',
+  });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('sending');
+    // Simulate API call
+    setTimeout(() => {
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: 'support', message: '' });
+    }, 1500);
+  };
+
+  return (
+    <div className="tile feature" style={{ padding: '40px' }}>
+      <h3 style={{ fontSize: '24px', marginTop: 0, marginBottom: '24px' }}>Send us a message</h3>
+      
+      {status === 'success' ? (
+        <div style={{ padding: '24px', border: '1px solid var(--green)', borderRadius: '14px', background: 'var(--soft)', textAlign: 'center' }}>
+          <h4 style={{ color: 'var(--green)', fontFamily: 'var(--fd)', fontSize: '20px', marginBottom: '8px' }}>Message Sent!</h4>
+          <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>
+            Thank you for reaching out. A support agent will review your inquiry and get back to you shortly (usually within an hour).
+          </p>
+          <button 
+            className="btn" 
+            style={{ marginTop: '20px' }}
+            onClick={() => setStatus('idle')}
+          >
+            Send another message
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label htmlFor="name" style={{ fontFamily: 'var(--fm)', fontSize: '12px', color: 'var(--dim)', textTransform: 'uppercase' }}>
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="John Doe"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              style={{
+                fontFamily: 'var(--fb)',
+                fontSize: '15px',
+                padding: '13px 18px',
+                borderRadius: '12px',
+                border: '1px solid var(--line)',
+                background: 'var(--bg-2)',
+                color: 'var(--text)',
+                width: '100%',
+                outline: 'none',
+              }}
+              onFocus={(e) => (e.target.style.borderColor = 'var(--teal)')}
+              onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
+            />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label htmlFor="email" style={{ fontFamily: 'var(--fm)', fontSize: '12px', color: 'var(--dim)', textTransform: 'uppercase' }}>
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="you@example.com"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              style={{
+                fontFamily: 'var(--fb)',
+                fontSize: '15px',
+                padding: '13px 18px',
+                borderRadius: '12px',
+                border: '1px solid var(--line)',
+                background: 'var(--bg-2)',
+                color: 'var(--text)',
+                width: '100%',
+                outline: 'none',
+              }}
+              onFocus={(e) => (e.target.style.borderColor = 'var(--teal)')}
+              onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
+            />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label htmlFor="subject" style={{ fontFamily: 'var(--fm)', fontSize: '12px', color: 'var(--dim)', textTransform: 'uppercase' }}>
+              Inquiry Type
+            </label>
+            <select
+              id="subject"
+              value={formData.subject}
+              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+              style={{
+                fontFamily: 'var(--fb)',
+                fontSize: '15px',
+                padding: '13px 18px',
+                borderRadius: '12px',
+                border: '1px solid var(--line)',
+                background: 'var(--bg-2)',
+                color: 'var(--text)',
+                width: '100%',
+                outline: 'none',
+                appearance: 'none',
+                backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%2319E6D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 16px center',
+                backgroundSize: '16px',
+              }}
+              onFocus={(e) => (e.target.style.borderColor = 'var(--teal)')}
+              onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
+            >
+              <option value="support">General Support & Payouts</option>
+              <option value="billing">Billing & Refund Policy</option>
+              <option value="rules">Evaluation Rules & Violations</option>
+              <option value="partnership">Affiliates & Partnerships</option>
+            </select>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label htmlFor="message" style={{ fontFamily: 'var(--fm)', fontSize: '12px', color: 'var(--dim)', textTransform: 'uppercase' }}>
+              Message
+            </label>
+            <textarea
+              id="message"
+              required
+              rows={5}
+              placeholder="How can we help you?"
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              style={{
+                fontFamily: 'var(--fb)',
+                fontSize: '15px',
+                padding: '13px 18px',
+                borderRadius: '12px',
+                border: '1px solid var(--line)',
+                background: 'var(--bg-2)',
+                color: 'var(--text)',
+                width: '100%',
+                outline: 'none',
+                resize: 'vertical',
+              }}
+              onFocus={(e) => (e.target.style.borderColor = 'var(--teal)')}
+              onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            className="btn btn-p" 
+            style={{ width: '100%', justifyContent: 'center', padding: '14px 20px', marginTop: '8px' }}
+            disabled={status === 'sending'}
+          >
+            {status === 'sending' ? 'Sending message...' : 'Send Message →'}
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}

@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
         <div className="foot-grid">
           <div className="foot-brand">
-            <a href="#" className="logo">
+            <a href="/" className="logo">
               <LogoMark />
               Capital<b>Chain</b>
             </a>
@@ -51,24 +51,24 @@ export default function Footer() {
           </div>
           <div className="foot-col">
             <h5>Platform</h5>
-            <a href="#programs">Programs</a>
-            <a href="#payouts">Payouts</a>
-            <a href="#scaling">Scaling Plan</a>
-            <a href="#platforms">Platforms</a>
+            <a href="/#programs">Programs</a>
+            <a href="/#payouts">Payouts</a>
+            <a href="/#scaling">Scaling Plan</a>
+            <a href="/#platforms">Platforms</a>
           </div>
           <div className="foot-col">
             <h5>Company</h5>
-            <a href="#why">About Us</a>
-            <a href="#affiliate">Affiliate</a>
-            <a href="#community">Community</a>
-            <a href="#community">Contact Us</a>
+            <a href="/about">About Us</a>
+            <a href="/affiliate">Affiliate</a>
+            <a href="/#community">Community</a>
+            <a href="/contact">Contact Us</a>
           </div>
           <div className="foot-col">
             <h5>Legal</h5>
-            <a href="#">Terms of Use</a>
-            <a href="#">Privacy</a>
-            <a href="#">Risk disclosure</a>
-            <a href="#">Refund policy</a>
+            <a href="/terms">Terms of Use</a>
+            <a href="/terms#risk">Privacy</a>
+            <a href="/terms#risk">Risk disclosure</a>
+            <a href="/terms#refund">Refund policy</a>
           </div>
         </div>
         <div className="disclaimer">

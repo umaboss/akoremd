@@ -9,10 +9,10 @@ export default function FinalCTA() {
         </h2>
         <p>Prove your edge once and trade size that matches your skill. Start today.</p>
         <div className="final-actions">
-          <a href="#programs" className="btn btn-p btn-lg" data-magnetic>
+          <a href="/#programs" className="btn btn-p btn-lg" data-magnetic>
             Buy Evaluation →
           </a>
-          <a href="#how" className="btn btn-lg">
+          <a href="/#how" className="btn btn-lg">
             See how it works
           </a>
         </div>
