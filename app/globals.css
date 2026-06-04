@@ -325,7 +325,8 @@ footer{border-top:1px solid var(--line);padding:72px 0 40px;background:var(--foo
 .lr-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--glow)}
 .rewards-total{font-family:var(--fd);font-weight:700;font-size:clamp(3.2rem,7vw,5.6rem);letter-spacing:-.04em;line-height:1;margin:14px 0 10px}
 .rewards-cap{color:var(--dim);font-size:16px;max-width:38ch;margin-bottom:26px}
-.reward-feature{margin-top:auto;border:1px solid var(--line);border-radius:22px;padding:26px;background:linear-gradient(150deg,var(--soft),var(--surface));backdrop-filter:blur(12px)}
+.reward-feature{margin-top:auto;border:1px solid var(--line);border-radius:22px;padding:26px;background:linear-gradient(150deg,var(--soft),var(--surface));backdrop-filter:blur(12px);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s,transform .3s,visibility .3s}
+.reward-feature.is-on{opacity:1;visibility:visible;transform:none}
 .rf-top{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint)}
 .rf-flag{font-size:24px;line-height:1}
 .rf-name{font-family:var(--fd);font-weight:600;font-size:18px;margin-top:14px}
@@ -334,7 +335,11 @@ footer{border-top:1px solid var(--line);padding:72px 0 40px;background:var(--foo
 .rewards-list{border:1px solid var(--line);border-radius:22px;background:var(--surface);backdrop-filter:blur(10px);display:flex;flex-direction:column;overflow:hidden}
 .rl-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;font-family:var(--fm);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
 .rl-head a{color:var(--teal)}
-.rrow{display:flex;align-items:center;gap:14px;padding:14px 22px;border-top:1px solid var(--line);transition:background .2s}
+.rl-viewport{position:relative;height:396px;overflow:hidden}/* exactly 6 rows (6 × 66px) */
+/* mask the seam so rows fade in/out at the top & bottom edges */
+.rl-viewport{-webkit-mask:linear-gradient(180deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(180deg,transparent,#000 7%,#000 93%,transparent)}
+.rl-track{display:flex;flex-direction:column;will-change:transform}
+.rrow{display:flex;align-items:center;gap:14px;height:66px;padding:0 22px;border-top:1px solid var(--line);transition:background .2s}
 .rrow:hover{background:var(--soft)}
 .rrow .rf-flag{font-size:26px}
 .rr-name{font-family:var(--fd);font-weight:600;font-size:15px}
