@@ -12,7 +12,7 @@ export default function ScalingLadder() {
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 06 — SCALING PLAN ]</span>
+            <span className="idx">[ 09 — SCALING PLAN ]</span>
             <h2 className="h2">
               Stay consistent. <span className="gt">Grow to $2M.</span>
             </h2>

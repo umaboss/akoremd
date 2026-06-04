@@ -4,7 +4,7 @@ export default function Community() {
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 10 — COMMUNITY ]</span>
+            <span className="idx">[ 12 — COMMUNITY ]</span>
             <h2 className="h2">
               You&apos;re not trading <span className="gt">alone.</span>
             </h2>

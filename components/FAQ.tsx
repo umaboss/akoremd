@@ -52,7 +52,7 @@ export default function FAQ() {
       <div className="wrap">
         <div className="faq-grid">
           <div className="reveal">
-            <span className="idx">[ 12 — FAQ ]</span>
+            <span className="idx">[ 14 — FAQ ]</span>
             <h2 className="h2">
               Straight <span className="gt">answers.</span>
             </h2>

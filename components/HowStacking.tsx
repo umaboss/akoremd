@@ -35,7 +35,7 @@ export default function HowStacking() {
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 03 — THE CHAIN ]</span>
+            <span className="idx">[ 02 — THE CHAIN ]</span>
             <h2 className="h2">
               Four links to a <span className="gt">funded desk.</span>
             </h2>

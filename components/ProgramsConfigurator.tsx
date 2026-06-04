@@ -73,7 +73,7 @@ export default function ProgramsConfigurator() {
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 02 — PROGRAMS ]</span>
+            <span className="idx">[ 03 — PROGRAMS ]</span>
             <h2 className="h2">
               Configure your <span className="gt">funded account.</span>
             </h2>

@@ -314,11 +314,41 @@ footer{border-top:1px solid var(--line);padding:72px 0 40px;background:var(--foo
 .disclaimer{border-top:1px solid var(--line);padding-top:28px;font-family:var(--fm);font-size:12px;color:var(--faint);line-height:1.7;max-width:920px}
 .foot-bot{display:flex;justify-content:space-between;align-items:center;margin-top:26px;flex-wrap:wrap;gap:14px;font-family:var(--fm);font-size:12.5px;color:var(--faint)}
 
+/* who we are — services grid */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.svc-grid .tile{min-height:230px}
+
+/* live rewards — verified payouts feed */
+.rewards{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.rewards-lead{display:flex;flex-direction:column}
+.rewards-tag{display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.lr-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--glow)}
+.rewards-total{font-family:var(--fd);font-weight:700;font-size:clamp(3.2rem,7vw,5.6rem);letter-spacing:-.04em;line-height:1;margin:14px 0 10px}
+.rewards-cap{color:var(--dim);font-size:16px;max-width:38ch;margin-bottom:26px}
+.reward-feature{margin-top:auto;border:1px solid var(--line);border-radius:22px;padding:26px;background:linear-gradient(150deg,var(--soft),var(--surface));backdrop-filter:blur(12px)}
+.rf-top{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint)}
+.rf-flag{font-size:24px;line-height:1}
+.rf-name{font-family:var(--fd);font-weight:600;font-size:18px;margin-top:14px}
+.rf-amt{font-family:var(--fd);font-weight:700;font-size:34px;color:var(--green);letter-spacing:-.03em;margin-top:4px}
+.rf-meta{font-family:var(--fm);font-size:12px;color:var(--faint);margin-top:6px}
+.rewards-list{border:1px solid var(--line);border-radius:22px;background:var(--surface);backdrop-filter:blur(10px);display:flex;flex-direction:column;overflow:hidden}
+.rl-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;font-family:var(--fm);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.rl-head a{color:var(--teal)}
+.rrow{display:flex;align-items:center;gap:14px;padding:14px 22px;border-top:1px solid var(--line);transition:background .2s}
+.rrow:hover{background:var(--soft)}
+.rrow .rf-flag{font-size:26px}
+.rr-name{font-family:var(--fd);font-weight:600;font-size:15px}
+.rr-country{font-family:var(--fm);font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.rr-amt{margin-left:auto;font-family:var(--fd);font-weight:700;font-size:18px;color:var(--green)}
+.rr-time{font-family:var(--fm);font-size:11px;color:var(--faint);min-width:42px;text-align:right}
+.rl-foot{border-top:1px solid var(--line);padding:16px 22px;font-family:var(--fm);font-size:12px;color:var(--faint)}
+
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 
 @media(max-width:1040px){
-  .config,.calc-grid,.faq-grid,.aff,.commgrid{grid-template-columns:1fr;gap:48px}
+  .config,.calc-grid,.faq-grid,.aff,.commgrid,.rewards{grid-template-columns:1fr;gap:48px}
+  .svc-grid{grid-template-columns:1fr 1fr}
   .buy{position:static}
   .tile.big,.tile.med,.tile.sm{grid-column:span 6}
   .ptile.a,.ptile.b,.ptile.c,.ptile.d,.ptile.e,.ptile.f{grid-column:span 6}
@@ -331,6 +361,7 @@ footer{border-top:1px solid var(--line);padding:72px 0 40px;background:var(--foo
 }
 @media(max-width:620px){
   body{font-size:16px}.wrap{padding:0 22px}
+  .svc-grid{grid-template-columns:1fr}
   .hscroll{margin:0 -22px;padding:6px 22px 22px}
   .tile.big,.tile.med,.tile.sm,.ptile{grid-column:span 12 !important}
   .bento,.plat-bento{grid-template-columns:repeat(6,1fr)}

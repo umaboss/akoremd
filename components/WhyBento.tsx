@@ -4,7 +4,7 @@ export default function WhyBento() {
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 01 — WHY CAPITAL CHAIN ]</span>
+            <span className="idx">[ 06 — WHY CAPITAL CHAIN ]</span>
             <h2 className="h2">
               A real desk. <span className="gt">Not a funnel.</span>
             </h2>

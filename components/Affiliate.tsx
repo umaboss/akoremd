@@ -4,7 +4,7 @@ export default function Affiliate() {
       <div className="wrap">
         <div className="aff">
           <div className="reveal">
-            <span className="idx">[ 11 — AFFILIATE PROGRAM ]</span>
+            <span className="idx">[ 13 — AFFILIATE PROGRAM ]</span>
             <h2 className="h2" style={{ marginBottom: 18 }}>
               Earn while your <span className="gt">network trades.</span>
             </h2>

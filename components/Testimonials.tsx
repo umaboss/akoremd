@@ -36,7 +36,7 @@ export default function Testimonials() {
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 09 — TRADER STORIES ]</span>
+            <span className="idx">[ 11 — TRADER STORIES ]</span>
             <h2 className="h2">
               What funded traders <span className="gt">actually say.</span>
             </h2>
