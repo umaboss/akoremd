@@ -52,6 +52,9 @@ export default function Nav() {
             <a href="/" className={pathname === '/' ? 'on' : undefined}>
               Home
             </a>
+            <a href="/rewards" className={pathname === '/rewards' ? 'on' : undefined}>
+              Rewards
+            </a>
             <a href="/affiliate" className={pathname === '/affiliate' ? 'on' : undefined}>
               Affiliate Program
             </a>
@@ -64,7 +67,6 @@ export default function Nav() {
             <a href="/terms" className={pathname === '/terms' ? 'on' : undefined}>
               Terms of Use
             </a>
-            <a href="/#faq">FAQ</a>
           </div>
           <div className="nav-cta">
             <button className="theme-tg" id="themeTg" aria-label="Toggle theme" onClick={toggleTheme}>
