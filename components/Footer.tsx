@@ -1,3 +1,7 @@
+'use client';
+
+import { useT } from './LanguageProvider';
+
 function LogoMark() {
   return (
     <svg className="mark" viewBox="0 0 40 40" fill="none">
@@ -23,18 +27,19 @@ function LogoMark() {
 }
 
 export default function Footer() {
+  const t = useT();
   return (
     <footer>
       <div className="wrap">
         <div className="news reveal">
           <div>
-            <h4>Stay ahead of the markets.</h4>
-            <p>Payout drops, challenge updates and trading insights. No spam.</p>
+            <h4>{t.footer.newsH}</h4>
+            <p>{t.footer.newsP}</p>
           </div>
           <div className="form">
-            <input type="email" placeholder="you@email.com" aria-label="email" />
+            <input type="email" placeholder={t.footer.emailPlaceholder} aria-label="email" />
             <a href="#" className="btn btn-p" data-magnetic>
-              Subscribe
+              {t.footer.subscribe}
             </a>
           </div>
         </div>
@@ -44,45 +49,36 @@ export default function Footer() {
               <LogoMark />
               Capital<b>Chain</b>
             </a>
-            <p>
-              The bridge between your trading skills and real earnings — built on transparency and
-              leading technology.
-            </p>
+            <p>{t.footer.brandP}</p>
           </div>
           <div className="foot-col">
-            <h5>Platform</h5>
-            <a href="/#programs">Programs</a>
-            <a href="/#payouts">Payouts</a>
-            <a href="/#scaling">Scaling Plan</a>
-            <a href="/#platforms">Platforms</a>
+            <h5>{t.footer.platform}</h5>
+            <a href="/#programs">{t.footer.programs}</a>
+            <a href="/#payouts">{t.footer.payouts}</a>
+            <a href="/#scaling">{t.footer.scaling}</a>
+            <a href="/#platforms">{t.footer.platforms}</a>
           </div>
           <div className="foot-col">
-            <h5>Company</h5>
-            <a href="/about">About Us</a>
-            <a href="/affiliate">Affiliate</a>
-            <a href="/#community">Community</a>
-            <a href="/contact">Contact Us</a>
+            <h5>{t.footer.company}</h5>
+            <a href="/about">{t.footer.about}</a>
+            <a href="/affiliate">{t.footer.affiliate}</a>
+            <a href="/#community">{t.footer.community}</a>
+            <a href="/contact">{t.footer.contact}</a>
           </div>
           <div className="foot-col">
-            <h5>Legal</h5>
-            <a href="/terms">Terms of Use</a>
-            <a href="/terms#risk">Privacy</a>
-            <a href="/terms#risk">Risk disclosure</a>
-            <a href="/terms#refund">Refund policy</a>
+            <h5>{t.footer.legal}</h5>
+            <a href="/terms">{t.footer.termsOfUse}</a>
+            <a href="/terms#risk">{t.footer.privacy}</a>
+            <a href="/terms#risk">{t.footer.risk}</a>
+            <a href="/terms#refund">{t.footer.refund}</a>
           </div>
         </div>
         <div className="disclaimer">
-          <strong style={{ color: 'var(--dim)' }}>Risk disclosure.</strong> Trading leveraged
-          instruments carries a substantial risk of loss and is not suitable for everyone. Capital
-          Chain provides evaluation and funded-trader programs in a simulated environment;
-          participation in an evaluation is not an offer of employment or investment, and nothing on
-          this site constitutes financial, investment or trading advice. Stats, payout figures,
-          leaderboard names and testimonials shown here are illustrative placeholders and do not
-          guarantee or imply future results. Profit splits, payouts and program terms are subject to
-          the full Terms of Service and account agreement.
+          <strong style={{ color: 'var(--dim)' }}>{t.footer.riskTitle}</strong>
+          {t.footer.disclaimer}
         </div>
         <div className="foot-bot">
-          <span>© 2026 CapitalChain.co — All rights reserved.</span>
+          <span>{t.footer.rights}</span>
           <span>capitalchain.co</span>
         </div>
       </div>

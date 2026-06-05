@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useT } from './LanguageProvider';
 
 // Program data + pricing ported verbatim from the mockup's <script>.
 // TODO: replace placeholder fees/targets with real program pricing.
@@ -12,13 +13,11 @@ interface SizeSpec {
   daily: string;
 }
 interface Program {
-  note: string;
   sizes: Record<string, SizeSpec>;
 }
 
 const DATA: Record<string, Program> = {
   '1step': {
-    note: 'One profit target. Hit it within the drawdown limits — no minimum days, no deadline.',
     sizes: {
       '5K': { fee: 49, was: 59, target: '8%', dd: '10%', daily: '5%' },
       '25K': { fee: 189, was: 229, target: '8%', dd: '10%', daily: '5%' },
@@ -29,7 +28,6 @@ const DATA: Record<string, Program> = {
     },
   },
   '2step': {
-    note: 'Two phases, lower targets and a smaller fee. The patient route to a funded account.',
     sizes: {
       '5K': { fee: 39, was: 49, target: '8% / 5%', dd: '12%', daily: '5%' },
       '25K': { fee: 149, was: 189, target: '8% / 5%', dd: '12%', daily: '5%' },
@@ -40,7 +38,6 @@ const DATA: Record<string, Program> = {
     },
   },
   instant: {
-    note: 'Skip the evaluation. Pay once and trade a funded account immediately.',
     sizes: {
       '5K': { fee: 199, was: 249, target: 'None', dd: '6%', daily: '4%' },
       '25K': { fee: 699, was: 849, target: 'None', dd: '6%', daily: '4%' },
@@ -52,50 +49,47 @@ const DATA: Record<string, Program> = {
   },
 };
 
-const TABS: { id: string; label: string }[] = [
-  { id: '1step', label: '1-Step' },
-  { id: '2step', label: '2-Step' },
-  { id: 'instant', label: 'Instant' },
-];
+const TAB_IDS = ['1step', '2step', 'instant'] as const;
 
 export default function ProgramsConfigurator() {
-  const [tab, setTab] = useState('1step');
+  const t = useT();
+  const [tab, setTab] = useState<string>('1step');
   const [size, setSize] = useState('100K');
 
   const program = DATA[tab];
   const sizes = Object.keys(program.sizes);
-  // Keep selected size valid when switching tabs (all tabs share the same keys).
   const activeSize = sizes.includes(size) ? size : sizes[0];
   const d = program.sizes[activeSize];
+  const target = d.target === 'None' ? t.programs.none : d.target;
 
   return (
     <section className="sec band" id="programs">
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 03 — PROGRAMS ]</span>
+            <span className="idx">{t.programs.idx}</span>
             <h2 className="h2">
-              Configure your <span className="gt">funded account.</span>
+              {t.programs.title_a} <span className="gt">{t.programs.title_b}</span>
             </h2>
           </div>
-          <p>Pick a path and a size. The evaluation fee is refunded with your first payout.</p>
+          <p>{t.programs.sub}</p>
         </div>
         <div className="config">
           <div className="reveal">
             <div className="seg">
-              {TABS.map((t) => (
+              {TAB_IDS.map((id) => (
                 <button
-                  key={t.id}
-                  className={t.id === tab ? 'active' : undefined}
-                  data-tab={t.id}
-                  onClick={() => setTab(t.id)}
+                  key={id}
+                  className={id === tab ? 'active' : undefined}
+                  data-tab={id}
+                  onClick={() => setTab(id)}
                 >
-                  {t.label}
+                  {t.programs.tabs[id]}
                 </button>
               ))}
             </div>
             <div className="seg-note" id="segNote">
-              {program.note}
+              {t.programs.notes[tab as (typeof TAB_IDS)[number]]}
             </div>
             <div className="size-track" id="sizeRow">
               {sizes.map((s) => (
@@ -111,41 +105,41 @@ export default function ProgramsConfigurator() {
             </div>
             <div className="spec-list" id="specList">
               <div className="r">
-                <span className="k">Profit target</span>
-                <span className="v">{d.target}</span>
+                <span className="k">{t.programs.spec.target}</span>
+                <span className="v">{target}</span>
               </div>
               <div className="r">
-                <span className="k">Max drawdown</span>
+                <span className="k">{t.programs.spec.dd}</span>
                 <span className="v">{d.dd}</span>
               </div>
               <div className="r">
-                <span className="k">Daily loss limit</span>
+                <span className="k">{t.programs.spec.daily}</span>
                 <span className="v">{d.daily}</span>
               </div>
               <div className="r">
-                <span className="k">Profit split (up to)</span>
+                <span className="k">{t.programs.spec.split}</span>
                 <span className="v ok">100%</span>
               </div>
               <div className="r">
-                <span className="k">Min days</span>
-                <span className="v ok">None</span>
+                <span className="k">{t.programs.spec.minDays}</span>
+                <span className="v ok">{t.programs.none}</span>
               </div>
               <div className="r">
-                <span className="k">Time limit</span>
-                <span className="v ok">Unlimited</span>
+                <span className="k">{t.programs.spec.timeLimit}</span>
+                <span className="v ok">{t.programs.unlimited}</span>
               </div>
               <div className="r">
-                <span className="k">News &amp; EAs</span>
-                <span className="v ok">Allowed</span>
+                <span className="k">{t.programs.spec.news}</span>
+                <span className="v ok">{t.programs.allowed}</span>
               </div>
               <div className="r">
-                <span className="k">Payouts</span>
-                <span className="v">4 cycles</span>
+                <span className="k">{t.programs.spec.payouts}</span>
+                <span className="v">{t.programs.cycles4}</span>
               </div>
             </div>
           </div>
           <div className="buy reveal">
-            <div className="cap">Account balance</div>
+            <div className="cap">{t.programs.balance}</div>
             <div className="acct" id="buyAcct">
               ${activeSize.replace('K', '')}
               <span>K</span>
@@ -156,12 +150,12 @@ export default function ProgramsConfigurator() {
               </span>
               <div className="now" id="buyNow">
                 <span className="gt">${d.fee}</span>
-                <small> one-time</small>
+                <small>{t.programs.oneTime}</small>
               </div>
             </div>
-            <div className="refund">↻ Fully refundable with first payout</div>
+            <div className="refund">{t.programs.refund}</div>
             <a href="#" className="btn btn-p btn-lg" data-magnetic>
-              Buy Evaluation →
+              {t.programs.cta}
             </a>
           </div>
         </div>

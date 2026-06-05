@@ -1,6 +1,11 @@
+'use client';
+
 // TODO: replace with real verified figures (paid-to-traders, funded accounts,
 // countries, Trustpilot score). Numbers below are illustrative placeholders.
+import { useT } from './LanguageProvider';
+
 export default function TrustBand() {
+  const t = useT();
   return (
     <div className="trust">
       <div className="wrap">
@@ -11,7 +16,7 @@ export default function TrustBand() {
               0
             </span>
           </div>
-          <div className="k">Paid to traders</div>
+          <div className="k">{t.trust.paid}</div>
         </div>
         <div className="st reveal">
           <div className="v">
@@ -19,7 +24,7 @@ export default function TrustBand() {
               0
             </span>
           </div>
-          <div className="k">Funded accounts</div>
+          <div className="k">{t.trust.funded}</div>
         </div>
         <div className="st reveal">
           <div className="v">
@@ -27,15 +32,15 @@ export default function TrustBand() {
               0
             </span>
           </div>
-          <div className="k">Countries served</div>
+          <div className="k">{t.trust.countries}</div>
         </div>
         <div className="st reveal">
           <div className="v">0.0</div>
           <div className="tp">
             <span className="stars">★★★★★</span>
-            <span className="tx">Trustpilot</span>
+            <span className="tx">{t.trust.trustpilot}</span>
           </div>
-          <div className="k">Verified reviews</div>
+          <div className="k">{t.trust.reviews}</div>
         </div>
       </div>
     </div>

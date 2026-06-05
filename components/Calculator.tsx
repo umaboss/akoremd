@@ -1,68 +1,55 @@
 'use client';
 
 import { useState } from 'react';
+import { useT } from './LanguageProvider';
 
 // Calculator data + logic ported verbatim from the mockup's <script>.
 const SZ = [5000, 25000, 100000, 200000, 500000];
-const CYC = [
-  { n: 'Daily · 60%', s: 0.6 },
-  { n: 'Friday · 70%', s: 0.7 },
-  { n: 'Bi-weekly · 80%', s: 0.8 },
-  { n: 'Monthly · 100%', s: 1.0 },
-];
+const SPLITS = [0.6, 0.7, 0.8, 1.0];
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 
+const FEAT_ICONS = [
+  <path key="0" d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2" />,
+  <path key="1" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
+];
+
 export default function Calculator() {
+  const t = useT();
   const [acc, setAcc] = useState(2); // index into SZ
   const [ret, setRet] = useState(8); // monthly return %
-  const [split, setSplit] = useState(3); // index into CYC
+  const [split, setSplit] = useState(3); // index into SPLITS
 
   const size = SZ[acc];
-  const cy = CYC[split];
-  const payout = size * (ret / 100) * cy.s;
+  const payout = size * (ret / 100) * SPLITS[split];
 
   return (
     <section className="sec">
       <div className="wrap">
         <div className="calc-grid">
           <div className="reveal">
-            <span className="idx">[ 05 — CALCULATOR ]</span>
+            <span className="idx">{t.calc.idx}</span>
             <h2 className="h2" style={{ marginBottom: 18 }}>
-              See your payout <span className="gt">before you trade.</span>
+              {t.calc.title_a} <span className="gt">{t.calc.title_b}</span>
             </h2>
-            <p style={{ color: 'var(--dim)', fontSize: 18, maxWidth: '42ch' }}>
-              Drag the sliders — account size, monthly return and which payout cycle you&apos;d pick.
-              We do the math.
-            </p>
+            <p style={{ color: 'var(--dim)', fontSize: 18, maxWidth: '42ch' }}>{t.calc.sub}</p>
             <div className="cfeat">
-              <div className="f">
-                <div className="ic">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2" />
-                  </svg>
+              {t.calc.feats.map((f, i) => (
+                <div className="f" key={i}>
+                  <div className="ic">
+                    <svg viewBox="0 0 24 24">{FEAT_ICONS[i]}</svg>
+                  </div>
+                  <div>
+                    <h4>{f.h}</h4>
+                    <p>{f.p}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4>From 1 business day</h4>
-                  <p>Bank, card or stablecoin — fastest cycle settles next day.</p>
-                </div>
-              </div>
-              <div className="f">
-                <div className="ic">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4>Scaling to $2M</h4>
-                  <p>Consistency steps your allocation up automatically.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="calc reveal">
             <div className="crow">
               <div className="top">
-                <span className="lbl">Account size</span>
+                <span className="lbl">{t.calc.accountSize}</span>
                 <span className="out" id="accOut">
                   {fmt(size)}
                 </span>
@@ -79,7 +66,7 @@ export default function Calculator() {
             </div>
             <div className="crow">
               <div className="top">
-                <span className="lbl">Monthly return</span>
+                <span className="lbl">{t.calc.monthlyReturn}</span>
                 <span className="out" id="retOut">
                   {ret}%
                 </span>
@@ -96,9 +83,9 @@ export default function Calculator() {
             </div>
             <div className="crow">
               <div className="top">
-                <span className="lbl">Payout cycle</span>
+                <span className="lbl">{t.calc.payoutCycle}</span>
                 <span className="out" id="splitOut">
-                  {cy.n}
+                  {t.calc.cycles[split]}
                 </span>
               </div>
               <input
@@ -113,7 +100,8 @@ export default function Calculator() {
             </div>
             <div className="cres">
               <div className="lbl">
-                Your payout<span>Gross profit × split for the chosen cycle</span>
+                {t.calc.yourPayout}
+                <span>{t.calc.payoutHint}</span>
               </div>
               <div className="payout" id="payoutOut">
                 {fmt(payout)}

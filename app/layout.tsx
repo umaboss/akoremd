@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Space_Grotesk, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { LanguageProvider } from '@/components/LanguageProvider';
 import GlobeMount from '@/components/GlobeMount';
 import Effects from '@/components/Effects';
 
@@ -39,11 +40,13 @@ export default function RootLayout({
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="light">
         <ThemeProvider>
-          {/* Fixed full-viewport WebGL globe — rendered once, persists across routes. */}
-          <GlobeMount />
-          {/* Fixed scrims + JS-driven chrome + all page micro-interactions. */}
-          <Effects />
-          {children}
+          <LanguageProvider>
+            {/* Fixed full-viewport WebGL globe — rendered once, persists across routes. */}
+            <GlobeMount />
+            {/* Fixed scrims + JS-driven chrome + all page micro-interactions. */}
+            <Effects />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

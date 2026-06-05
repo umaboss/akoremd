@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useT } from './LanguageProvider';
 
 interface Settlement {
   flag: string;
@@ -26,6 +27,7 @@ const SETTLEMENTS: Settlement[] = [
 export default function LiveRewards() {
   // `active` drives the left card visibility + scroll pause; `last` keeps the card
   // filled while it fades out after the pointer leaves a row.
+  const t = useT();
   const [active, setActive] = useState<Settlement | null>(null);
   const [last, setLast] = useState<Settlement>(SETTLEMENTS[2]);
   const card = active ?? last;
@@ -61,21 +63,21 @@ export default function LiveRewards() {
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 10 — LIVE REWARDS ]</span>
+            <span className="idx">{t.live.idx}</span>
             <h2 className="h2">
-              Verified payouts. <span className="gt">On-chain proof.</span>
+              {t.live.title_a} <span className="gt">{t.live.title_b}</span>
             </h2>
           </div>
-          <p>Real traders, real withdrawals — every settlement is provable and updated live.</p>
+          <p>{t.live.sub}</p>
         </div>
 
         <div className="rewards reveal">
           <div className="rewards-lead">
             <span className="rewards-tag">
-              <span className="lr-dot" /> LIVE REWARDS
+              <span className="lr-dot" /> {t.live.tag}
             </span>
             <div className="rewards-total gt">$5.31M</div>
-            <p className="rewards-cap">Total paid to Capital Chain traders — and counting.</p>
+            <p className="rewards-cap">{t.live.total}</p>
 
             <div className={`reward-feature${active ? ' is-on' : ''}`} aria-hidden={!active}>
               <div className="rf-top">
@@ -84,18 +86,18 @@ export default function LiveRewards() {
               <div className="rf-name">{card.name}</div>
               <div className="rf-amt">{card.amt}</div>
               <div className="rf-meta">
-                {card.time} ago · {card.net}
+                {card.time} {t.live.ago} · {card.net}
               </div>
               <a href="#rewards" className="btn btn-p" data-magnetic style={{ marginTop: 22 }}>
-                View proof of payment →
+                {t.live.proof}
               </a>
             </div>
           </div>
 
           <div className="rewards-list">
             <div className="rl-head">
-              <span>Recent settlements</span>
-              <a href="#rewards">View rewards →</a>
+              <span>{t.live.recent}</span>
+              <a href="#rewards">{t.live.viewRewards}</a>
             </div>
             <div
               className="rl-viewport"
@@ -126,7 +128,7 @@ export default function LiveRewards() {
                 ))}
               </div>
             </div>
-            <div className="rl-foot">On-chain proof on every transfer.</div>
+            <div className="rl-foot">{t.live.onchain}</div>
           </div>
         </div>
       </div>

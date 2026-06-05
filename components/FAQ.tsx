@@ -1,29 +1,7 @@
 'use client';
 
 import { useLayoutEffect, useRef, useState } from 'react';
-
-const ITEMS: { q: string; a: string }[] = [
-  {
-    q: 'What is a prop firm?',
-    a: "A proprietary trading firm supplies its own capital to skilled traders. You prove your edge in an evaluation, then trade the firm's capital and share the profit — without risking a large balance of your own.",
-  },
-  {
-    q: 'How do the payout cycles work?',
-    a: 'You choose: Daily (60% split, paid in one business day, up to 25% of balance per request), Pay Friday (70%, every Friday), Bi-weekly (80%, every 10 business days), or Monthly (100%, every 21 business days). Faster access trades a little split for speed.',
-  },
-  {
-    q: 'What exactly am I trading?',
-    a: "Evaluation accounts run in a simulated environment that mirrors live market data. Once funded, your performance is allocated against Capital Chain's risk capital under full market conditions.",
-  },
-  {
-    q: 'Is the fee really refundable?',
-    a: "Yes. The one-time fee is returned with your first payout after you become funded and complete a withdrawal. It's a deposit on your discipline, not a subscription.",
-  },
-  {
-    q: 'How does scaling to $2M work?',
-    a: 'Stay consistent and profitable across payout cycles and your allocation steps up automatically — no new fee and no re-evaluation — up to $2M.',
-  },
-];
+import { useT } from './LanguageProvider';
 
 function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -46,22 +24,21 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
 }
 
 export default function FAQ() {
+  const t = useT();
   const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="sec band" id="faq">
       <div className="wrap">
         <div className="faq-grid">
           <div className="reveal">
-            <span className="idx">[ 14 — FAQ ]</span>
+            <span className="idx">{t.faq.idx}</span>
             <h2 className="h2">
-              Straight <span className="gt">answers.</span>
+              {t.faq.title_a} <span className="gt">{t.faq.title_b}</span>
             </h2>
-            <p style={{ color: 'var(--dim)', marginTop: 14 }}>
-              If it isn&apos;t here, our team replies in under an hour.
-            </p>
+            <p style={{ color: 'var(--dim)', marginTop: 14 }}>{t.faq.sub}</p>
           </div>
           <div className="faq-list reveal">
-            {ITEMS.map((it, i) => (
+            {t.faq.items.map((it, i) => (
               <FaqItem
                 key={it.q}
                 q={it.q}

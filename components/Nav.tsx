@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeProvider';
+import { LANGS, useLang, useT } from './LanguageProvider';
 
 function LogoMark() {
   return (
@@ -28,8 +29,52 @@ function LogoMark() {
   );
 }
 
+function LangSwitch() {
+  const { lang, setLang } = useLang();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const active = LANGS.find((l) => l.code === lang) ?? LANGS[0];
+
+  useEffect(() => {
+    const onDoc = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('click', onDoc);
+    return () => document.removeEventListener('click', onDoc);
+  }, []);
+
+  return (
+    <div className={`lang-switch${open ? ' open' : ''}`} ref={ref}>
+      <button className="lang-btn" onClick={() => setOpen((o) => !o)} aria-label="Language">
+        <span>{active.flag}</span>
+        <span>{active.label}</span>
+        <span className="caret">▼</span>
+      </button>
+      {open && (
+        <div className="lang-menu" role="menu">
+          {LANGS.map((l) => (
+            <button
+              key={l.code}
+              className={`lang-opt${l.code === lang ? ' on' : ''}`}
+              onClick={() => {
+                setLang(l.code);
+                setOpen(false);
+              }}
+            >
+              <span className="o-flag">{l.flag}</span>
+              <span>{l.label}</span>
+              <span className="o-native">{l.native}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Nav() {
   const { toggleTheme } = useTheme();
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -50,22 +95,22 @@ export default function Nav() {
           </a>
           <div className="nav-links">
             <a href="/" className={pathname === '/' ? 'on' : undefined}>
-              Home
+              {t.nav.home}
             </a>
             <a href="/rewards" className={pathname === '/rewards' ? 'on' : undefined}>
-              Rewards
+              {t.nav.rewards}
             </a>
             <a href="/affiliate" className={pathname === '/affiliate' ? 'on' : undefined}>
-              Affiliate Program
+              {t.nav.affiliate}
             </a>
             <a href="/about" className={pathname === '/about' ? 'on' : undefined}>
-              About Us
+              {t.nav.about}
             </a>
             <a href="/contact" className={pathname === '/contact' ? 'on' : undefined}>
-              Contact Us
+              {t.nav.contact}
             </a>
             <a href="/terms" className={pathname === '/terms' ? 'on' : undefined}>
-              Terms of Use
+              {t.nav.terms}
             </a>
           </div>
           <div className="nav-cta">
@@ -78,12 +123,12 @@ export default function Nav() {
                 <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" />
               </svg>
             </button>
-            <span className="lang">🇬🇧 EN</span>
+            <LangSwitch />
             <a href="#" className="btn">
-              Login / Signup
+              {t.nav.login}
             </a>
             <a href="/#programs" className="btn btn-p" data-magnetic>
-              Buy Evaluation →
+              {t.nav.buy}
             </a>
           </div>
           <button className="menu-btn">☰</button>

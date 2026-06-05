@@ -588,3 +588,24 @@ footer{border-top:1px solid var(--line);padding:72px 0 40px;background:var(--foo
   color: var(--teal);
 }
 
+
+/* ===== i18n: Arabic / Hindi fonts + RTL ===== */
+html[lang="ar"]{--fd:'Noto Kufi Arabic','Geeza Pro','Segoe UI',Tahoma,sans-serif;--fb:'Noto Naskh Arabic','Geeza Pro','Segoe UI',Tahoma,sans-serif;--fm:'Noto Naskh Arabic','Geeza Pro',monospace}
+html[lang="hi"]{--fd:'Noto Sans Devanagari','Nirmala UI','Mangal',sans-serif;--fb:'Noto Sans Devanagari','Nirmala UI','Mangal',sans-serif;--fm:'Noto Sans Devanagari','Nirmala UI',monospace}
+body.rtl{direction:rtl}
+/* brand wordmark, marquees and code-like bits stay LTR for legibility */
+body.rtl .logo,body.rtl .promo .row,body.rtl .chips,body.rtl .rw-total-num,body.rtl .rewards-total{direction:ltr}
+body.rtl .ticker .lbl{left:auto;right:0;background:linear-gradient(270deg,var(--bg) 70%,transparent)}
+/* language switcher */
+.lang-switch{position:relative}
+.lang-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:13px;color:var(--text);background:none;border:none;cursor:pointer;padding:6px 4px}
+.lang-btn .caret{font-size:9px;color:var(--faint);transition:transform .2s}
+.lang-switch.open .lang-btn .caret{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:168px;border:1px solid var(--line);border-radius:12px;background:var(--surface);backdrop-filter:blur(14px);box-shadow:0 16px 40px -12px var(--glow);padding:6px;z-index:80;display:none;flex-direction:column;gap:2px;overflow:hidden}
+body.rtl .lang-menu{right:auto;left:0}
+.lang-switch.open .lang-menu{display:flex}
+.lang-opt{display:flex;align-items:center;gap:10px;width:100%;text-align:start;white-space:nowrap;padding:10px 12px;border:none;background:none;color:var(--text);font-family:var(--fb);font-size:14px;border-radius:8px;cursor:pointer;transition:background .15s}
+.lang-opt:hover{background:var(--soft)}
+.lang-opt.on{color:var(--teal)}
+.lang-opt .o-flag{font-size:16px}
+.lang-opt .o-native{margin-inline-start:auto;font-family:var(--fm);font-size:11px;color:var(--faint)}

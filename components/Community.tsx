@@ -1,17 +1,20 @@
+'use client';
+
+import { useT } from './LanguageProvider';
+
 export default function Community() {
+  const t = useT();
   return (
     <section className="sec band" id="community">
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 12 — COMMUNITY ]</span>
+            <span className="idx">{t.community.idx}</span>
             <h2 className="h2">
-              You&apos;re not trading <span className="gt">alone.</span>
+              {t.community.title_a} <span className="gt">{t.community.title_b}</span>
             </h2>
           </div>
-          <p>
-            Thousands of traders, live market chat, and humans on support around the clock.
-          </p>
+          <p>{t.community.sub}</p>
         </div>
         <div className="commgrid">
           <div className="comm reveal">
@@ -20,14 +23,11 @@ export default function Community() {
                 <path d="M20.3 4.4A19.8 19.8 0 0015.4 3l-.3.5a14.6 14.6 0 014.4 1.4 12.6 12.6 0 00-15 0A14.6 14.6 0 018.9 3.5L8.6 3a19.8 19.8 0 00-4.9 1.4C.6 9 0 13.5.3 17.9a19.9 19.9 0 006 3l.5-1.3a13 13 0 01-1.9-.9l.4-.3a14.2 14.2 0 0012.4 0l.4.3a13 13 0 01-1.9.9l.5 1.3a19.9 19.9 0 006-3c.4-5.1-.7-9.6-2.8-13.5zM8.3 15.3c-1.2 0-2.1-1.1-2.1-2.4S7.1 10.5 8.3 10.5s2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4zm7.4 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4z" />
               </svg>
             </div>
-            <h3>Join the Capital Chain Discord</h3>
-            <p>
-              Live market talk, payout drops, challenge tips and direct access to the team. Where
-              funded traders actually hang out.
-            </p>
+            <h3>{t.community.discordH}</h3>
+            <p>{t.community.discordP}</p>
             {/* TODO: replace "#" with the real Discord invite URL */}
             <a href="#" className="btn btn-p btn-lg" data-magnetic data-discord>
-              Join Discord →
+              {t.community.discordCta}
             </a>
           </div>
           <div className="support reveal">
@@ -36,12 +36,9 @@ export default function Community() {
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
               </svg>
             </div>
-            <h3>24/7 support</h3>
-            <p>
-              Real humans on live chat and email, every hour of every day. Average first reply under
-              an hour.
-            </p>
-            <div className="langs">Multilingual · EN · AR · UR · ES · HI</div>
+            <h3>{t.community.supportH}</h3>
+            <p>{t.community.supportP}</p>
+            <div className="langs">{t.community.langs}</div>
           </div>
         </div>
       </div>

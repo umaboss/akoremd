@@ -1,21 +1,24 @@
+'use client';
+
+import { useT } from './LanguageProvider';
+
 export default function Hero() {
+  const t = useT();
   return (
     <section className="hero">
       <div className="wrap">
         <span className="eyebrow reveal">
           <span className="dot" />
-          PROPRIETARY TRADING · 160+ COUNTRIES
+          {t.hero.eyebrow}
         </span>
         <h1 className="reveal">
-          We Connect <span className="gt">Traders</span> To <span className="gt">Capital.</span>
+          {t.hero.title_a} <span className="gt">{t.hero.title_traders}</span> {t.hero.title_to}{' '}
+          <span className="gt">{t.hero.title_capital}</span>
         </h1>
-        <p className="hero-sub reveal">
-          Capital Chain is the bridge between your forex trading skills and real earnings — built on
-          transparency, fast payouts and leading technology. Trade up to $400K and keep up to 100%.
-        </p>
+        <p className="hero-sub reveal">{t.hero.sub}</p>
         <div className="hero-actions reveal">
           <a href="#programs" className="btn btn-p btn-lg" data-magnetic>
-            Buy Evaluation →
+            {t.hero.cta}
           </a>
           <span className="trustline">
             <span className="av">
@@ -23,7 +26,7 @@ export default function Hero() {
               <span />
               <span />
             </span>
-            Traders connected across 160+ countries
+            {t.hero.trust}
           </span>
         </div>
       </div>

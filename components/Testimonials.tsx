@@ -1,62 +1,45 @@
+'use client';
+
+import { useT } from './LanguageProvider';
+
 // TODO: replace with real verified testimonials — names, accounts and payouts are placeholders.
-const REVIEWS = [
-  {
-    quote:
-      'Took the daily cycle for a week to cover rent, switched to monthly after. Having the choice is the whole point.',
-    nm: 'Evgeny M.',
-    l: '$100K · Funded',
-    pay: '$36,393',
-  },
-  {
-    quote:
-      'The dashboard shows my exact drawdown buffer at all times. I never have to guess where I stand on the rules.',
-    nm: 'Mac Ting',
-    l: '$200K · Funded',
-    pay: '$50,400',
-  },
-  {
-    quote:
-      'Support actually answers. Got a payout question resolved on chat in fifteen minutes at 2am my time.',
-    nm: 'Nipong',
-    l: '$50K · Funded',
-    pay: '$12,656',
-  },
-  {
-    quote:
-      'Came from a firm that moved the target after I passed. Capital Chain published every rule. Refreshing.',
-    nm: 'Aisha N.',
-    l: '$100K · Funded',
-    pay: '$41,210',
-  },
+const META = [
+  { nm: 'Evgeny M.', size: '$100K', pay: '$36,393' },
+  { nm: 'Mac Ting', size: '$200K', pay: '$50,400' },
+  { nm: 'Nipong', size: '$50K', pay: '$12,656' },
+  { nm: 'Aisha N.', size: '$100K', pay: '$41,210' },
 ];
 
 export default function Testimonials() {
+  const t = useT();
   return (
     <section className="sec" id="reviews">
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 11 — TRADER STORIES ]</span>
+            <span className="idx">{t.testimonials.idx}</span>
             <h2 className="h2">
-              What funded traders <span className="gt">actually say.</span>
+              {t.testimonials.title_a} <span className="gt">{t.testimonials.title_b}</span>
             </h2>
           </div>
-          <p>Verified payouts from Capital Chain traders. Scroll →</p>
+          <p>{t.testimonials.sub}</p>
         </div>
       </div>
       <div className="wrap">
         <div className="hscroll">
-          {REVIEWS.map((r) => (
-            <div className="hcard rev reveal" key={r.nm}>
+          {META.map((m, i) => (
+            <div className="hcard rev reveal" key={m.nm}>
               <div className="stars">★★★★★</div>
-              <p>{r.quote}</p>
+              <p>{t.testimonials.reviews[i]}</p>
               <div className="who">
                 <span className="av" />
                 <div>
-                  <div className="nm">{r.nm}</div>
-                  <div className="l">{r.l}</div>
+                  <div className="nm">{m.nm}</div>
+                  <div className="l">
+                    {m.size} · {t.testimonials.funded}
+                  </div>
                 </div>
-                <span className="pay">{r.pay}</span>
+                <span className="pay">{m.pay}</span>
               </div>
             </div>
           ))}

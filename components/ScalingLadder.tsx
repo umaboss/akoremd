@@ -1,42 +1,41 @@
-const RUNGS = [
-  { lv: 'Start', amt: <>$100<span>K</span></> },
-  { lv: 'Step 1', amt: <>$200<span>K</span></> },
-  { lv: 'Step 2', amt: <>$400<span>K</span></> },
-  { lv: 'Step 3', amt: <>$1<span>M</span></> },
-  { lv: 'Max', amt: <>$2M</>, peak: true },
+'use client';
+
+import { useT } from './LanguageProvider';
+
+const AMTS = [
+  <>$100<span>K</span></>,
+  <>$200<span>K</span></>,
+  <>$400<span>K</span></>,
+  <>$1<span>M</span></>,
+  <>$2M</>,
 ];
 
 export default function ScalingLadder() {
+  const t = useT();
   return (
     <section className="sec band" id="scaling">
       <div className="wrap">
         <div className="shead reveal">
           <div>
-            <span className="idx">[ 09 — SCALING PLAN ]</span>
+            <span className="idx">{t.scaling.idx}</span>
             <h2 className="h2">
-              Stay consistent. <span className="gt">Grow to $2M.</span>
+              {t.scaling.title_a} <span className="gt">{t.scaling.title_b}</span>
             </h2>
           </div>
-          <p>
-            Hit your targets and your allocation steps up automatically. No new fee, no
-            re-evaluation.
-          </p>
+          <p>{t.scaling.sub}</p>
         </div>
         <div className="ladder">
-          {RUNGS.map((r) => (
-            <div className={`rung reveal${r.peak ? ' peak' : ''}`} key={r.lv}>
-              <div className="lv">{r.lv}</div>
-              <div className="amt">{r.amt}</div>
-            </div>
-          ))}
+          {t.scaling.rungs.map((lv, i) => {
+            const peak = i === t.scaling.rungs.length - 1;
+            return (
+              <div className={`rung reveal${peak ? ' peak' : ''}`} key={i}>
+                <div className="lv">{lv}</div>
+                <div className="amt">{AMTS[i]}</div>
+              </div>
+            );
+          })}
         </div>
-        <div className="ladder-note">
-          Allocation increases after consistent, profitable payout cycles.{' '}
-          {/* TODO from the mockup — left verbatim as visible dimmed text */}
-          <span style={{ color: 'var(--dim)' }}>
-            /* TODO: confirm exact scaling rule &amp; % uplift */
-          </span>
-        </div>
+        <div className="ladder-note">{t.scaling.note}</div>
       </div>
     </section>
   );

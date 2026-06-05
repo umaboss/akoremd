@@ -1,19 +1,24 @@
+'use client';
+
+import { useT } from './LanguageProvider';
+
 export default function FinalCTA() {
+  const t = useT();
   return (
     <section className="final">
       <div className="wrap">
         <h2>
-          The capital was
+          {t.finalCta.title_a}
           <br />
-          never the <span className="gt">problem.</span>
+          {t.finalCta.title_b} <span className="gt">{t.finalCta.title_c}</span>
         </h2>
-        <p>Prove your edge once and trade size that matches your skill. Start today.</p>
+        <p>{t.finalCta.sub}</p>
         <div className="final-actions">
           <a href="/#programs" className="btn btn-p btn-lg" data-magnetic>
-            Buy Evaluation →
+            {t.finalCta.buy}
           </a>
           <a href="/#how" className="btn btn-lg">
-            See how it works
+            {t.finalCta.how}
           </a>
         </div>
       </div>
