@@ -12,16 +12,17 @@ interface Settlement {
   net: string;
 }
 
-// TODO: replace with the real live payout feed (country + amount + tx proof).
+// TODO: replace with the real payment-posting feed (practice + payer + amount).
+// `country` is repurposed as the paying insurer; `net` as the remittance method.
 const SETTLEMENTS: Settlement[] = [
-  { flag: '🇮🇳', name: 'Rashmeet Kaur', country: 'India', amt: '$2,140', time: '8m', net: 'USDT (TRC-20)' },
-  { flag: '🇩🇪', name: 'Nik Dolja', country: 'Germany', amt: '$1,680', time: '14m', net: 'Bank transfer' },
-  { flag: '🇳🇱', name: 'Jasper Hof', country: 'Netherlands', amt: '$1,499', time: '3h', net: 'USDT (TRC-20)' },
-  { flag: '🇮🇳', name: 'Shreyas M V', country: 'India', amt: '$1,205', time: '4h', net: 'USDT (TRC-20)' },
-  { flag: '🇵🇰', name: 'Saim Ahmed', country: 'Pakistan', amt: '$940', time: '4h', net: 'USDT (TRC-20)' },
-  { flag: '🇲🇾', name: 'Jun Jye Ooi', country: 'Malaysia', amt: '$3,310', time: '6h', net: 'Bank transfer' },
-  { flag: '🇵🇰', name: 'Shahyan Zahid', country: 'Pakistan', amt: '$3,020', time: '8h', net: 'USDT (TRC-20)' },
-  { flag: '🇵🇰', name: 'Zohaib Sajjad', country: 'Pakistan', amt: '$710', time: '14h', net: 'USDT (TRC-20)' },
+  { flag: '❤️', name: 'Cardiology Group', country: 'Medicare', amt: '$12,140', time: '8m', net: 'EFT / ERA' },
+  { flag: '🦴', name: 'Orthopedic Clinic', country: 'Aetna', amt: '$8,680', time: '14m', net: 'EFT / ERA' },
+  { flag: '🩺', name: 'Internal Medicine', country: 'BCBS', amt: '$4,499', time: '3h', net: 'Check / EOB' },
+  { flag: '🧒', name: 'Pediatrics Assoc.', country: 'Medicaid', amt: '$3,205', time: '4h', net: 'EFT / ERA' },
+  { flag: '🧴', name: 'Dermatology Clinic', country: 'Cigna', amt: '$2,940', time: '4h', net: 'EFT / ERA' },
+  { flag: '🧠', name: 'Neurology Assoc.', country: 'UnitedHealthcare', amt: '$9,310', time: '6h', net: 'EFT / ERA' },
+  { flag: '🤰', name: 'OB-GYN Practice', country: 'Humana', amt: '$5,020', time: '8h', net: 'Check / EOB' },
+  { flag: '🚑', name: 'Urgent Care', country: 'Aetna', amt: '$2,710', time: '14h', net: 'EFT / ERA' },
 ];
 
 export default function LiveRewards() {
@@ -76,7 +77,7 @@ export default function LiveRewards() {
             <span className="rewards-tag">
               <span className="lr-dot" /> {t.live.tag}
             </span>
-            <div className="rewards-total gt">$5.31M</div>
+            <div className="rewards-total gt">$48.6M</div>
             <p className="rewards-cap">{t.live.total}</p>
 
             <div className={`reward-feature${active ? ' is-on' : ''}`} aria-hidden={!active}>

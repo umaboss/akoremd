@@ -26,9 +26,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'CapitalChain — We Connect Traders To Capital',
+  title: 'AkoreMD — Medical Billing & Revenue Cycle Management',
   description:
-    'Capital Chain is the bridge between your forex trading skills and real earnings — built on transparency, fast payouts and leading technology.',
+    'AkoreMD helps healthcare providers streamline the revenue cycle, reduce claim denials and improve cash flow through reliable, HIPAA-compliant medical billing and administrative support.',
 };
 
 export default function RootLayout({

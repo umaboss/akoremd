@@ -29,7 +29,7 @@ export default function ContactForm() {
         <div style={{ padding: '24px', border: '1px solid var(--green)', borderRadius: '14px', background: 'var(--soft)', textAlign: 'center' }}>
           <h4 style={{ color: 'var(--green)', fontFamily: 'var(--fd)', fontSize: '20px', marginBottom: '8px' }}>Message Sent!</h4>
           <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>
-            Thank you for reaching out. A support agent will review your inquiry and get back to you shortly (usually within an hour).
+            Thank you for reaching out. A billing specialist will review your inquiry and get back to you shortly to schedule your free consultation.
           </p>
           <button 
             className="btn" 
@@ -122,10 +122,10 @@ export default function ContactForm() {
               onFocus={(e) => (e.target.style.borderColor = 'var(--teal)')}
               onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
             >
-              <option value="support">General Support & Payouts</option>
-              <option value="billing">Billing & Refund Policy</option>
-              <option value="rules">Evaluation Rules & Violations</option>
-              <option value="partnership">Affiliates & Partnerships</option>
+              <option value="support">Free Consultation / New Practice</option>
+              <option value="billing">Billing & Revenue Cycle Services</option>
+              <option value="credentialing">Credentialing & Enrollment</option>
+              <option value="partnership">Partners & Referrals</option>
             </select>
           </div>
 

@@ -3,48 +3,56 @@
 import { useState } from 'react';
 import { useT } from './LanguageProvider';
 
-// Program data + pricing ported verbatim from the mockup's <script>.
-// TODO: replace placeholder fees/targets with real program pricing.
-interface SizeSpec {
-  fee: number;
-  was: number;
-  target: string;
-  dd: string;
-  daily: string;
-}
-interface Program {
-  sizes: Record<string, SizeSpec>;
+// Service-plan pricing. Rates are a percentage of monthly collections and step
+// down as practice volume grows. `rows` mark which services are included per plan.
+// TODO: replace placeholder rates with real, quoted pricing.
+type RowToken = 'inc' | 'add';
+interface Plan {
+  rows: RowToken[]; // aligned to SPEC_KEYS below
+  rates: Record<string, { rate: number; was: number }>;
 }
 
-const DATA: Record<string, Program> = {
+// Monthly collections tiers shown as selectable pills.
+const SIZES = ['25K', '75K', '150K', '300K', '600K', '900K'];
+
+// Spec rows, in render order, keyed to t.programs.spec.*
+const SPEC_KEYS = ['target', 'dd', 'daily', 'split', 'minDays', 'timeLimit', 'news', 'payouts'] as const;
+
+const DATA: Record<string, Plan> = {
+  // Full RCM — everything included.
   '1step': {
-    sizes: {
-      '5K': { fee: 49, was: 59, target: '8%', dd: '10%', daily: '5%' },
-      '25K': { fee: 189, was: 229, target: '8%', dd: '10%', daily: '5%' },
-      '50K': { fee: 289, was: 349, target: '8%', dd: '10%', daily: '5%' },
-      '100K': { fee: 489, was: 540, target: '8%', dd: '10%', daily: '5%' },
-      '200K': { fee: 889, was: 999, target: '8%', dd: '10%', daily: '5%' },
-      '500K': { fee: 1899, was: 2199, target: '8%', dd: '10%', daily: '5%' },
+    rows: ['inc', 'inc', 'inc', 'inc', 'inc', 'inc', 'inc', 'inc'],
+    rates: {
+      '25K': { rate: 6.0, was: 7.0 },
+      '75K': { rate: 5.5, was: 6.5 },
+      '150K': { rate: 5.0, was: 6.0 },
+      '300K': { rate: 4.5, was: 5.5 },
+      '600K': { rate: 4.0, was: 5.0 },
+      '900K': { rate: 3.5, was: 4.5 },
     },
   },
+  // Billing Only — eligibility & prior auths are add-ons.
   '2step': {
-    sizes: {
-      '5K': { fee: 39, was: 49, target: '8% / 5%', dd: '12%', daily: '5%' },
-      '25K': { fee: 149, was: 189, target: '8% / 5%', dd: '12%', daily: '5%' },
-      '50K': { fee: 229, was: 289, target: '8% / 5%', dd: '12%', daily: '5%' },
-      '100K': { fee: 389, was: 449, target: '8% / 5%', dd: '12%', daily: '5%' },
-      '200K': { fee: 699, was: 799, target: '8% / 5%', dd: '12%', daily: '5%' },
-      '500K': { fee: 1499, was: 1799, target: '8% / 5%', dd: '12%', daily: '5%' },
+    rows: ['add', 'inc', 'inc', 'inc', 'inc', 'add', 'inc', 'inc'],
+    rates: {
+      '25K': { rate: 4.5, was: 5.5 },
+      '75K': { rate: 4.0, was: 5.0 },
+      '150K': { rate: 3.5, was: 4.5 },
+      '300K': { rate: 3.2, was: 4.2 },
+      '600K': { rate: 2.9, was: 3.9 },
+      '900K': { rate: 2.6, was: 3.6 },
     },
   },
+  // Front Office — coding, claims, denials & AR are add-ons.
   instant: {
-    sizes: {
-      '5K': { fee: 199, was: 249, target: 'None', dd: '6%', daily: '4%' },
-      '25K': { fee: 699, was: 849, target: 'None', dd: '6%', daily: '4%' },
-      '50K': { fee: 1199, was: 1399, target: 'None', dd: '6%', daily: '4%' },
-      '100K': { fee: 1999, was: 2399, target: 'None', dd: '6%', daily: '4%' },
-      '200K': { fee: 3499, was: 3999, target: 'None', dd: '6%', daily: '4%' },
-      '500K': { fee: 7999, was: 8999, target: 'None', dd: '6%', daily: '4%' },
+    rows: ['inc', 'add', 'add', 'add', 'add', 'inc', 'inc', 'inc'],
+    rates: {
+      '25K': { rate: 3.5, was: 4.5 },
+      '75K': { rate: 3.2, was: 4.2 },
+      '150K': { rate: 3.0, was: 4.0 },
+      '300K': { rate: 2.8, was: 3.8 },
+      '600K': { rate: 2.5, was: 3.5 },
+      '900K': { rate: 2.2, was: 3.2 },
     },
   },
 };
@@ -54,13 +62,14 @@ const TAB_IDS = ['1step', '2step', 'instant'] as const;
 export default function ProgramsConfigurator() {
   const t = useT();
   const [tab, setTab] = useState<string>('1step');
-  const [size, setSize] = useState('100K');
+  const [size, setSize] = useState('300K');
 
-  const program = DATA[tab];
-  const sizes = Object.keys(program.sizes);
-  const activeSize = sizes.includes(size) ? size : sizes[0];
-  const d = program.sizes[activeSize];
-  const target = d.target === 'None' ? t.programs.none : d.target;
+  const plan = DATA[tab];
+  const activeSize = SIZES.includes(size) ? size : SIZES[0];
+  const d = plan.rates[activeSize];
+
+  // Map a row token to its translated label + whether it counts as "on".
+  const rowValue = (token: RowToken) => (token === 'inc' ? t.programs.unlimited : t.programs.none);
 
   return (
     <section className="sec band" id="programs">
@@ -92,7 +101,7 @@ export default function ProgramsConfigurator() {
               {t.programs.notes[tab as (typeof TAB_IDS)[number]]}
             </div>
             <div className="size-track" id="sizeRow">
-              {sizes.map((s) => (
+              {SIZES.map((s) => (
                 <button
                   key={s}
                   className={`size-pill ${s === activeSize ? 'active' : ''}`}
@@ -104,38 +113,15 @@ export default function ProgramsConfigurator() {
               ))}
             </div>
             <div className="spec-list" id="specList">
-              <div className="r">
-                <span className="k">{t.programs.spec.target}</span>
-                <span className="v">{target}</span>
-              </div>
-              <div className="r">
-                <span className="k">{t.programs.spec.dd}</span>
-                <span className="v">{d.dd}</span>
-              </div>
-              <div className="r">
-                <span className="k">{t.programs.spec.daily}</span>
-                <span className="v">{d.daily}</span>
-              </div>
-              <div className="r">
-                <span className="k">{t.programs.spec.split}</span>
-                <span className="v ok">100%</span>
-              </div>
-              <div className="r">
-                <span className="k">{t.programs.spec.minDays}</span>
-                <span className="v ok">{t.programs.none}</span>
-              </div>
-              <div className="r">
-                <span className="k">{t.programs.spec.timeLimit}</span>
-                <span className="v ok">{t.programs.unlimited}</span>
-              </div>
-              <div className="r">
-                <span className="k">{t.programs.spec.news}</span>
-                <span className="v ok">{t.programs.allowed}</span>
-              </div>
-              <div className="r">
-                <span className="k">{t.programs.spec.payouts}</span>
-                <span className="v">{t.programs.cycles4}</span>
-              </div>
+              {SPEC_KEYS.map((key, i) => {
+                const token = plan.rows[i];
+                return (
+                  <div className="r" key={key}>
+                    <span className="k">{t.programs.spec[key]}</span>
+                    <span className={`v${token === 'inc' ? ' ok' : ''}`}>{rowValue(token)}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="buy reveal">
@@ -146,10 +132,10 @@ export default function ProgramsConfigurator() {
             </div>
             <div>
               <span className="was" id="buyWas">
-                ${d.was}
+                {d.was}%
               </span>
               <div className="now" id="buyNow">
-                <span className="gt">${d.fee}</span>
+                <span className="gt">{d.rate}%</span>
                 <small>{t.programs.oneTime}</small>
               </div>
             </div>

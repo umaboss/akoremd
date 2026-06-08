@@ -6,8 +6,9 @@ import Footer from '@/components/Footer';
 import AffiliateFAQ from '@/components/AffiliateFAQ';
 
 export const metadata: Metadata = {
-  title: 'Affiliate Program — CapitalChain',
-  description: 'Join the Capital Chain Affiliate Program. Refer traders to our industry-leading prop firm and earn 15% lifetime commission with monthly payouts and real-time dashboards.',
+  title: 'Partner Program — AkoreMD',
+  description:
+    'Join the AkoreMD Partner Program. Refer practices to our medical billing service and earn a 15% reward on collections, with monthly payouts and real-time tracking.',
 };
 
 export default function AffiliateProgram() {
@@ -22,25 +23,25 @@ export default function AffiliateProgram() {
             <div className="reveal">
               <span className="eyebrow">
                 <span className="dot" />
-                AFFILIATE PROGRAM
+                PARTNER PROGRAM
               </span>
               <h1 style={{ marginBottom: 24 }}>
-                Earn while your <span className="gt">network trades.</span>
+                Refer a practice. <span className="gt">Earn rewards.</span>
               </h1>
               <p className="hero-sub" style={{ marginBottom: 32 }}>
-                Refer traders to Capital Chain and earn lifetime commission on every evaluation they buy. Real-time tracking, monthly payouts, no caps.
+                Know another provider drowning in billing? Refer them to AkoreMD and earn a reward for every practice that joins — paid monthly, no caps.
               </p>
               <div className="hero-actions">
                 <a href="#" className="btn btn-p btn-lg" data-magnetic>
-                  Become an affiliate →
+                  Become a partner →
                 </a>
               </div>
             </div>
-            
+
             <div className="reveal">
               <div className="aff-card" data-tilt style={{ transform: 'none', transition: 'all 0.5s' }}>
                 <div className="pct">15%</div>
-                <div className="pl">Lifetime commission</div>
+                <div className="pl">Referral reward</div>
                 <div className="arow">
                   <div>
                     <div className="v gt">Monthly</div>
@@ -48,11 +49,11 @@ export default function AffiliateProgram() {
                   </div>
                   <div>
                     <div className="v gt">Real-time</div>
-                    <div className="k">Dashboard</div>
+                    <div className="k">Tracking</div>
                   </div>
                   <div>
                     <div className="v gt">No cap</div>
-                    <div className="k">Earnings</div>
+                    <div className="k">Rewards</div>
                   </div>
                 </div>
               </div>
@@ -66,54 +67,54 @@ export default function AffiliateProgram() {
             <div className="shead reveal center">
               <span className="idx">[ 01 — THREE SIMPLE STEPS ]</span>
               <h2 className="h2">How it works</h2>
-              <p>Start earning commission in three simple steps.</p>
+              <p>Start earning rewards in three simple steps.</p>
             </div>
-            
+
             <div className="grid-3 reveal">
               <div className="tile" style={{ minHeight: '260px' }}>
                 <div className="ic">
                   <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--teal)' }}>01</span>
                 </div>
                 <h3>Sign Up</h3>
-                <p>Register as a Capital Chain affiliate partner in under 60 seconds. Access your custom referral link immediately.</p>
+                <p>Register as an AkoreMD partner in under 60 seconds and access your custom referral link and dashboard immediately.</p>
               </div>
               <div className="tile" style={{ minHeight: '260px' }}>
                 <div className="ic">
                   <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--teal)' }}>02</span>
                 </div>
-                <h3>Share Link</h3>
-                <p>Share your link with your trading network, community, social media, or blog. We provide banners and marketing materials.</p>
+                <h3>Refer a Practice</h3>
+                <p>Introduce a provider, clinic or group that needs better billing. We handle the consultation, onboarding and transition.</p>
               </div>
               <div className="tile" style={{ minHeight: '260px' }}>
                 <div className="ic">
                   <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--teal)' }}>03</span>
                 </div>
-                <h3>Earn Commissions</h3>
-                <p>Earn 15% lifetime commission on every challenge purchase your referrals make, paid monthly directly to your wallet.</p>
+                <h3>Earn Rewards</h3>
+                <p>Earn a 15% reward on the collections we bill for every practice you refer, paid monthly directly to you.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Section 3: Why Partner with Capital Chain? */}
+        {/* Section 3: Why Partner with AkoreMD? */}
         <section className="sec">
           <div className="wrap">
             <div className="shead reveal center">
               <span className="idx">[ 02 — THE BENEFITS ]</span>
               <h2 className="h2">Why partner with us?</h2>
-              <p>Empower your audience with a premium trading brand while growing your revenue.</p>
+              <p>Help fellow providers fix their billing while growing your own revenue.</p>
             </div>
-            
+
             <div className="bento reveal">
               {/* Tile 1: Big Feature */}
               <div className="tile big feature">
                 <div className="big-num gt">15%</div>
-                <h3>Lifetime Payout Split</h3>
+                <h3>Generous Referral Reward</h3>
                 <p>
-                  We pay a flat 15% commission on all evaluation challenges purchased through your link. This commission is for the lifetime of the trader: if they purchase another program or reset their account years later, you still get paid.
+                  We pay a 15% reward on the collections we bill for every practice purchased through your referral, for the first three months of service — recurring revenue for a single introduction.
                 </p>
               </div>
-              
+
               {/* Tile 2: Medium */}
               <div className="tile med">
                 <div className="ic">
@@ -121,12 +122,12 @@ export default function AffiliateProgram() {
                     <path d="M3 3v18h18M7 16l4-4 4 4 6-6" />
                   </svg>
                 </div>
-                <h3>Real-time Analytics</h3>
+                <h3>Real-time Tracking</h3>
                 <p>
-                  Access our state-of-the-art partner dashboard. View detailed stats on link clicks, sign-ups, conversions, and detailed breakdown of your pending and paid commissions.
+                  Access our partner dashboard to view detailed stats on referrals, onboarding status, and a clear breakdown of your pending and paid rewards.
                 </p>
               </div>
-              
+
               {/* Tile 3: Medium */}
               <div className="tile med">
                 <div className="ic">
@@ -134,12 +135,12 @@ export default function AffiliateProgram() {
                     <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 14a4 4 0 114-4 4 4 0 01-4 4z" />
                   </svg>
                 </div>
-                <h3>High Conversion Rates</h3>
+                <h3>Practices Love Us</h3>
                 <p>
-                  Capital Chain is built for traders. High platform uptime, up to 100% profit splits, and rapid payout cycles make converting traffic into sales easier than any other firm.
+                  AkoreMD is built for providers. Fewer denials, faster payments and transparent reporting make every referral easy to recommend — and easy to keep.
                 </p>
               </div>
-              
+
               {/* Tile 4: Small */}
               <div className="tile sm">
                 <div className="ic">
@@ -148,9 +149,9 @@ export default function AffiliateProgram() {
                   </svg>
                 </div>
                 <h3>Dedicated Managers</h3>
-                <p>Get direct access to our partner team to help you construct custom setups or secure exclusive promotional codes.</p>
+                <p>Get direct access to our partner team to help with introductions, materials and answers for the practices you refer.</p>
               </div>
-              
+
               {/* Tile 5: Small */}
               <div className="tile sm">
                 <div className="ic">
@@ -158,10 +159,10 @@ export default function AffiliateProgram() {
                     <path d="M21 12h-4l-3 9L9 3l-3 9H2" />
                   </svg>
                 </div>
-                <h3>Instant Media Kits</h3>
-                <p>Download professional pre-built banners, video assets, and copy resources immediately to start promoting.</p>
+                <h3>Ready-made Resources</h3>
+                <p>Download professional one-pagers and email templates to share AkoreMD with the practices in your network.</p>
               </div>
-              
+
               {/* Tile 6: Small */}
               <div className="tile sm">
                 <div className="ic">
@@ -170,7 +171,7 @@ export default function AffiliateProgram() {
                   </svg>
                 </div>
                 <h3>No Earnings Ceiling</h3>
-                <p>There are no limits or caps on how much you can earn. The more traders you refer, the more passive income you generate.</p>
+                <p>There are no limits or caps on rewards. The more practices you refer, the more recurring income you generate.</p>
               </div>
             </div>
           </div>
@@ -182,12 +183,12 @@ export default function AffiliateProgram() {
             <div className="faq-grid">
               <div className="reveal">
                 <span className="idx">[ 03 — PARTNER FAQ ]</span>
-                <h2 className="h2">Affiliate FAQ</h2>
+                <h2 className="h2">Partner FAQ</h2>
                 <p style={{ color: 'var(--dim)', marginTop: 12 }}>
-                  Everything you need to know about the Capital Chain affiliate network.
+                  Everything you need to know about the AkoreMD partner program.
                 </p>
               </div>
-              
+
               <AffiliateFAQ />
             </div>
           </div>

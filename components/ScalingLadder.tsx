@@ -3,11 +3,11 @@
 import { useT } from './LanguageProvider';
 
 const AMTS = [
-  <>$100<span>K</span></>,
-  <>$200<span>K</span></>,
-  <>$400<span>K</span></>,
-  <>$1<span>M</span></>,
-  <>$2M</>,
+  <>+8<span>%</span></>,
+  <>+15<span>%</span></>,
+  <>+22<span>%</span></>,
+  <>+30<span>%</span></>,
+  <>+38%</>,
 ];
 
 export default function ScalingLadder() {

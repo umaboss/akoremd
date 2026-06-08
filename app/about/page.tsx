@@ -6,8 +6,9 @@ import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'About Us — CapitalChain',
-  description: 'Learn about Capital Chain, our mission, vision, and the professional team behind the world\'s leading prop trading platform.',
+  title: 'About Us — AkoreMD',
+  description:
+    'Learn about AkoreMD, our mission, and the revenue cycle specialists behind dependable, HIPAA-compliant medical billing for healthcare providers.',
 };
 
 export default function AboutUs() {
@@ -16,7 +17,7 @@ export default function AboutUs() {
       <PromoBar />
       <Nav />
       <main>
-        {/* Section 1: Hero-like Split Grid (About Capital Chain) */}
+        {/* Section 1: Hero-like Split Grid (About AkoreMD) */}
         <section className="hero">
           <div className="wrap grid-2">
             <div className="reveal">
@@ -25,19 +26,19 @@ export default function AboutUs() {
                 WHO WE ARE
               </span>
               <h1 style={{ marginBottom: 24 }}>
-                About <span className="gt">Capital Chain</span>
+                About <span className="gt">AkoreMD</span>
               </h1>
               <p className="hero-sub" style={{ marginBottom: 20 }}>
-                Capital Chain is a leading prop trading firm that empowers traders worldwide. We provide capital, cutting-edge technology, and educational support to help traders reach their full potential.
+                At AkoreMD, we understand that managing medical billing can be time-consuming and challenging. Insurance regulations, claim requirements, payment delays and administrative tasks can take valuable time away from patient care.
               </p>
               <p className="hero-sub" style={{ fontSize: '18px' }}>
-                Our mission is to create a transparent, secure, and supportive environment for traders to thrive and grow their capital.
+                Our mission is to simplify the billing process and provide healthcare providers with dependable support throughout the entire revenue cycle — acting as an extension of your team.
               </p>
             </div>
             <div className="reveal" style={{ position: 'relative', width: '100%', height: '420px', borderRadius: '24px', overflow: 'hidden', border: '1px solid var(--line)', boxShadow: '0 20px 48px -16px var(--glow)' }}>
               <Image
                 src="/about_booth.png"
-                alt="Capital Chain Expo Booth"
+                alt="AkoreMD billing operations"
                 fill
                 style={{ objectFit: 'cover' }}
                 priority
@@ -46,43 +47,43 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* Section 2: Capital Chain Vision */}
+        {/* Section 2: AkoreMD Vision */}
         <section className="sec band">
           <div className="wrap grid-2">
             <div className="reveal">
-              <span className="idx">[ 01 — OUR VISION ]</span>
+              <span className="idx">[ 01 — OUR VALUES ]</span>
               <h2 className="h2" style={{ marginBottom: 24 }}>
-                Capital Chain <span className="gt">Vision</span>
+                Why providers <span className="gt">choose us</span>
               </h2>
               <p style={{ color: 'var(--dim)', fontSize: 18, marginBottom: 32 }}>
-                We believe in creating a better future for traders by staying true to our core pillars:
+                We are committed to delivering measurable results while maintaining the highest standards of professionalism and compliance.
               </p>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 30 }}>
                 <div style={{ border: '1px solid var(--line)', borderRadius: '16px', padding: '20px 24px', background: 'var(--surface)' }}>
                   <h3 style={{ fontFamily: 'var(--fd)', fontSize: '20px', marginBottom: '6px', color: 'var(--teal)' }}>Reliability</h3>
-                  <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>Guaranteed prompt payouts, state-of-the-art server infrastructure, and maximum platform uptime.</p>
+                  <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>Faster claims processing, timely payment posting and aggressive AR follow-up you can count on.</p>
                 </div>
                 <div style={{ border: '1px solid var(--line)', borderRadius: '16px', padding: '20px 24px', background: 'var(--surface)' }}>
-                  <h3 style={{ fontFamily: 'var(--fd)', fontSize: '20px', marginBottom: '6px', color: 'var(--teal)' }}>Innovation</h3>
-                  <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>Continuous evolution of trading dashboards, evaluation models, and analytical tools.</p>
+                  <h3 style={{ fontFamily: 'var(--fd)', fontSize: '20px', marginBottom: '6px', color: 'var(--teal)' }}>Compliance</h3>
+                  <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>HIPAA-compliant processes and accurate medical billing and coding at every step of the cycle.</p>
                 </div>
                 <div style={{ border: '1px solid var(--line)', borderRadius: '16px', padding: '20px 24px', background: 'var(--surface)' }}>
                   <h3 style={{ fontFamily: 'var(--fd)', fontSize: '20px', marginBottom: '6px', color: 'var(--teal)' }}>Transparency</h3>
-                  <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>No hidden rules, straightforward drawdown limits, and real-time public payout statistics.</p>
+                  <p style={{ color: 'var(--dim)', fontSize: '14.5px' }}>Clear, transparent reporting and personalized client support focused on your revenue growth.</p>
                 </div>
               </div>
 
               <p style={{ color: 'var(--dim)', fontSize: 15, lineHeight: 1.6 }}>
-                These three core pillars are at the heart of our mission. We strive to provide the best possible services to our clients, ensuring transparency, reliability, and continuous innovation in everything we do.
+                Whether you are an independent physician, specialty clinic, group practice or healthcare organization, our goal is to provide accurate, transparent and reliable billing solutions that contribute to the financial success of your practice.
               </p>
             </div>
-            
+
             <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <div style={{ position: 'relative', width: '100%', height: '240px', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--line)' }}>
                 <Image
                   src="/about_community.png"
-                  alt="Traders Networking"
+                  alt="AkoreMD revenue cycle team"
                   fill
                   style={{ objectFit: 'cover' }}
                 />
@@ -90,7 +91,7 @@ export default function AboutUs() {
               <div style={{ position: 'relative', width: '100%', height: '240px', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--line)' }}>
                 <Image
                   src="/about_mission.png"
-                  alt="Capital Chain Corporate Meeting"
+                  alt="AkoreMD client review meeting"
                   fill
                   style={{ objectFit: 'cover' }}
                 />
@@ -99,44 +100,44 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* Section 3: Community Over Everything */}
+        {/* Section 3: Patients Over Everything */}
         <section className="sec">
           <div className="wrap">
             <div className="shead reveal center">
               <span className="idx">[ 02 — PARTNER WITH US ]</span>
               <h2 className="h2">
-                Community <span className="gt">Over Everything</span>
+                Patients <span className="gt">Over Everything</span>
               </h2>
-              <p>Our community is at the heart of everything we do.</p>
+              <p>Your patients come first — your billing comes to us.</p>
             </div>
 
             <div className="grid-2 reveal" style={{ gap: 48, marginBottom: 48 }}>
               <div style={{ position: 'relative', width: '100%', height: '420px', borderRadius: '24px', overflow: 'hidden', border: '1px solid var(--line)' }}>
                 <Image
                   src="/about_community.png"
-                  alt="Capital Chain Expo Crowd"
+                  alt="AkoreMD healthcare partners"
                   fill
                   style={{ objectFit: 'cover' }}
                 />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 24 }}>
                 <p style={{ color: 'var(--dim)', fontSize: 18, lineHeight: 1.6 }}>
-                  We believe that a strong community is essential for the success of any trader. That&apos;s why we place a high value on our community, offering support, education, and resources to help our traders succeed.
+                  We act as an extension of your team, helping improve operational efficiency, reduce denials and maximize reimbursements — so your staff spends less time on paperwork and more time with patients.
                 </p>
                 <p style={{ color: 'var(--dim)', fontSize: 18, lineHeight: 1.6 }}>
-                  Join our global community of traders today and start your journey towards financial freedom.
+                  Partner with AkoreMD today and let our specialists handle the revenue cycle while you focus on care.
                 </p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 12 }}>
-                  <a href="/#community" className="btn btn-p" data-magnetic>Join our community</a>
-                  <a href="/#programs" className="btn">Trading courses</a>
-                  <a href="/#community" className="btn">Live chat support</a>
+                  <a href="/#community" className="btn btn-p" data-magnetic>Talk to a specialist</a>
+                  <a href="/#programs" className="btn">Service plans</a>
+                  <a href="/contact" className="btn">Free consultation</a>
                 </div>
               </div>
             </div>
 
             <div className="reveal" style={{ textAlign: 'center', borderTop: '1px solid var(--line)', paddingTop: 40, marginTop: 40 }}>
               <h3 style={{ fontFamily: 'var(--fd)', fontSize: '28px', color: 'var(--teal)', fontWeight: 600 }}>
-                Capital Chain is not built for traders. <span className="gt">It is built with them!</span>
+                AkoreMD isn&apos;t built just for practices. <span className="gt">It&apos;s built with them!</span>
               </h3>
             </div>
           </div>
@@ -153,27 +154,27 @@ export default function AboutUs() {
               <div className="about-mission-cols">
                 <div>
                   <h4 style={{ fontFamily: 'var(--fd)', fontSize: 18, fontWeight: 600, color: 'var(--text)', marginBottom: 12 }}>
-                    Global Network of Trading Excellence
+                    Dependable Revenue Cycle Support
                   </h4>
                   <p style={{ color: 'var(--dim)', fontSize: 14.5, lineHeight: 1.6 }}>
-                    We are building a global network of traders who share our passion for excellence, continuous learning, and mutual support.
+                    We simplify the billing process and provide dependable support throughout the entire revenue cycle, from eligibility verification to AR follow-up.
                   </p>
                 </div>
                 <div>
                   <h4 style={{ fontFamily: 'var(--fd)', fontSize: 18, fontWeight: 600, color: 'var(--text)', marginBottom: 12 }}>
-                    More Than Capital: A Supportive Trading Partner
+                    More Than Billing: A Trusted Partner
                   </h4>
                   <p style={{ color: 'var(--dim)', fontSize: 14.5, lineHeight: 1.6 }}>
-                    We provide more than just capital. We offer a supportive trading environment, education, tools, and a community of like-minded traders to help you succeed.
+                    We provide more than claims submission. We offer transparent reporting, personalized support and a team committed to your practice&apos;s financial success.
                   </p>
                 </div>
               </div>
             </div>
-            
+
             <div className="reveal" style={{ position: 'relative', width: '100%', height: '360px', borderRadius: '24px', overflow: 'hidden', border: '1px solid var(--line)' }}>
               <Image
                 src="/about_mission.png"
-                alt="Capital Chain Logo Roundtable"
+                alt="AkoreMD mission"
                 fill
                 style={{ objectFit: 'cover' }}
               />
@@ -186,11 +187,11 @@ export default function AboutUs() {
           <div className="wrap">
             <div className="shead reveal" style={{ marginBottom: 40 }}>
               <div>
-                <span className="idx">[ 04 — MEMBERS ]</span>
+                <span className="idx">[ 04 — OUR TEAM ]</span>
                 <h2 className="h2">Who are we?</h2>
               </div>
               <p style={{ maxWidth: '480px' }}>
-                We are a team of professionals dedicated to helping you succeed. Our team includes experienced traders, software developers, and support specialists.
+                We are a team of revenue cycle specialists, certified medical coders and dedicated account managers committed to helping your practice get paid faster.
               </p>
             </div>
 
@@ -199,15 +200,15 @@ export default function AboutUs() {
               <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', padding: 0 }}>
                 <div className="st" style={{ borderRight: '1px solid var(--line)', padding: '30px 24px' }}>
                   <div className="v gt">40+</div>
-                  <div className="k">Team Professionals</div>
+                  <div className="k">Billing Specialists</div>
                 </div>
                 <div className="st" style={{ borderRight: '1px solid var(--line)', padding: '30px 24px' }}>
-                  <div className="v gt">9</div>
-                  <div className="k">Different Nations</div>
+                  <div className="v gt">All</div>
+                  <div className="k">Specialties Served</div>
                 </div>
                 <div className="st" style={{ borderRight: 'none', padding: '30px 24px' }}>
-                  <div className="v gt">Global</div>
-                  <div className="k">Multiple Countries</div>
+                  <div className="v gt">HIPAA</div>
+                  <div className="k">Compliant Processes</div>
                 </div>
               </div>
             </div>
@@ -217,22 +218,22 @@ export default function AboutUs() {
         {/* Section 6: Office / Location */}
         <section className="sec" style={{ paddingTop: 0 }}>
           <div className="wrap reveal">
-            <div 
+            <div
               className="about-location-card"
               style={{ backgroundImage: `url('/about_dubai.png')` }}
             >
               <div className="loc-content">
                 <span className="idx" style={{ color: 'var(--teal)' }}>HEADQUARTERS</span>
-                <h3>Dubai Healthcare City, Dubai,<br />United Arab Emirates</h3>
+                <h3>AkoreMD Billing Center<br />United States</h3>
                 <p style={{ color: 'var(--text)', fontSize: 16, marginBottom: 30, opacity: 0.8 }}>
-                  Meet us at our office in Dubai or reach out to us online.
+                  Reach out online to schedule your free practice revenue audit.
                 </p>
                 <div style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
-                  <a href="/#community" className="btn btn-p" data-magnetic>Contact Us Online</a>
-                  <a 
-                    href="https://maps.google.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a href="/contact" className="btn btn-p" data-magnetic>Contact Us Online</a>
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn"
                   >
                     View on Google Maps

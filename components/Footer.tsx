@@ -47,7 +47,7 @@ export default function Footer() {
           <div className="foot-brand">
             <a href="/" className="logo">
               <LogoMark />
-              Capital<b>Chain</b>
+              Akore<b>MD</b>
             </a>
             <p>{t.footer.brandP}</p>
           </div>
@@ -79,7 +79,7 @@ export default function Footer() {
         </div>
         <div className="foot-bot">
           <span>{t.footer.rights}</span>
-          <span>capitalchain.co</span>
+          <span>akoremd.com</span>
         </div>
       </div>
     </footer>

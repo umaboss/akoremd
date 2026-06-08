@@ -5,8 +5,9 @@ import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — CapitalChain',
-  description: 'Read the Capital Chain Terms of Use. Understand evaluation guidelines, profit drawdowns, prohibited trading practices, and payout policies.',
+  title: 'Terms of Use — AkoreMD',
+  description:
+    'Read the AkoreMD Terms of Use. Understand our scope of medical billing services, compliance and acceptable use, pricing, service policy and HIPAA disclosures.',
 };
 
 export default function TermsOfUse() {
@@ -20,13 +21,13 @@ export default function TermsOfUse() {
           <div className="wrap">
             <span className="eyebrow reveal">
               <span className="dot" />
-              LEGAL AGREEMENT
+              SERVICE AGREEMENT
             </span>
             <h1 className="reveal">
               Terms of <span className="gt">Use.</span>
             </h1>
             <p className="hero-sub reveal" style={{ maxWidth: '680px' }}>
-              Effective Date: June 3, 2026. Please read these terms carefully before accessing or using Capital Chain evaluation accounts.
+              Effective Date: June 3, 2026. Please read these terms carefully before engaging AkoreMD for medical billing and revenue cycle services.
             </p>
           </div>
         </section>
@@ -42,22 +43,22 @@ export default function TermsOfUse() {
                 </h4>
                 <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <a href="#intro" className="terms-nav-link">
-                    1. Introduction & Services
+                    1. Introduction &amp; Services
                   </a>
                   <a href="#rules" className="terms-nav-link">
-                    2. Evaluation Rules
+                    2. Scope of Services
                   </a>
                   <a href="#prohibited" className="terms-nav-link">
-                    3. Prohibited Practices
+                    3. Compliance &amp; Acceptable Use
                   </a>
                   <a href="#payouts" className="terms-nav-link">
-                    4. Payout Policy
+                    4. Pricing &amp; Payments
                   </a>
                   <a href="#refund" className="terms-nav-link">
-                    5. Refund Policy
+                    5. Service &amp; Cancellation Policy
                   </a>
                   <a href="#risk" className="terms-nav-link">
-                    6. Risk Disclosure
+                    6. HIPAA &amp; Disclaimer
                   </a>
                 </nav>
               </div>
@@ -65,118 +66,117 @@ export default function TermsOfUse() {
 
             {/* Right Column Content Cards */}
             <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-              
+
               {/* Section 1: Introduction */}
               <div id="intro" className="tile" style={{ padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '24px', color: 'var(--text)', marginBottom: '20px' }}>
-                  1. Introduction & Services
+                  1. Introduction &amp; Services
                 </h3>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  Capital Chain (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) provides evaluation and simulated trading accounts designed to assess trading skills. 
-                  All accounts provided to users are simulated accounts operating in a demo environment.
+                  AkoreMD (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) provides medical billing, coding and revenue cycle administrative support services to healthcare providers. We act as a third-party billing service and as a Business Associate of the practices we serve.
                 </p>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7 }}>
-                  By buying an evaluation challenge or registering on our site, you agree to these terms. Capital Chain does not act as a broker or custodian, nor does it accept actual deposits of investment capital from the public.
+                  By engaging our services or registering on our site, you agree to these terms. AkoreMD does not provide medical, legal or financial advice, and does not guarantee any specific reimbursement amount, which depends on payer policies, documentation and applicable regulations.
                 </p>
               </div>
 
-              {/* Section 2: Evaluation Rules */}
+              {/* Section 2: Scope of Services */}
               <div id="rules" className="tile" style={{ padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '24px', color: 'var(--text)', marginBottom: '20px' }}>
-                  2. Evaluation Rules
+                  2. Scope of Services
                 </h3>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  To pass an evaluation and qualify for a virtual funding profit split, you must comply strictly with the parameters configured at checkout:
+                  Depending on the service plan selected, AkoreMD may provide the following revenue cycle services:
                 </p>
                 <ul style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.8, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <li>
-                    <strong>Daily Loss Limit (Daily Drawdown):</strong> Calculated as 5% of the starting balance or equity of the day (whichever is higher). Crossing this boundary instantly voids the account.
+                    <strong>Eligibility &amp; Authorizations:</strong> Insurance eligibility and benefits verification, referral management and prior/retro authorization support.
                   </li>
                   <li>
-                    <strong>Maximum Overall Loss (Max Drawdown):</strong> Fixed at 10% of the initial account balance. Account equity/balance must never fall below 90% of the initial balance.
+                    <strong>Coding &amp; Charge Entry:</strong> ICD-10, CPT and HCPCS coding, modifier review, charge entry and quality checks before claim creation.
                   </li>
                   <li>
-                    <strong>Profit Targets:</strong> 8% for Phase 1 and 5% for Phase 2 in standard 2-step evaluations.
+                    <strong>Claims &amp; Payments:</strong> Claim scrubbing, electronic submission, payment posting (ERA/EOB) and reconciliation.
                   </li>
                   <li>
-                    <strong>Minimum Trading Days:</strong> A minimum of 3 active trading days must be registered per phase.
+                    <strong>Denials &amp; AR:</strong> Denial analysis and appeals, accounts receivable follow-up and patient billing support.
                   </li>
                 </ul>
               </div>
 
-              {/* Section 3: Prohibited Trading Practices */}
+              {/* Section 3: Compliance & Acceptable Use */}
               <div id="prohibited" className="tile" style={{ padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '24px', color: 'var(--text)', marginBottom: '20px' }}>
-                  3. Prohibited Trading Practices
+                  3. Compliance &amp; Acceptable Use
                 </h3>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  To maintain the integrity of our assessment environment, we strictly prohibit the following trading practices. Engaging in any of these will lead to instant account closure and forfeiture of virtual payouts:
+                  To maintain billing integrity and regulatory compliance, both parties agree to the following. Engaging in any of these practices may result in suspension of services:
                 </p>
                 <ul style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.8, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <li>
-                    <strong>Latency Arbitrage:</strong> Taking advantage of feed delays between trading platforms.
+                    <strong>Accurate Documentation:</strong> Claims are submitted based solely on the provider&apos;s own documentation. Upcoding, unbundling or billing for services not rendered is strictly prohibited.
                   </li>
                   <li>
-                    <strong>High-Frequency Trading (HFT):</strong> Using algorithmic bots designed to execute hundreds of trades in seconds, creating unrealistic volume.
+                    <strong>Authorized Access:</strong> System credentials and protected health information may only be used by authorized personnel for legitimate billing purposes.
                   </li>
                   <li>
-                    <strong>Copy Trading:</strong> Copying trades from external accounts not owned by the registered user, or coordinate-trading with other users.
+                    <strong>Regulatory Adherence:</strong> All billing follows applicable federal and state regulations, payer rules and HIPAA requirements.
                   </li>
                   <li>
-                    <strong>Account Sharing:</strong> Giving credentials to third-party managers or account management services.
+                    <strong>Data Protection:</strong> No sharing of protected health information with unauthorized third parties.
                   </li>
                 </ul>
               </div>
 
-              {/* Section 4: Payout Policy */}
+              {/* Section 4: Pricing & Payments */}
               <div id="payouts" className="tile" style={{ padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '24px', color: 'var(--text)', marginBottom: '20px' }}>
-                  4. Payout Policy
+                  4. Pricing &amp; Payments
                 </h3>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  Once you successfully complete the evaluation phase and submit your KYC documents, you will be issued a Virtual Funded Account:
+                  Service fees are defined in your individual service agreement:
                 </p>
                 <ul style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.8, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <li>
-                    <strong>Profit Split Rate:</strong> Standard accounts receive an 80% split of virtual earnings. High-tier accounts qualify for up to 100% split.
+                    <strong>Percentage of Collections:</strong> Most services are billed as a transparent percentage of payments we collect on your behalf. You only pay on what we collect.
                   </li>
                   <li>
-                    <strong>Payout Cycles:</strong> Payout requests can be initiated every 14 calendar days from your first trade.
+                    <strong>Billing Cycle:</strong> Service invoices are issued monthly based on the collections posted during the period.
                   </li>
                   <li>
-                    <strong>Minimum Virtual Profit:</strong> The minimum account profit required to request a payout is 1% of the starting balance.
+                    <strong>Add-on Services:</strong> Optional services such as credentialing and prior authorizations may be quoted separately as noted in your agreement.
                   </li>
                 </ul>
               </div>
 
-              {/* Section 5: Refund Policy */}
+              {/* Section 5: Service & Cancellation Policy */}
               <div id="refund" className="tile" style={{ padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '24px', color: 'var(--text)', marginBottom: '20px' }}>
-                  5. Refund Policy
+                  5. Service &amp; Cancellation Policy
                 </h3>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  Capital Chain operates a performance-based refund policy:
+                  AkoreMD operates on transparent, no-long-term-lock-in terms:
                 </p>
                 <ul style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.8, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <li>
-                    <strong>Successful Evaluations:</strong> Your initial registration fee is 100% refundable. It will be added to your first successful virtual profit split payout.
+                    <strong>Cancellation:</strong> Either party may end the engagement with written notice as defined in the service agreement. We will assist with an orderly transition of your billing data.
                   </li>
                   <li>
-                    <strong>Failed Evaluations:</strong> If you violate any of the trading drawdowns, the registration fee is non-refundable. You are welcome to purchase a new evaluation at a discounted reset rate.
+                    <strong>Outstanding Claims:</strong> We continue working active claims through resolution unless otherwise agreed, and fees apply only to collections received.
                   </li>
                 </ul>
               </div>
 
-              {/* Section 6: Risk Disclosure */}
+              {/* Section 6: HIPAA & Disclaimer */}
               <div id="risk" className="tile" style={{ padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '24px', color: 'var(--text)', marginBottom: '20px' }}>
-                  6. Risk Disclosure
+                  6. HIPAA &amp; Disclaimer
                 </h3>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  Trading leveraged financial instruments (including Forex, indices, and commodities) carries a high degree of risk and may not be suitable for all participants.
+                  AkoreMD handles all protected health information in accordance with HIPAA and operates as a Business Associate under a Business Associate Agreement with each client practice.
                 </p>
                 <p style={{ color: 'var(--dim)', fontSize: '15px', lineHeight: 1.7 }}>
-                  All systems, platforms, and dashboards provided by Capital Chain are strictly simulated environments. No real trades are routed to the live interbank market. Past performance in simulated environments does not guarantee future success.
+                  AkoreMD does not provide medical, legal, financial or coding-compliance advice. Statistics and results referenced on this site are illustrative; actual results vary by practice, specialty, documentation and payer mix. Services are governed by the full service agreement.
                 </p>
               </div>
 

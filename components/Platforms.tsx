@@ -3,12 +3,12 @@
 import { useT } from './LanguageProvider';
 
 const META = [
-  { cls: 'a', badge: 'MT5 / MT4' },
-  { cls: 'b', badge: 'cTRADER' },
-  { cls: 'c', badge: 'API' },
-  { cls: 'd', badge: '⚡ SPEED' },
-  { cls: 'e', badge: '📈 LEVERAGE' },
-  { cls: 'f', badge: '✓ FREEDOM' },
+  { cls: 'a', badge: 'KAREO / ADVANCEDMD' },
+  { cls: 'b', badge: 'ATHENAHEALTH' },
+  { cls: 'c', badge: 'eCW / NEXTGEN' },
+  { cls: 'd', badge: '⚡ DRCHRONO' },
+  { cls: 'e', badge: '🔗 OFFICE ALLY' },
+  { cls: 'f', badge: '✓ ANY SYSTEM' },
 ];
 
 export default function Platforms() {

@@ -17,48 +17,48 @@ export default function AffiliateFAQ() {
     <div className="faq-list reveal">
       <div className="faq-item" style={{ borderBottom: '1px solid var(--line)' }}>
         <button className="faq-q" onClick={toggleFAQ}>
-          <span>When do I get paid?</span>
+          <span>When do I get paid for a referral?</span>
           <span className="pm">+</span>
         </button>
         <div className="faq-a" style={{ transition: 'max-height 0.35s ease', maxHeight: '0px', overflow: 'hidden' }}>
           <div>
-            Affiliate payouts are processed on the 10th of every calendar month for commissions generated in the preceding month.
+            Partner rewards are processed on the 10th of every calendar month, once a referred practice has been onboarded and billed in the preceding month.
           </div>
         </div>
       </div>
 
       <div className="faq-item" style={{ borderBottom: '1px solid var(--line)' }}>
         <button className="faq-q" onClick={toggleFAQ}>
-          <span>What is the minimum payout threshold?</span>
+          <span>How much is the referral reward?</span>
           <span className="pm">+</span>
         </button>
         <div className="faq-a" style={{ transition: 'max-height 0.35s ease', maxHeight: '0px', overflow: 'hidden' }}>
           <div>
-            The minimum threshold to request a payout is $50. If your unpaid commission balance is lower, it will safely roll over to the next month.
+            Partners earn a reward equal to 15% of the first three months of collections we bill for each practice they refer — paid monthly with no caps.
           </div>
         </div>
       </div>
 
       <div className="faq-item" style={{ borderBottom: '1px solid var(--line)' }}>
         <button className="faq-q" onClick={toggleFAQ}>
-          <span>How long does the referral cookie last?</span>
+          <span>Who can join the partner program?</span>
           <span className="pm">+</span>
         </button>
         <div className="faq-a" style={{ transition: 'max-height 0.35s ease', maxHeight: '0px', overflow: 'hidden' }}>
           <div>
-            Our referral cookies track users for up to 60 days. If a user clicks your link and makes a purchase within 60 days, the commission is credited to your account.
+            Practice managers, consultants, EHR vendors and providers are all welcome. If you know a practice that could use better billing, you can refer them and track every referral in your partner dashboard.
           </div>
         </div>
       </div>
 
       <div className="faq-item" style={{ borderBottom: '1px solid var(--line)' }}>
         <button className="faq-q" onClick={toggleFAQ}>
-          <span>Can I refer myself to buy evaluations?</span>
+          <span>Is there any cost to become a partner?</span>
           <span className="pm">+</span>
         </button>
         <div className="faq-a" style={{ transition: 'max-height 0.35s ease', maxHeight: '0px', overflow: 'hidden' }}>
           <div>
-            No, self-referrals are strictly prohibited. Attempting to purchase evaluation accounts through your own affiliate link will result in immediate termination of your affiliate account and forfeiture of earnings.
+            None. Joining the AkoreMD partner program is completely free. You only earn — there are no fees, quotas, or commitments to participate.
           </div>
         </div>
       </div>

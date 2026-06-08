@@ -6,31 +6,31 @@ import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Rewards — CapitalChain',
+  title: 'Results — AkoreMD',
   description:
-    'Every reward Capital Chain has ever paid, logged in real time with on-chain proof for every crypto transaction. No press releases. No audits. Just receipts.',
+    'Every payment AkoreMD has collected and posted for its client practices, logged with transparent reporting. No press releases — just results.',
 };
 
-// TODO: replace placeholders with the real reward ledger feed.
+// TODO: replace placeholders with the real collections ledger feed.
 const LEDGER = [
-  { date: 'Jun 05, 2026', flag: '🇦🇪', trader: 'Owais A.', size: '$200,000.00', plan: '2 Step Plus', amt: '$2,129', tx: 'bd5cac…d8ef' },
-  { date: 'Jun 05, 2026', flag: '🇩🇪', trader: 'Akash S.', size: '$25,000.00', plan: 'Instant Plus', amt: '$777', tx: '942ddf…ce5c' },
-  { date: 'Jun 05, 2026', flag: '🇮🇳', trader: 'Manuel B.', size: '$100,000.00', plan: '1 Step Nitro', amt: '$1,294', tx: '4a51c3…85a3' },
-  { date: 'Jun 05, 2026', flag: '🇧🇩', trader: 'Shreyas D.', size: '$10,000.00', plan: 'Instant Plus', amt: '$402', tx: 'cdc7f1…b745' },
-  { date: 'Jun 04, 2026', flag: '🇮🇳', trader: 'Anurag M.', size: '$10,000.00', plan: 'Instant Standard', amt: '$184', tx: 'f54c1a…4e66' },
-  { date: 'Jun 04, 2026', flag: '🇺🇸', trader: 'Emmanuel A.', size: '$200,000.00', plan: '1 Step Nitro', amt: '$3,589', tx: 'feb92b…3b11' },
-  { date: 'Jun 04, 2026', flag: '🇸🇬', trader: 'Jun O.', size: '$100,000.00', plan: 'Instant Plus', amt: '$3,574', tx: 'd5d093…83c4' },
-  { date: 'Jun 04, 2026', flag: '🇵🇰', trader: 'Tanvir A.', size: '$100,000.00', plan: 'Instant Pro', amt: '$1,130', tx: '30c363…fc1e' },
-  { date: 'Jun 04, 2026', flag: '🇲🇾', trader: 'Lukas D.', size: '$25,000.00', plan: '1 Step Nitro', amt: '$491', tx: '9ebbe…54b4' },
-  { date: 'Jun 04, 2026', flag: '🇹🇷', trader: 'Onur E.', size: '$50,000.00', plan: '1 Step Nitro', amt: '$2,909', tx: '72e8b…17c4' },
+  { date: 'Jun 05, 2026', flag: '❤️', trader: 'Cardiology Group', size: 'Multi-site', plan: 'Medicare', amt: '$12,129', tx: 'CLM-bd5cac' },
+  { date: 'Jun 05, 2026', flag: '🦴', trader: 'Orthopedic Clinic', size: '8 providers', plan: 'Aetna', amt: '$8,777', tx: 'CLM-942ddf' },
+  { date: 'Jun 05, 2026', flag: '🩺', trader: 'Internal Medicine', size: '4 providers', plan: 'BCBS', amt: '$4,294', tx: 'CLM-4a51c3' },
+  { date: 'Jun 05, 2026', flag: '🧒', trader: 'Pediatrics Assoc.', size: 'Group', plan: 'Medicaid', amt: '$3,402', tx: 'CLM-cdc7f1' },
+  { date: 'Jun 04, 2026', flag: '🧴', trader: 'Dermatology Clinic', size: 'Solo', plan: 'Cigna', amt: '$2,184', tx: 'CLM-f54c1a' },
+  { date: 'Jun 04, 2026', flag: '🧠', trader: 'Neurology Assoc.', size: '5 providers', plan: 'UnitedHealthcare', amt: '$13,589', tx: 'CLM-feb92b' },
+  { date: 'Jun 04, 2026', flag: '🤰', trader: 'OB-GYN Practice', size: 'Group', plan: 'Humana', amt: '$5,574', tx: 'CLM-d5d093' },
+  { date: 'Jun 04, 2026', flag: '🚑', trader: 'Urgent Care', size: '6 providers', plan: 'Aetna', amt: '$3,130', tx: 'CLM-30c363' },
+  { date: 'Jun 04, 2026', flag: '💊', trader: 'Pain Management', size: 'Solo', plan: 'Medicare', amt: '$2,491', tx: 'CLM-9ebbe5' },
+  { date: 'Jun 04, 2026', flag: '🔬', trader: 'Gastroenterology', size: '3 providers', plan: 'BCBS', amt: '$9,909', tx: 'CLM-72e8b1' },
 ];
 
 const COUNTRIES = [
-  { flag: '🇨🇦', name: 'Canada', amt: '$202K' },
-  { flag: '🇮🇳', name: 'India', amt: '$922K' },
-  { flag: '🇻🇳', name: 'Vietnam', amt: '$254K' },
-  { flag: '🇮🇩', name: 'Indonesia', amt: '$166K' },
-  { flag: '🇦🇺', name: 'Australia', amt: '$49K' },
+  { flag: '🏛️', name: 'Medicare', amt: '$14.2M' },
+  { flag: '🔵', name: 'BCBS', amt: '$9.9M' },
+  { flag: '🟣', name: 'Aetna', amt: '$7.4M' },
+  { flag: '🟠', name: 'UnitedHealthcare', amt: '$6.6M' },
+  { flag: '🟢', name: 'Cigna', amt: '$4.9M' },
 ];
 
 export default function Rewards() {
@@ -43,56 +43,56 @@ export default function Rewards() {
           {/* Status bar */}
           <div className="rw-statusbar reveal">
             <span className="rw-tag">
-              [ CAPITAL CHAIN · VERIFIED REWARDS ]
+              [ AKOREMD · VERIFIED RESULTS ]
               <span className="rw-live">
                 <span className="lr-dot" /> LIVE
               </span>
             </span>
             <span className="rw-status-meta">
               <span>SYNC <b>CONTINUOUS</b></span>
-              <span>AUDIT <b>ON-CHAIN LEDGER</b></span>
-              <span>RECORDS <b>3,621</b></span>
+              <span>AUDIT <b>TRANSPARENT REPORTING</b></span>
+              <span>RECORDS <b>28,940</b></span>
             </span>
           </div>
 
           {/* Hero + stats */}
           <div className="rw-top reveal">
             <div className="rw-hero-card">
-              <span className="rw-tag">[ REAL RECEIPTS · REAL TRADERS ]</span>
+              <span className="rw-tag">[ REAL CLAIMS · REAL PRACTICES ]</span>
               <div className="rw-receipts">
-                <span className="rw-receipt">+$1,800</span>
-                <span className="rw-receipt alt">+$640</span>
+                <span className="rw-receipt">+$12,129</span>
+                <span className="rw-receipt alt">+$4,294</span>
               </div>
               <h1 className="rw-h1">
-                Real Rewards.
+                Real Results.
                 <br />
-                <span className="gt">Verified Live.</span>
+                <span className="gt">Fully Transparent.</span>
               </h1>
               <p>
-                Every reward Capital Chain has ever made, logged in real time with on-chain
-                verification for every crypto transaction. No press releases. Just receipts.
+                Every payment AkoreMD has collected and posted for its client practices, logged
+                with transparent reporting on every claim. No press releases. Just results.
               </p>
-              <a href="/#programs" className="btn btn-p" data-magnetic>
-                Get Funded ↗
+              <a href="/contact" className="btn btn-p" data-magnetic>
+                Get Started ↗
               </a>
             </div>
 
             <div className="rw-right">
               <div className="rw-statbar">
                 <div className="rw-statbox">
-                  <span className="rw-tag">[ PAID TO TRADERS ]</span>
-                  <div className="v gt">$5.33M+</div>
-                  <div className="s">ALL-TIME · ALL RAILS</div>
+                  <span className="rw-tag">[ COLLECTED FOR CLIENTS ]</span>
+                  <div className="v gt">$48.6M+</div>
+                  <div className="s">ALL-TIME · ALL PAYERS</div>
                 </div>
                 <div className="rw-statbox">
-                  <span className="rw-tag">[ REWARDS COMPLETED ]</span>
-                  <div className="v gt">3,621</div>
+                  <span className="rw-tag">[ CLAIMS PROCESSED ]</span>
+                  <div className="v gt">28,940</div>
                   <div className="s">SINCE LAUNCH</div>
                 </div>
                 <div className="rw-statbox">
-                  <span className="rw-tag">[ AVG TIME TO PAY ]</span>
-                  <div className="v gt">1hr 28min</div>
-                  <div className="s">99.2% UNDER THE SLA</div>
+                  <span className="rw-tag">[ CLEAN CLAIM RATE ]</span>
+                  <div className="v gt">98.2%</div>
+                  <div className="s">FIRST-PASS ACCEPTANCE</div>
                 </div>
               </div>
 
@@ -119,22 +119,22 @@ export default function Rewards() {
                 <div className="rw-mile-row">
                   <div className="rw-mile">
                     <div className="d">AUG 9, 2024</div>
-                    <div className="a gt">$50K</div>
-                    <div className="l">First rewards processed</div>
+                    <div className="a gt">$1M</div>
+                    <div className="l">First million collected</div>
                   </div>
                   <div className="rw-mile">
                     <div className="d">DEC 2024</div>
-                    <div className="a gt">$1M</div>
-                    <div className="l">412 rewards · 28 countries</div>
+                    <div className="a gt">$12M</div>
+                    <div className="l">120 practices onboarded</div>
                   </div>
                   <div className="rw-mile">
                     <div className="d">FEB 2026</div>
-                    <div className="a gt">$3M</div>
-                    <div className="l">Daily record ($142K / 24h)</div>
+                    <div className="a gt">$40M</div>
+                    <div className="l">Record month ($4.1M / 30d)</div>
                   </div>
                   <div className="rw-mile">
                     <div className="d">ON THE HORIZON</div>
-                    <div className="a muted">$6M</div>
+                    <div className="a muted">$60M</div>
                     <div className="l">Next milestone, in reach</div>
                   </div>
                 </div>
@@ -149,26 +149,26 @@ export default function Rewards() {
                 <span className="rw-tag center">
                   <span className="lr-dot" /> LIVE NOW · JUN 05, 2026 · CURRENT TOTAL
                 </span>
-                <div className="rw-total-num gt">$5,330,215.08</div>
+                <div className="rw-total-num gt">$48,612,940.08</div>
                 <div className="rw-total-row">
                   <span>
-                    <b>3,621</b> REWARDS
+                    <b>28,940</b> CLAIMS
                   </span>
                   <span>
-                    <b>99.2%</b> UNDER 1HR SLA
+                    <b>98.2%</b> CLEAN CLAIM RATE
                   </span>
                   <span>
-                    <b>160+</b> COUNTRIES
+                    <b>All</b> SPECIALTIES
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Mid: globe + hall of fame + rails */}
+          {/* Mid: payers + hall of fame + payer mix */}
           <div className="rw-mid reveal">
             <div className="rw-panel rw-globe">
-              <span className="rw-tag">[ GLOBAL REACH ]</span>
+              <span className="rw-tag">[ TOP PAYERS ]</span>
               <div className="rw-globe-list">
                 {COUNTRIES.map((c) => (
                   <span className="rw-country" key={c.name}>
@@ -182,94 +182,94 @@ export default function Rewards() {
 
             <div className="rw-panel">
               <div className="rw-panel-head">
-                <span className="rw-tag">[ HALL OF FAME ]</span>
+                <span className="rw-tag">[ HIGHLIGHTS ]</span>
                 <span className="rw-tag muted">RECORDS</span>
               </div>
               <div className="rw-records">
                 <div className="rw-rec">
                   <div>
-                    <div className="t">Largest single reward</div>
-                    <div className="m">Shivam S. · India · Feb 2026</div>
+                    <div className="t">Largest single recovery</div>
+                    <div className="m">Cardiology Group · Feb 2026</div>
                   </div>
-                  <div className="amt gt">$40,513</div>
+                  <div className="amt gt">$140,513</div>
                 </div>
                 <div className="rw-rec">
                   <div>
-                    <div className="t">Fastest reward</div>
-                    <div className="m">Nauman N. · United Kingdom</div>
+                    <div className="t">Biggest denial turnaround</div>
+                    <div className="m">Orthopedic Clinic · appeals won</div>
                   </div>
-                  <div className="amt gt">7 sec</div>
+                  <div className="amt gt">−42%</div>
                 </div>
                 <div className="rw-rec">
                   <div>
                     <div className="t">Single-day record</div>
-                    <div className="m">16 traders · May 01, 2026</div>
+                    <div className="m">38 practices · May 01, 2026</div>
                   </div>
-                  <div className="amt gt">$61,570</div>
+                  <div className="amt gt">$361,570</div>
                 </div>
                 <div className="rw-rec">
                   <div>
                     <div className="t">Latest milestone</div>
                     <div className="m">Live · last activity just now</div>
                   </div>
-                  <div className="amt gt">$5.33M</div>
+                  <div className="amt gt">$48.6M</div>
                 </div>
               </div>
             </div>
 
             <div className="rw-panel">
               <div className="rw-panel-head">
-                <span className="rw-tag">[ REWARD RAILS ]</span>
+                <span className="rw-tag">[ PAYER MIX ]</span>
                 <span className="rw-tag muted">BREAKDOWN</span>
               </div>
               <div className="rw-rail">
                 <div className="rw-rail-head">
-                  <span>CRYPTO · 22.8% of paid</span>
-                  <span className="amt gt">$1.22M</span>
+                  <span>GOVERNMENT · 38.6% of collected</span>
+                  <span className="amt gt">$18.8M</span>
                 </div>
                 <div className="rw-bar">
-                  <span style={{ width: '22.8%' }} />
+                  <span style={{ width: '38.6%' }} />
                 </div>
                 <div className="rw-rail-meta">
-                  <span>AVG $681</span>
-                  <span>1,787</span>
-                  <span>MAX $9K</span>
+                  <span>MEDICARE</span>
+                  <span>MEDICAID</span>
+                  <span>TRICARE</span>
                 </div>
               </div>
               <div className="rw-rail">
                 <div className="rw-rail-head">
-                  <span>BANK &amp; CARDS · 77.2% of paid</span>
-                  <span className="amt gt">$4.11M</span>
+                  <span>COMMERCIAL · 61.4% of collected</span>
+                  <span className="amt gt">$29.8M</span>
                 </div>
                 <div className="rw-bar">
-                  <span style={{ width: '77.2%' }} />
+                  <span style={{ width: '61.4%' }} />
                 </div>
                 <div className="rw-rail-meta">
-                  <span>AVG $2K</span>
-                  <span>1,834</span>
-                  <span>MAX $41K</span>
+                  <span>BCBS</span>
+                  <span>AETNA</span>
+                  <span>UHC · CIGNA</span>
                 </div>
               </div>
               <div className="rw-balance">
-                <span style={{ width: '22.8%' }} className="c" />
-                <span style={{ width: '77.2%' }} className="r" />
+                <span style={{ width: '38.6%' }} className="c" />
+                <span style={{ width: '61.4%' }} className="r" />
               </div>
             </div>
           </div>
 
-          {/* Live reward stream */}
+          {/* Live collection stream */}
           <div className="rw-panel rw-stream reveal">
-            <span className="rw-tag">[ LIVE REWARD STREAM ]</span>
+            <span className="rw-tag">[ LIVE COLLECTION STREAM ]</span>
             <Ticker />
           </div>
 
-          {/* Reward ledger */}
+          {/* Collections ledger */}
           <div className="rw-panel rw-ledger-panel reveal">
             <div className="rw-panel-head">
               <span className="rw-tag">
-                [ REWARD LEDGER ] <span className="muted">// EVERY REWARD SINCE LAUNCH · AUG 9 2024 → PRESENT</span>
+                [ COLLECTIONS LEDGER ] <span className="muted">// EVERY PAYMENT SINCE LAUNCH · AUG 9 2024 → PRESENT</span>
               </span>
-              <span className="rw-tag muted">SHOWING 1–10 OF 3,621</span>
+              <span className="rw-tag muted">SHOWING 1–10 OF 28,940</span>
             </div>
             <div className="rw-ledger-controls">
               <select className="rw-input" defaultValue="all" aria-label="Date range">
@@ -278,7 +278,7 @@ export default function Rewards() {
                 <option value="7">Last 7 days</option>
                 <option value="24">Last 24 hours</option>
               </select>
-              <input className="rw-input grow" placeholder="Initials search — e.g. AR or A.R." aria-label="Initials search" />
+              <input className="rw-input grow" placeholder="Search practice or payer" aria-label="Search practice or payer" />
               <button className="rw-input rw-reset" type="button">Reset</button>
             </div>
             <div className="rw-ledger-wrap">
@@ -286,11 +286,11 @@ export default function Rewards() {
                 <thead>
                   <tr>
                     <th>Date</th>
-                    <th>Trader</th>
-                    <th>Account size</th>
-                    <th>Plan</th>
-                    <th>Amount</th>
-                    <th>Transaction</th>
+                    <th>Practice</th>
+                    <th>Size</th>
+                    <th>Payer</th>
+                    <th>Collected</th>
+                    <th>Claim ID</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -326,18 +326,18 @@ export default function Rewards() {
               <span className="rw-tag">[ METHODOLOGY ]</span>
               <h3>How the ledger works</h3>
               <p>
-                Reward data is pulled live from the Capital Chain ledger via realtime sync. Trader
-                identities are anonymised to initials; crypto transactions are independently
-                verifiable on the public blockchain.
+                Collection data is drawn live from the AkoreMD billing platform via realtime sync.
+                Practice identities are anonymised to specialty and size; every figure ties back to
+                a posted remittance in your monthly reporting.
               </p>
             </div>
             <div className="rw-panel">
               <span className="rw-tag">[ WHY THIS MATTERS ]</span>
               <h3>Proof, not press releases</h3>
               <p>
-                Most prop firms publish self-reported totals. We expose both rails — crypto and bank —
-                at the transaction level, with on-chain proof for every crypto reward. No audit fees.
-                Just a ledger.
+                Most billing companies publish self-reported totals. We expose collections at the
+                claim level across every payer, with transparent reporting on each one. No vanity
+                metrics — just a ledger you can reconcile.
               </p>
             </div>
             <div className="rw-panel">
@@ -353,7 +353,7 @@ export default function Rewards() {
                 </div>
                 <div className="rw-update-row">
                   <span>AUDIT</span>
-                  <b className="gt">ON-CHAIN</b>
+                  <b className="gt">REPORTED</b>
                 </div>
               </div>
             </div>

@@ -91,7 +91,7 @@ export default function Nav() {
         <div className="bar">
           <a href="/" className="logo">
             <LogoMark />
-            Capital<b>Chain</b>
+            Akore<b>MD</b>
           </a>
           <div className="nav-links">
             <a href="/" className={pathname === '/' ? 'on' : undefined}>

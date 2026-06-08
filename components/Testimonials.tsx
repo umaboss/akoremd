@@ -2,12 +2,12 @@
 
 import { useT } from './LanguageProvider';
 
-// TODO: replace with real verified testimonials — names, accounts and payouts are placeholders.
+// TODO: replace with real verified testimonials — names, specialties and results are placeholders.
 const META = [
-  { nm: 'Evgeny M.', size: '$100K', pay: '$36,393' },
-  { nm: 'Mac Ting', size: '$200K', pay: '$50,400' },
-  { nm: 'Nipong', size: '$50K', pay: '$12,656' },
-  { nm: 'Aisha N.', size: '$100K', pay: '$41,210' },
+  { nm: 'Dr. Patel', size: 'Cardiology', pay: '−31% denials' },
+  { nm: 'Dr. Nguyen', size: 'Family Med', pay: '+22% collections' },
+  { nm: 'Dr. Brooks', size: 'Orthopedics', pay: '14-day pay' },
+  { nm: 'Dr. Alvarez', size: 'Internal Med', pay: '+$41K/mo' },
 ];
 
 export default function Testimonials() {

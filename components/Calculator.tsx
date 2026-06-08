@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { useT } from './LanguageProvider';
 
 // Calculator data + logic ported verbatim from the mockup's <script>.
-const SZ = [5000, 25000, 100000, 200000, 500000];
+// Monthly insurance billings tiers (drives the recovery estimate).
+const SZ = [50000, 150000, 300000, 600000, 1000000];
+// Recovery effectiveness by service plan (Front Office → Full RCM + AR).
 const SPLITS = [0.6, 0.7, 0.8, 1.0];
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 

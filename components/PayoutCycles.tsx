@@ -16,7 +16,7 @@ function rich(s: string) {
   );
 }
 
-const SPLITS = ['60%', '70%', '80%', '100%'];
+const SPLITS = ['98%', '95%', '30%', '99%'];
 
 export default function PayoutCycles() {
   const t = useT();

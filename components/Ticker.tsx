@@ -1,10 +1,11 @@
-// TODO: replace with real payout feed. Names, flags and amounts are placeholders.
+// TODO: replace with the real payment-posting feed. Practices, payers and amounts are placeholders.
 // Amounts are fixed (not Math.random as in the mockup) so SSR markup is stable.
 const NAMES = [
-  'Ahmed R.', 'Sofia L.', 'Daniel K.', 'Mei Chen', 'Carlos V.', 'Priya S.',
-  'Omar F.', 'Lukas B.', 'Aisha N.', 'Tomáš H.', 'Yuki T.', 'Imran B.',
+  'Cardiology · Aetna', 'Family Med · BCBS', 'Orthopedics · UHC', 'Internal Med · Cigna',
+  'Pediatrics · Medicaid', 'Neurology · Medicare', 'Dermatology · Humana', 'OB-GYN · Aetna',
+  'Urgent Care · BCBS', 'Gastro · UHC', 'Pain Mgmt · Cigna', 'Radiology · Medicare',
 ];
-const FLAGS = ['🇦🇪', '🇪🇸', '🇩🇪', '🇸🇬', '🇧🇷', '🇮🇳', '🇪🇬', '🇦🇹', '🇵🇰', '🇨🇿', '🇯🇵', '🇬🇧'];
+const FLAGS = ['❤️', '🩺', '🦴', '🫀', '🧒', '🧠', '🧴', '🤰', '🚑', '🔬', '💊', '📷'];
 const AMOUNTS = [4820, 1340, 7650, 2980, 6210, 920, 8470, 3760, 5290, 1880, 7010, 2450, 9320, 1610];
 
 function Chip({ i }: { i: number }) {

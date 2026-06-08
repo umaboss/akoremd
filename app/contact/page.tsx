@@ -6,8 +6,9 @@ import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — CapitalChain',
-  description: 'Get in touch with the Capital Chain support team. Contact us 24/7 via live chat, email, or join our community Discord server.',
+  title: 'Contact Us — AkoreMD',
+  description:
+    'Get in touch with the AkoreMD team. Schedule a free consultation or practice revenue audit, or reach our billing specialists by phone and email.',
 };
 
 export default function ContactUs() {
@@ -27,7 +28,7 @@ export default function ContactUs() {
               We are here to <span className="gt">help.</span>
             </h1>
             <p className="hero-sub reveal" style={{ maxWidth: '640px' }}>
-              Have questions about our prop evaluations, scaling limits, or payout structure? Our professional staff is here to help you around the clock.
+              Ready to improve your revenue cycle? Have questions about claims, denials, coding or credentialing? Our billing specialists are here to help — and your first consultation is always free.
             </p>
           </div>
         </section>
@@ -51,32 +52,32 @@ export default function ContactUs() {
                       <polyline points="22,6 12,13 2,6" />
                     </svg>
                   </div>
-                  <h4 style={{ fontFamily: 'var(--fd)', fontSize: '20px', fontWeight: 600, margin: 0 }}>Direct Support</h4>
+                  <h4 style={{ fontFamily: 'var(--fd)', fontSize: '20px', fontWeight: 600, margin: 0 }}>Billing Support</h4>
                 </div>
                 <p style={{ color: 'var(--dim)', fontSize: '14.5px', marginBottom: '16px', lineHeight: 1.6 }}>
-                  Email our support desk directly for any account queries, payment logs, or technical challenges.
+                  Email our team directly for questions about claims, payment posting, denials or your reporting.
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--line)', paddingTop: '16px' }}>
-                  <span style={{ color: 'var(--text)', fontWeight: 600 }}>support@capitalchain.co</span>
+                  <span style={{ color: 'var(--text)', fontWeight: 600 }}>support@akoremd.com</span>
                   <span style={{ fontSize: '12px', background: 'rgba(25,230,214,0.1)', color: 'var(--teal)', padding: '4px 10px', borderRadius: '20px' }}>&lt; 1hr response</span>
                 </div>
               </div>
 
-              {/* Card 2: Discord Support */}
+              {/* Card 2: Free Consultation */}
               <div className="tile" style={{ padding: '30px' }}>
                 <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '16px' }}>
                   <div className="ic" style={{ margin: 0, padding: '8px', background: 'rgba(25,230,214,0.1)', borderRadius: '10px' }}>
-                    <svg viewBox="0 0 24 24" style={{ width: '24px', height: '24px', fill: 'var(--teal)' }}>
-                      <path d="M20.3 4.4A19.8 19.8 0 0015.4 3l-.3.5a14.6 14.6 0 014.4 1.4 12.6 12.6 0 00-15 0A14.6 14.6 0 018.9 3.5L8.6 3a19.8 19.8 0 00-4.9 1.4C.6 9 0 13.5.3 17.9a19.9 19.9 0 006 3l.5-1.3a13 13 0 01-1.9-.9l.4-.3a14.2 14.2 0 0012.4 0l.4.3a13 13 0 01-1.9.9l.5 1.3a19.9 19.9 0 006-3c.4-5.1-.7-9.6-2.8-13.5zM8.3 15.3c-1.2 0-2.1-1.1-2.1-2.4S7.1 10.5 8.3 10.5s2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4zm7.4 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4z" />
+                    <svg viewBox="0 0 24 24" style={{ width: '24px', height: '24px', stroke: 'var(--teal)', strokeWidth: 2, fill: 'none' }}>
+                      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
                     </svg>
                   </div>
-                  <h4 style={{ fontFamily: 'var(--fd)', fontSize: '20px', fontWeight: 600, margin: 0 }}>Community Discord</h4>
+                  <h4 style={{ fontFamily: 'var(--fd)', fontSize: '20px', fontWeight: 600, margin: 0 }}>Free Consultation</h4>
                 </div>
                 <p style={{ color: 'var(--dim)', fontSize: '14.5px', marginBottom: '16px', lineHeight: 1.6 }}>
-                  Join thousands of other traders. Get live community responses, system status drops, and open tickets directly inside our server.
+                  Book a no-obligation call with a billing specialist. We&apos;ll review your revenue cycle and show where AkoreMD can recover revenue.
                 </p>
                 <a href="/#community" className="btn btn-p" style={{ width: '100%', justifyContent: 'center' }}>
-                  Join Discord Server →
+                  Schedule a call →
                 </a>
               </div>
 
@@ -91,10 +92,10 @@ export default function ContactUs() {
                       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                     </svg>
                   </div>
-                  <h4 style={{ fontFamily: 'var(--fd)', fontSize: '20px', fontWeight: 600, margin: 0 }}>Business Inquiries</h4>
+                  <h4 style={{ fontFamily: 'var(--fd)', fontSize: '20px', fontWeight: 600, margin: 0 }}>Partners & Referrals</h4>
                 </div>
                 <p style={{ color: 'var(--dim)', fontSize: '14.5px', lineHeight: 1.6 }}>
-                  For affiliate questions, marketing collaborations, white labels, or corporate accounts, email: <strong style={{ color: 'var(--text)' }}>partners@capitalchain.co</strong>
+                  For partnership opportunities, referrals or multi-location group billing, email: <strong style={{ color: 'var(--text)' }}>partners@akoremd.com</strong>
                 </p>
               </div>
             </div>
@@ -104,21 +105,21 @@ export default function ContactUs() {
         {/* Section 3: Location / Map */}
         <section className="sec" style={{ paddingTop: 0 }}>
           <div className="wrap reveal">
-            <div 
+            <div
               className="about-location-card"
               style={{ backgroundImage: `url('/about_dubai.png')` }}
             >
               <div className="loc-content">
                 <span className="idx" style={{ color: 'var(--teal)' }}>HEADQUARTERS</span>
-                <h3>Dubai Healthcare City, Dubai,<br />United Arab Emirates</h3>
+                <h3>AkoreMD Billing Center<br />United States</h3>
                 <p style={{ color: 'var(--text)', fontSize: 16, marginBottom: 30, opacity: 0.8 }}>
-                  Our physical doors are open for institutional partners and scheduled appointments.
+                  We serve practices nationwide. Reach out to schedule your free consultation.
                 </p>
                 <div style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
-                  <a 
-                    href="https://maps.google.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn btn-p"
                   >
                     View on Google Maps

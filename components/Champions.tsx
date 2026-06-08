@@ -2,13 +2,13 @@
 
 import { useT } from './LanguageProvider';
 
-// TODO: replace with real leaderboard data — names, flags and amounts are placeholders.
+// TODO: replace with real client results — names, specialties and amounts are placeholders.
 const CHAMPS = [
-  { rank: '#01', flag: '🇦🇪', name: 'A. Rahman', size: '$200K', amt: '$96,316' },
-  { rank: '#02', flag: '🇩🇪', name: 'B. Schneider', size: '$200K', amt: '$80,517' },
-  { rank: '#03', flag: '🇵🇰', name: 'U. Bin Hannan', size: '$100K', amt: '$80,369' },
-  { rank: '#04', flag: '🇬🇧', name: 'O. Trish', size: '$100K', amt: '$66,028' },
-  { rank: '#05', flag: '🇸🇬', name: 'M. Chen', size: '$100K', amt: '$58,940' },
+  { rank: '#01', flag: '❤️', name: 'Cardiology Group', size: 'Multi-site', amt: '$96,316' },
+  { rank: '#02', flag: '🦴', name: 'Orthopedic Clinic', size: '8 providers', amt: '$80,517' },
+  { rank: '#03', flag: '🧠', name: 'Neurology Associates', size: '5 providers', amt: '$80,369' },
+  { rank: '#04', flag: '👨‍⚕️', name: 'Family Medicine', size: 'Solo', amt: '$66,028' },
+  { rank: '#05', flag: '🩺', name: 'Internal Medicine', size: '4 providers', amt: '$58,940' },
 ];
 
 export default function Champions() {
