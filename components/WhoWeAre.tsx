@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties, MouseEvent } from 'react';
 import { useT } from './LanguageProvider';
 
 const ICONS = [
@@ -9,10 +10,24 @@ const ICONS = [
   <path key="3" d="M21 12a9 9 0 11-6.2-8.6M22 4l-9 9-3-3" />,
 ];
 
+function trackGlow(e: MouseEvent<HTMLElement>) {
+  const el = e.currentTarget;
+  const r = el.getBoundingClientRect();
+  el.style.setProperty('--gx', `${e.clientX - r.left}px`);
+  el.style.setProperty('--gy', `${e.clientY - r.top}px`);
+}
+
+function resetGlow(e: MouseEvent<HTMLElement>) {
+  const el = e.currentTarget;
+  el.style.setProperty('--gx', '50%');
+  el.style.setProperty('--gy', '0px');
+}
+
 export default function WhoWeAre() {
   const t = useT();
   return (
-    <section className="sec" id="about">
+    <section className="sec who-sec" id="about">
+      <div className="who-sec-bg" aria-hidden="true" />
       <div className="wrap">
         <div className="shead reveal">
           <div>
@@ -23,15 +38,26 @@ export default function WhoWeAre() {
           </div>
           <p>{t.who.sub}</p>
         </div>
-        <div className="svc-grid">
+        <div className="svc-grid who-grid">
           {t.who.cards.map((c, i) => (
-            <div className="tile reveal" data-tilt key={i}>
-              <div className="ic">
+            <article
+              className="who-card reveal"
+              data-tilt
+              key={c.h}
+              style={{ '--card-i': i } as CSSProperties}
+              onMouseMove={trackGlow}
+              onMouseLeave={resetGlow}
+            >
+              <span className="who-card-glow" aria-hidden="true" />
+              <span className="who-card-shine" aria-hidden="true" />
+              <span className="who-card-line" aria-hidden="true" />
+              <span className="who-card-num">{String(i + 1).padStart(2, '0')}</span>
+              <div className="who-card-ic">
                 <svg viewBox="0 0 24 24">{ICONS[i]}</svg>
               </div>
               <h3>{c.h}</h3>
               <p>{c.p}</p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

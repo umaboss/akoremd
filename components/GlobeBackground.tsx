@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useTheme } from './ThemeProvider';
@@ -234,8 +235,8 @@ function GlobeScene({ labelRefs }: { labelRefs: LabelRefs }) {
     }
   }, [isLight, built]);
 
-  // Pointer parallax + scroll tilt state, and responsive placement.
-  const motion = useRef({ mx: 0, my: 0, tx: 0, ty: 0, sy: 0 });
+  // Pointer parallax + responsive placement (hero banner only — no scroll movement).
+  const parallax = useRef({ mx: 0, my: 0, tx: 0, ty: 0 });
   useEffect(() => {
     const { group, halo } = built;
     const place = () => {
@@ -246,29 +247,24 @@ function GlobeScene({ labelRefs }: { labelRefs: LabelRefs }) {
     };
     place();
     const onMove = (e: MouseEvent) => {
-      motion.current.tx = e.clientX / window.innerWidth - 0.5;
-      motion.current.ty = e.clientY / window.innerHeight - 0.5;
-    };
-    const onScroll = () => {
-      motion.current.sy = window.scrollY;
+      parallax.current.tx = e.clientX / window.innerWidth - 0.5;
+      parallax.current.ty = e.clientY / window.innerHeight - 0.5;
     };
     window.addEventListener('mousemove', onMove);
-    window.addEventListener('scroll', onScroll);
     window.addEventListener('resize', place);
     return () => {
       window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', place);
     };
   }, [built]);
 
   useFrame((state) => {
     const { group, trav, anchors } = built;
-    const m = motion.current;
+    const m = parallax.current;
     group.rotation.y += 0.0012;
     m.mx += (m.tx - m.mx) * 0.05;
     m.my += (m.ty - m.my) * 0.05;
-    group.rotation.x = -0.16 + m.my * 0.32 + m.sy * 0.00012;
+    group.rotation.x = -0.16 + m.my * 0.32;
     group.rotation.z = m.mx * 0.05;
     trav.forEach((t) => {
       t.t += t.sp;
@@ -312,22 +308,49 @@ function GlobeScene({ labelRefs }: { labelRefs: LabelRefs }) {
   );
 }
 
+function useHeroGlobeVisible() {
+  const pathname = usePathname();
+  const [visible, setVisible] = useState(pathname === '/');
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      setVisible(false);
+      return;
+    }
+
+    const hero = document.querySelector('.hero');
+    if (!hero) {
+      setVisible(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  return visible;
+}
+
 export default function GlobeBackground() {
   const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const heroVisible = useHeroGlobeVisible();
+
   return (
-    <>
+    <div className={`globe-shell${heroVisible ? ' is-visible' : ''}`} aria-hidden={!heroVisible}>
       <Canvas
         id="globe"
         gl={{ alpha: true, antialias: true }}
         dpr={[1, 2]}
         camera={{ fov: 42, near: 1, far: 2000, position: [0, 0, 420] }}
-        // Override R3F's default inline `position: relative` so the canvas stays
-        // fixed behind all content. `#globe` stylesheet still drives opacity/transition.
-        style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
       >
         <GlobeScene labelRefs={labelRefs} />
       </Canvas>
-      {/* Revolving payout pills — positioned each frame from the 3D anchors above. */}
       <div className="globe-labels" aria-hidden="true">
         {PAYOUTS.map((p, i) => (
           <div
@@ -344,6 +367,6 @@ export default function GlobeBackground() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
