@@ -13,14 +13,12 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Light is the default. No localStorage — pure React state so SSR markup is stable.
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('dark');
 
   const toggleTheme = useCallback(() => {
     setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
   }, []);
 
-  // Mirror the theme onto <body class="light"> so the ported CSS variables swap.
   useEffect(() => {
     document.body.classList.toggle('light', theme === 'light');
   }, [theme]);

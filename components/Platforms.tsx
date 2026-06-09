@@ -2,14 +2,7 @@
 
 import { useT } from './LanguageProvider';
 
-const META = [
-  { cls: 'a', badge: 'KAREO / ADVANCEDMD' },
-  { cls: 'b', badge: 'ATHENAHEALTH' },
-  { cls: 'c', badge: 'eCW / NEXTGEN' },
-  { cls: 'd', badge: '⚡ DRCHRONO' },
-  { cls: 'e', badge: '🔗 OFFICE ALLY' },
-  { cls: 'f', badge: '✓ ANY SYSTEM' },
-];
+const META = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 export default function Platforms() {
   const t = useT();
@@ -25,12 +18,11 @@ export default function Platforms() {
           </div>
           <p>{t.platforms.sub}</p>
         </div>
-        <div className="plat-bento">
-          {META.map((m, i) => (
-            <div className={`ptile ${m.cls} reveal`} key={m.cls} data-tilt>
-              <span className="badge">{m.badge}</span>
-              <h4>{t.platforms.tiles[i].h}</h4>
-              <p>{t.platforms.tiles[i].p}</p>
+        <div className="plat-bento plat-bento-8">
+          {t.platforms.tiles.map((tile, i) => (
+            <div className={`ptile ${META[i % META.length]} reveal`} key={tile.h} data-tilt>
+              <h4>{tile.h}</h4>
+              <p>{tile.p}</p>
             </div>
           ))}
         </div>

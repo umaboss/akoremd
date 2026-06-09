@@ -1,6 +1,7 @@
 'use client';
 
 import { useLayoutEffect, useRef, useState } from 'react';
+import SectionHeader from './SectionHeader';
 import { useT } from './LanguageProvider';
 
 function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
@@ -9,15 +10,15 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
     const el = ref.current;
     if (!el) return;
     el.style.maxHeight = open ? `${el.scrollHeight}px` : '';
-  }, [open]);
+  }, [open, a]);
 
   return (
     <div className={`faq-item${open ? ' open' : ''}`}>
-      <button className="faq-q" onClick={onToggle}>
+      <button className="faq-q" onClick={onToggle} aria-expanded={open}>
         {q} <span className="pm">+</span>
       </button>
       <div className="faq-a" ref={ref}>
-        <div>{a}</div>
+        <div className="text-body">{a}</div>
       </div>
     </div>
   );
@@ -25,29 +26,27 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
 
 export default function FAQ() {
   const t = useT();
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(0);
+
   return (
-    <section className="sec band" id="faq">
+    <section className="landing-section" id="faq">
       <div className="wrap">
-        <div className="faq-grid">
-          <div className="reveal">
-            <span className="idx">{t.faq.idx}</span>
-            <h2 className="h2">
-              {t.faq.title_a} <span className="gt">{t.faq.title_b}</span>
-            </h2>
-            <p style={{ color: 'var(--dim)', marginTop: 14 }}>{t.faq.sub}</p>
-          </div>
-          <div className="faq-list reveal">
-            {t.faq.items.map((it, i) => (
-              <FaqItem
-                key={it.q}
-                q={it.q}
-                a={it.a}
-                open={open === i}
-                onToggle={() => setOpen(open === i ? null : i)}
-              />
-            ))}
-          </div>
+        <SectionHeader
+          eyebrow={t.faq.eyebrow}
+          title={t.faq.title}
+          titleAccent={t.faq.titleAccent}
+          description={t.faq.sub}
+        />
+        <div className="faq-landing reveal">
+          {t.faq.items.map((item, i) => (
+            <FaqItem
+              key={item.q}
+              q={item.q}
+              a={item.a}
+              open={open === i}
+              onToggle={() => setOpen(open === i ? null : i)}
+            />
+          ))}
         </div>
       </div>
     </section>

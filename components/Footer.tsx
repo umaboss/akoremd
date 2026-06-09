@@ -4,7 +4,7 @@ import { useT } from './LanguageProvider';
 
 function LogoMark() {
   return (
-    <svg className="mark" viewBox="0 0 40 40" fill="none">
+    <svg className="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <path
         className="lkp"
         d="M14 20a6 6 0 016-6h0a6 6 0 016 6m0 0a6 6 0 01-6 6h0a6 6 0 01-6-6"
@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="news reveal">
           <div>
             <h4>{t.footer.newsH}</h4>
-            <p>{t.footer.newsP}</p>
+            <p className="text-sm">{t.footer.newsP}</p>
           </div>
           <div className="form">
             <input type="email" placeholder={t.footer.emailPlaceholder} aria-label="email" />
@@ -49,21 +49,28 @@ export default function Footer() {
               <LogoMark />
               Akore<b>MD</b>
             </a>
-            <p>{t.footer.brandP}</p>
+            <p className="text-sm">{t.footer.brandP}</p>
+            <div className="foot-social">
+              {t.footer.social.map((name) => (
+                <a href="#" key={name} aria-label={name}>
+                  {name}
+                </a>
+              ))}
+            </div>
           </div>
           <div className="foot-col">
             <h5>{t.footer.platform}</h5>
-            <a href="/#programs">{t.footer.programs}</a>
+            <a href="/#features">{t.footer.programs}</a>
+            <a href="/#services">{t.nav.services}</a>
             <a href="/#payouts">{t.footer.payouts}</a>
-            <a href="/#scaling">{t.footer.scaling}</a>
-            <a href="/#platforms">{t.footer.platforms}</a>
+            <a href="/#how">{t.footer.scaling}</a>
           </div>
           <div className="foot-col">
             <h5>{t.footer.company}</h5>
-            <a href="/about">{t.footer.about}</a>
-            <a href="/affiliate">{t.footer.affiliate}</a>
-            <a href="/#community">{t.footer.community}</a>
+            <a href="/#about">{t.footer.about}</a>
             <a href="/contact">{t.footer.contact}</a>
+            <a href="/#faq">{t.footer.platforms}</a>
+            <a href="/contact">{t.footer.community}</a>
           </div>
           <div className="foot-col">
             <h5>{t.footer.legal}</h5>
@@ -75,11 +82,11 @@ export default function Footer() {
         </div>
         <div className="disclaimer">
           <strong style={{ color: 'var(--dim)' }}>{t.footer.riskTitle}</strong>
-          {t.footer.disclaimer}
+          <span className="text-sm">{t.footer.disclaimer}</span>
         </div>
         <div className="foot-bot">
-          <span>{t.footer.rights}</span>
-          <span>akoremd.com</span>
+          <span className="text-sm">{t.footer.rights}</span>
+          <span className="text-sm">akoremd.com</span>
         </div>
       </div>
     </footer>

@@ -1,13 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { useTheme } from './ThemeProvider';
-import { LANGS, useLang, useT } from './LanguageProvider';
+import { useT } from './LanguageProvider';
 
 function LogoMark() {
   return (
-    <svg className="mark" viewBox="0 0 40 40" fill="none">
+    <svg className="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <path
         className="lkp"
         d="M14 20a6 6 0 016-6h0a6 6 0 016 6m0 0a6 6 0 01-6 6h0a6 6 0 01-6-6"
@@ -29,54 +28,10 @@ function LogoMark() {
   );
 }
 
-function LangSwitch() {
-  const { lang, setLang } = useLang();
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const active = LANGS.find((l) => l.code === lang) ?? LANGS[0];
-
-  useEffect(() => {
-    const onDoc = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener('click', onDoc);
-    return () => document.removeEventListener('click', onDoc);
-  }, []);
-
-  return (
-    <div className={`lang-switch${open ? ' open' : ''}`} ref={ref}>
-      <button className="lang-btn" onClick={() => setOpen((o) => !o)} aria-label="Language">
-        <span>{active.flag}</span>
-        <span>{active.label}</span>
-        <span className="caret">▼</span>
-      </button>
-      {open && (
-        <div className="lang-menu" role="menu">
-          {LANGS.map((l) => (
-            <button
-              key={l.code}
-              className={`lang-opt${l.code === lang ? ' on' : ''}`}
-              onClick={() => {
-                setLang(l.code);
-                setOpen(false);
-              }}
-            >
-              <span className="o-flag">{l.flag}</span>
-              <span>{l.label}</span>
-              <span className="o-native">{l.native}</span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function Nav() {
   const { toggleTheme } = useTheme();
   const t = useT();
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -88,30 +43,17 @@ export default function Nav() {
   return (
     <header id="hdr" className={scrolled ? 'scrolled' : undefined}>
       <div className="wrap">
-        <div className="bar">
+        <nav className="bar" aria-label="Main navigation">
           <a href="/" className="logo">
             <LogoMark />
             Akore<b>MD</b>
           </a>
           <div className="nav-links">
-            <a href="/" className={pathname === '/' ? 'on' : undefined}>
-              {t.nav.home}
-            </a>
-            <a href="/rewards" className={pathname === '/rewards' ? 'on' : undefined}>
-              {t.nav.rewards}
-            </a>
-            <a href="/affiliate" className={pathname === '/affiliate' ? 'on' : undefined}>
-              {t.nav.affiliate}
-            </a>
-            <a href="/about" className={pathname === '/about' ? 'on' : undefined}>
-              {t.nav.about}
-            </a>
-            <a href="/contact" className={pathname === '/contact' ? 'on' : undefined}>
-              {t.nav.contact}
-            </a>
-            <a href="/terms" className={pathname === '/terms' ? 'on' : undefined}>
-              {t.nav.terms}
-            </a>
+            <a href="/#features">{t.nav.features}</a>
+            <a href="/#about">{t.nav.about}</a>
+            <a href="/#services">{t.nav.services}</a>
+            <a href="/#how">{t.nav.how}</a>
+            <a href="/#faq">{t.nav.faq}</a>
           </div>
           <div className="nav-cta">
             <button className="theme-tg" id="themeTg" aria-label="Toggle theme" onClick={toggleTheme}>
@@ -123,16 +65,14 @@ export default function Nav() {
                 <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" />
               </svg>
             </button>
-            <LangSwitch />
-            <a href="#" className="btn">
-              {t.nav.login}
-            </a>
-            <a href="/#programs" className="btn btn-p" data-magnetic>
+            <a href="/contact" className="btn btn-p" data-magnetic>
               {t.nav.buy}
             </a>
           </div>
-          <button className="menu-btn">☰</button>
-        </div>
+          <button className="menu-btn" aria-label="Open menu">
+            ☰
+          </button>
+        </nav>
       </div>
     </header>
   );

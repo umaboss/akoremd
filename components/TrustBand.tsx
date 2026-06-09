@@ -1,48 +1,28 @@
 'use client';
 
-// TODO: replace with real verified figures (paid-to-traders, funded accounts,
-// countries, Trustpilot score). Numbers below are illustrative placeholders.
 import { useT } from './LanguageProvider';
 
 export default function TrustBand() {
   const t = useT();
   return (
-    <div className="trust">
+    <section className="trust-band landing-section" aria-label="Trust and social proof">
       <div className="wrap">
-        <div className="st reveal">
-          <div className="v">
-            <span className="u">$</span>
-            <span data-count="0" data-suffix="M+">
-              0
-            </span>
-          </div>
-          <div className="k">{t.trust.paid}</div>
+        <div className="trust-stats reveal">
+          {t.trust.stats.map((stat) => (
+            <div className="trust-stat" key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
         </div>
-        <div className="st reveal">
-          <div className="v">
-            <span data-count="0" data-suffix="K+">
-              0
+        <div className="trust-logos reveal" aria-label="Supported platforms">
+          {t.trust.logos.map((logo) => (
+            <span className="trust-logo" key={logo}>
+              {logo}
             </span>
-          </div>
-          <div className="k">{t.trust.funded}</div>
-        </div>
-        <div className="st reveal">
-          <div className="v">
-            <span data-count="0" data-suffix="+">
-              0
-            </span>
-          </div>
-          <div className="k">{t.trust.countries}</div>
-        </div>
-        <div className="st reveal">
-          <div className="v">0.0</div>
-          <div className="tp">
-            <span className="stars">★★★★★</span>
-            <span className="tx">{t.trust.trustpilot}</span>
-          </div>
-          <div className="k">{t.trust.reviews}</div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
