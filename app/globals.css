@@ -152,6 +152,11 @@ section{position:relative;z-index:3}
 .landing-section{padding:var(--section-py) 0}
 .section-header{margin-bottom:var(--space-8);max-width:720px}
 .section-header--center{margin-inline:auto;text-align:center}
+.section-header--split{max-width:none;display:flex;align-items:center;justify-content:space-between;gap:var(--space-8);margin-bottom:var(--space-8)}
+.section-header--split .section-header-content{flex:1;min-width:0}
+.section-header--split .section-desc{margin-inline:0}
+.section-header-image{flex:none;width:280px;height:200px;display:flex;align-items:center;justify-content:center}
+.section-header-image svg{width:100%;height:100%}
 .section-header .h2{margin-bottom:var(--space-2);max-width:none}
 .section-desc{font-size:clamp(16px,1.1vw,18px);color:var(--dim);line-height:1.65;max-width:60ch}
 .section-header--center .section-desc{margin-inline:auto}
@@ -347,6 +352,10 @@ body.light .orbit-detail-card{
 @keyframes orbit-card-in{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
 
 @media(max-width:900px){
+  .section-header--split{flex-direction:column;text-align:center;gap:var(--space-5)}
+  .section-header--split .section-header-content{width:100%}
+  .section-header--split .section-desc{margin-inline:auto}
+  .section-header-image{width:200px;height:150px}
   .orbit-stage{min-height:auto;padding:16px 0 8px;display:flex;flex-direction:column;gap:24px}
   .orbit-ring,.orbit-traveler{display:none}
   .orbit-core{position:relative;left:auto;top:auto;transform:none;order:2;min-height:260px;width:100%}
@@ -532,6 +541,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   font-size:13px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);
   background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--text);
 }
+
+.services-panel-head{display:flex;align-items:flex-start;gap:var(--space-5)}
+.services-panel-head-content{flex:1;min-width:0}
+.services-panel-image{width:160px;height:120px;flex:none;display:flex;align-items:center;justify-content:center}
+.services-panel-image svg{width:100%;height:100%}
 
 /* trust band */
 .trust-band{padding:var(--space-6) 0;border-block:1px solid var(--line);background:color-mix(in srgb,var(--bg-2) 50%,transparent)}

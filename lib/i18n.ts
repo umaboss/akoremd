@@ -107,6 +107,7 @@ const en = {
     title_a: 'Complete billing',
     title_b: 'support.',
     sub: 'Every stage of your revenue cycle — from scheduling to AR follow-up — handled by dedicated specialists.',
+    imageAlt: 'Medical billing dashboard showing revenue cycle management and claims processing',
     categories: {
       front: 'Front Office',
       billing: 'Billing & Claims',

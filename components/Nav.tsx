@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTheme } from './ThemeProvider';
 import { useT } from './LanguageProvider';
 
 function LogoMark() {
@@ -29,7 +28,6 @@ function LogoMark() {
 }
 
 export default function Nav() {
-  const { toggleTheme } = useTheme();
   const t = useT();
   const [scrolled, setScrolled] = useState(false);
 
@@ -56,15 +54,6 @@ export default function Nav() {
             <a href="/#faq">{t.nav.faq}</a>
           </div>
           <div className="nav-cta">
-            <button className="theme-tg" id="themeTg" aria-label="Toggle theme" onClick={toggleTheme}>
-              <svg className="sun" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-              </svg>
-              <svg className="moon" viewBox="0 0 24 24">
-                <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" />
-              </svg>
-            </button>
             <a href="/contact" className="btn btn-p" data-magnetic>
               {t.nav.buy}
             </a>
