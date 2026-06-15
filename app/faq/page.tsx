@@ -1,19 +1,17 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import FaqPageContent from '@/components/FaqPageContent';
+import FaqJsonLd from '@/components/seo/FaqJsonLd';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'FAQ — AkoreMD',
-  description:
-    'Frequently asked questions about AkoreMD medical billing services, pricing, HIPAA compliance, software integrations, and onboarding.',
-};
+export const metadata = buildPageMetadata('faq');
 
 export default function FaqPage() {
   return (
     <>
+      <FaqJsonLd />
       <Nav />
       <main>
         <PageHero

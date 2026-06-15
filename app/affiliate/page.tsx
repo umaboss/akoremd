@@ -1,14 +1,10 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import AffiliateFAQ from '@/components/AffiliateFAQ';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Partner Program — AkoreMD',
-  description:
-    'Join the AkoreMD Partner Program. Refer practices to our medical billing service and earn a 15% reward on collections, with monthly payouts and real-time tracking.',
-};
+export const metadata = buildPageMetadata('affiliate');
 
 export default function AffiliateProgram() {
   return (

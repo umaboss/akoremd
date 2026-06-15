@@ -10,6 +10,9 @@ import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import { buildPageMetadata } from '@/lib/seo';
+
+export const metadata = buildPageMetadata('home');
 
 export default function Home() {
   return (

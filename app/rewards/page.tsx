@@ -1,14 +1,10 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Ticker from '@/components/Ticker';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Results — AkoreMD',
-  description:
-    'Every payment AkoreMD has collected and posted for its client practices, logged with transparent reporting. No press releases — just results.',
-};
+export const metadata = buildPageMetadata('rewards');
 
 // TODO: replace placeholders with the real collections ledger feed.
 const LEDGER = [

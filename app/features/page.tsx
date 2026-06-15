@@ -1,15 +1,11 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import FeaturesPageContent from '@/components/FeaturesPageContent';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Features — AkoreMD',
-  description:
-    'Why healthcare providers choose AkoreMD — dedicated RCM specialists, accurate billing, faster claims, denial management, and HIPAA-compliant support.',
-};
+export const metadata = buildPageMetadata('features');
 
 export default function FeaturesPage() {
   return (

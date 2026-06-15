@@ -1,15 +1,11 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import FullServicesContent from '@/components/FullServicesContent';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Services — AkoreMD',
-  description:
-    'Complete medical billing services — scheduling, eligibility, coding, claims, payment posting, denial management, AR follow-up, credentialing, and more.',
-};
+export const metadata = buildPageMetadata('services');
 
 export default function ServicesPage() {
   return (

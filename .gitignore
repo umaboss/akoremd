@@ -31,7 +31,9 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
+# Environment variables (copy to .env.local and fill in values)
 .env*
+!.env.example
 
 # vercel
 .vercel

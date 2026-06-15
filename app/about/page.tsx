@@ -1,15 +1,11 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import { ABOUT_IMAGES } from '@/lib/aboutImages';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'About Us — AkoreMD',
-  description:
-    'Learn about AkoreMD — our mission to simplify medical billing and provide dependable revenue cycle support for healthcare providers nationwide.',
-};
+export const metadata = buildPageMetadata('about');
 
 const frameStyle = {
   position: 'relative' as const,

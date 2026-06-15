@@ -6,6 +6,9 @@ import { LanguageProvider } from '@/components/LanguageProvider';
 import GlobeMount from '@/components/GlobeMount';
 import Effects from '@/components/Effects';
 import PromoBar from '@/components/PromoBar';
+import SiteJsonLd from '@/components/seo/SiteJsonLd';
+import GoogleAnalytics from '@/components/seo/GoogleAnalytics';
+import { rootMetadata } from '@/lib/seo';
 
 const display = Space_Grotesk({
   subsets: ['latin'],
@@ -26,15 +29,7 @@ const mono = JetBrains_Mono({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: 'AkoreMD — Medical Billing & Revenue Cycle Management',
-  description:
-    'AkoreMD helps healthcare providers streamline the revenue cycle, reduce claim denials and improve cash flow through reliable, HIPAA-compliant medical billing and administrative support.',
-  icons: {
-    icon: '/akoremd-logo1.png',
-    apple: '/akoremd-logo1.png',
-  },
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({
   children,
@@ -44,6 +39,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <SiteJsonLd />
+        <GoogleAnalytics />
         <ThemeProvider>
           <LanguageProvider>
             {/* Fixed full-viewport WebGL globe — rendered once, persists across routes. */}

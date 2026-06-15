@@ -1,14 +1,10 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Contact Us — AkoreMD',
-  description:
-    'Contact AkoreMD for a free consultation. Discover how our billing experts can help increase collections, reduce denials, and streamline your practice operations.',
-};
+export const metadata = buildPageMetadata('contact');
 
 export default function ContactUs() {
   return (

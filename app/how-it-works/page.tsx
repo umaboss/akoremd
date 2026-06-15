@@ -1,15 +1,11 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import HowItWorksPageContent from '@/components/HowItWorksPageContent';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'How It Works — AkoreMD',
-  description:
-    'Learn how AkoreMD manages your full revenue cycle — onboarding, coding, claims, payment posting, denial management, and technology integrations.',
-};
+export const metadata = buildPageMetadata('howItWorks');
 
 export default function HowItWorksPage() {
   return (

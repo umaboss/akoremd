@@ -1,13 +1,9 @@
-import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Terms of Use — AkoreMD',
-  description:
-    'Read the AkoreMD Terms of Use. Understand our scope of medical billing services, compliance and acceptable use, pricing, service policy and HIPAA disclosures.',
-};
+export const metadata = buildPageMetadata('terms');
 
 export default function TermsOfUse() {
   return (
