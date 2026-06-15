@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import PromoBar from '@/components/PromoBar';
 import Nav from '@/components/Nav';
 import Ticker from '@/components/Ticker';
 import FinalCTA from '@/components/FinalCTA';
@@ -36,7 +35,6 @@ const COUNTRIES = [
 export default function Rewards() {
   return (
     <>
-      <PromoBar />
       <Nav />
       <main className="rw-dash">
         <div className="wrap">

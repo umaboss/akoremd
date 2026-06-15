@@ -1,6 +1,6 @@
 'use client';
 
-import { useReveal } from '@/lib/useReveal';
+import { useGsapScroll } from '@/lib/useGsapScroll';
 import { useMagnetic, useTilt } from '@/lib/useMagnetic';
 import { useScrollProgress, useSpotlight, useCountUp } from '@/lib/useChrome';
 
@@ -9,7 +9,7 @@ import { useScrollProgress, useSpotlight, useCountUp } from '@/lib/useChrome';
  * and wires every page-wide micro-interaction. Mounted once in the root layout.
  */
 export default function Effects() {
-  useReveal();
+  useGsapScroll();
   useMagnetic();
   useTilt();
   useScrollProgress();

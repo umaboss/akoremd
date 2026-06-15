@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import PromoBar from '@/components/PromoBar';
 import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import { ABOUT_IMAGES } from '@/lib/aboutImages';
 
 export const metadata: Metadata = {
   title: 'About Us — AkoreMD',
@@ -11,10 +11,16 @@ export const metadata: Metadata = {
     'Learn about AkoreMD — our mission to simplify medical billing and provide dependable revenue cycle support for healthcare providers nationwide.',
 };
 
+const frameStyle = {
+  position: 'relative' as const,
+  width: '100%',
+  overflow: 'hidden' as const,
+  border: '1px solid var(--line)',
+};
+
 export default function AboutUs() {
   return (
     <>
-      <PromoBar />
       <Nav />
       <main>
         <section className="hero">
@@ -34,11 +40,20 @@ export default function AboutUs() {
                 Our mission is to simplify the billing process and provide healthcare providers with dependable support throughout the entire revenue cycle. We act as an extension of your team, helping improve operational efficiency, reduce denials, and maximize reimbursements.
               </p>
             </div>
-            <div className="reveal" style={{ position: 'relative', width: '100%', height: '420px', borderRadius: '24px', overflow: 'hidden', border: '1px solid var(--line)', boxShadow: '0 20px 48px -16px var(--glow)' }}>
+            <div
+              className="reveal"
+              style={{
+                ...frameStyle,
+                height: '420px',
+                borderRadius: '24px',
+                boxShadow: '0 20px 48px -16px var(--glow)',
+              }}
+            >
               <Image
-                src="/about_booth.png"
-                alt="AkoreMD billing operations"
+                src={ABOUT_IMAGES.hero}
+                alt="Healthcare professional managing medical billing and patient records"
                 fill
+                sizes="(max-width: 900px) 100vw, 560px"
                 style={{ objectFit: 'cover' }}
                 priority
               />
@@ -85,11 +100,23 @@ export default function AboutUs() {
             </div>
 
             <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <div style={{ position: 'relative', width: '100%', height: '240px', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--line)' }}>
-                <Image src="/about_community.png" alt="AkoreMD revenue cycle team" fill style={{ objectFit: 'cover' }} />
+              <div style={{ ...frameStyle, height: '240px', borderRadius: '20px' }}>
+                <Image
+                  src={ABOUT_IMAGES.team}
+                  alt="AkoreMD revenue cycle specialists collaborating on billing operations"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 480px"
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
-              <div style={{ position: 'relative', width: '100%', height: '240px', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--line)' }}>
-                <Image src="/about_mission.png" alt="AkoreMD client review meeting" fill style={{ objectFit: 'cover' }} />
+              <div style={{ ...frameStyle, height: '240px', borderRadius: '20px' }}>
+                <Image
+                  src={ABOUT_IMAGES.mission}
+                  alt="Medical team reviewing healthcare documentation and billing workflows"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 480px"
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
             </div>
           </div>
@@ -106,8 +133,14 @@ export default function AboutUs() {
             </div>
 
             <div className="grid-2 reveal" style={{ gap: 48, marginBottom: 48 }}>
-              <div style={{ position: 'relative', width: '100%', height: '420px', borderRadius: '24px', overflow: 'hidden', border: '1px solid var(--line)' }}>
-                <Image src="/about_community.png" alt="AkoreMD healthcare partners" fill style={{ objectFit: 'cover' }} />
+              <div style={{ ...frameStyle, height: '420px', borderRadius: '24px' }}>
+                <Image
+                  src={ABOUT_IMAGES.partners}
+                  alt="Healthcare providers supported by AkoreMD medical billing services"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 560px"
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 24 }}>
                 <p style={{ color: 'var(--dim)', fontSize: 18, lineHeight: 1.6 }}>
@@ -118,7 +151,7 @@ export default function AboutUs() {
                 </p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 12 }}>
                   <a href="/contact" className="btn btn-p" data-magnetic>Schedule a Free Consultation</a>
-                  <a href="/#services" className="btn">View our services</a>
+                  <a href="/services" className="btn">View our services</a>
                 </div>
               </div>
             </div>
@@ -127,7 +160,10 @@ export default function AboutUs() {
 
         <section className="sec" style={{ paddingTop: 0 }}>
           <div className="wrap reveal">
-            <div className="about-location-card" style={{ backgroundImage: `url('/about_dubai.png')` }}>
+            <div
+              className="about-location-card"
+              style={{ backgroundImage: `url('${ABOUT_IMAGES.headquarters}')` }}
+            >
               <div className="loc-content">
                 <span className="idx" style={{ color: 'var(--teal)' }}>HEADQUARTERS</span>
                 <h3>AkoreMD Billing Center<br />United States</h3>

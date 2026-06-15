@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import PromoBar from '@/components/PromoBar';
 import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 export default function ContactUs() {
   return (
     <>
-      <PromoBar />
       <Nav />
       <main>
         <section className="hero">

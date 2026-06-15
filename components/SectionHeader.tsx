@@ -6,6 +6,7 @@ interface SectionHeaderProps {
   titleAccent?: string;
   description?: string;
   center?: boolean;
+  showImage?: boolean;
   className?: string;
 }
 
@@ -31,8 +32,10 @@ function BillingIllustration() {
 }
 
 export default function SectionHeader({
-  eyebrow, title, titleAccent, description, center = true, className = '',
+  eyebrow, title, titleAccent, description, center = true, showImage, className = '',
 }: SectionHeaderProps) {
+  const imageVisible = showImage ?? !center;
+
   return (
     <div className={`section-header${center ? ' section-header--center' : ' section-header--split'} reveal ${className}`.trim()}>
       <div className="section-header-content">
@@ -48,7 +51,7 @@ export default function SectionHeader({
         </h2>
         {description && <p className="section-desc">{description}</p>}
       </div>
-      {!center && (
+      {imageVisible && (
         <div className="section-header-image">
           <BillingIllustration />
         </div>

@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import GlobeMount from '@/components/GlobeMount';
 import Effects from '@/components/Effects';
+import PromoBar from '@/components/PromoBar';
 
 const display = Space_Grotesk({
   subsets: ['latin'],
@@ -29,6 +30,10 @@ export const metadata: Metadata = {
   title: 'AkoreMD — Medical Billing & Revenue Cycle Management',
   description:
     'AkoreMD helps healthcare providers streamline the revenue cycle, reduce claim denials and improve cash flow through reliable, HIPAA-compliant medical billing and administrative support.',
+  icons: {
+    icon: '/akoremd-logo1.png',
+    apple: '/akoremd-logo1.png',
+  },
 };
 
 export default function RootLayout({
@@ -45,6 +50,7 @@ export default function RootLayout({
             <GlobeMount />
             {/* Fixed scrims + JS-driven chrome + all page micro-interactions. */}
             <Effects />
+            <PromoBar />
             {children}
           </LanguageProvider>
         </ThemeProvider>

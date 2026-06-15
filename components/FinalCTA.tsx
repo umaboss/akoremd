@@ -16,7 +16,7 @@ export default function FinalCTA() {
           <a href="/contact" className="btn btn-p btn-lg" data-magnetic>
             {t.finalCta.buy}
           </a>
-          <a href="/#services" className="btn btn-lg">
+          <a href="/services" className="btn btn-lg">
             {t.finalCta.how}
           </a>
         </div>

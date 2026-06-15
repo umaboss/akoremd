@@ -21,7 +21,7 @@ export default function Hero() {
             <a href="/contact" className="btn btn-p btn-lg" data-magnetic>
               {t.hero.cta}
             </a>
-            <a href="/#services" className="btn btn-lg">
+            <a href="/services" className="btn btn-lg">
               {t.hero.ctaSecondary}
             </a>
           </div>

@@ -48,6 +48,12 @@ const en = {
     title: 'Built for practices that want',
     titleAccent: 'better billing.',
     sub: 'Everything you need to run a healthier revenue cycle — without adding overhead to your team.',
+    pageTitle: 'Why Choose',
+    pageTitleAccent: 'AkoreMD.',
+    pageSub:
+      'We are committed to delivering measurable results while maintaining the highest standards of professionalism and compliance.',
+    pageClosing:
+      'Whether you are an independent physician, specialty clinic, group practice, or healthcare organization, our goal is to provide accurate, transparent, and reliable billing solutions that contribute to the financial success of your practice.',
     items: [
       { title: 'Revenue Cycle Specialists', desc: 'A dedicated team working behind the scenes across every stage of your billing cycle.' },
       { title: 'Accurate Billing & Coding', desc: 'ICD-10, CPT, and HCPCS coding done right the first time for clean claims.' },
@@ -56,12 +62,28 @@ const en = {
       { title: 'HIPAA-Compliant Processes', desc: 'Secure, compliant workflows protecting your data at every step.' },
       { title: 'Transparent Reporting', desc: 'Clear dashboards so you always know where every claim stands.' },
     ],
+    whyChoose: [
+      { title: 'Dedicated Revenue Cycle Specialists', desc: 'Experts across every stage of your billing cycle.' },
+      { title: 'Accurate Medical Billing & Coding', desc: 'ICD-10, CPT, and HCPCS done right for clean claims.' },
+      { title: 'Faster Claims Processing', desc: 'Scrubbed and submitted electronically for faster acceptance.' },
+      { title: 'Reduced Claim Denials', desc: 'Proactive prevention and appeals that recover revenue.' },
+      { title: 'Timely Payment Posting', desc: 'ERA, EOB, and patient payments posted with full reconciliation.' },
+      { title: 'Aggressive AR Follow-Up', desc: 'Persistent follow-up on every outstanding claim.' },
+      { title: 'HIPAA-Compliant Processes', desc: 'Secure workflows protecting PHI at every step.' },
+      { title: 'Transparent Reporting', desc: 'Clear visibility into claims, payments, and performance.' },
+      { title: 'Personalized Client Support', desc: 'A responsive team that knows your practice.' },
+      { title: 'Focus on Revenue Growth', desc: 'Strategies that maximize reimbursements over time.' },
+    ],
   },
   how: {
     eyebrow: 'How it works',
     title: 'Three steps to a',
     titleAccent: 'healthier revenue cycle.',
     sub: 'A simple, measurable path from patient intake to full reimbursement.',
+    pageTitle: 'How It',
+    pageTitleAccent: 'Works.',
+    pageSub:
+      'From onboarding through collections, AkoreMD manages every stage of your revenue cycle with measurable processes and transparent reporting.',
     steps: [
       { title: 'Onboard & Verify', desc: 'We learn your practice, verify eligibility, and confirm benefits before services are rendered.' },
       { title: 'Code, Submit & Post', desc: 'Accurate coding, charge entry, claim submission, and payment posting with full reconciliation.' },
@@ -84,6 +106,10 @@ const en = {
     title: 'Questions?',
     titleAccent: 'We have answers.',
     sub: 'Straight answers about our billing services, pricing, and onboarding process.',
+    pageTitle: 'Frequently Asked',
+    pageTitleAccent: 'Questions.',
+    pageSub:
+      'Straight answers about AkoreMD billing services, pricing, onboarding, and how we support your practice.',
     items: [
       { q: 'What services does AkoreMD provide?', a: 'End-to-end revenue cycle management — eligibility verification, prior authorizations, medical coding, charge entry, claims submission, payment posting, denial management, AR follow-up, patient billing, and credentialing.' },
       { q: 'How is your pricing structured?', a: 'Most services are billed as a transparent percentage of what we collect for you. You only pay when you get paid — no long-term lock-in and no hidden fees.' },
@@ -107,6 +133,10 @@ const en = {
     title_a: 'Complete billing',
     title_b: 'support.',
     sub: 'Every stage of your revenue cycle — from scheduling to AR follow-up — handled by dedicated specialists.',
+    pageTitle: 'Our Complete',
+    pageTitleAccent: 'Services.',
+    pageSub:
+      'Full-service medical billing and revenue cycle support — from front office through credentialing, denial management, and patient billing.',
     imageAlt: 'Medical billing dashboard showing revenue cycle management and claims processing',
     categories: {
       front: 'Front Office',
@@ -118,8 +148,12 @@ const en = {
       {
         group: 'front',
         title: 'Scheduling Patient Appointments',
+        titleShort: 'Scheduling Appointments',
         tagline: 'Smoother scheduling, fewer no-shows.',
-        intro: 'We help practices manage appointments effectively while reducing no-shows and scheduling conflicts.',
+        panelBrief:
+          'We help practices schedule appointments efficiently, reduce no-shows, and keep provider calendars organized without adding workload to your front desk team.',
+        intro:
+          'Efficient appointment scheduling plays a critical role in maintaining smooth clinic operations and patient satisfaction. Our scheduling support services help practices manage appointments effectively while reducing no-shows and scheduling conflicts.',
         includes: [
           'Appointment scheduling and rescheduling',
           'Appointment confirmations',
@@ -138,8 +172,12 @@ const en = {
       {
         group: 'front',
         title: 'Eligibility & Benefits Verification',
+        titleShort: 'Eligibility Verification',
         tagline: 'Verify coverage before services are rendered.',
-        intro: 'We confirm active coverage, benefits, and patient responsibility to prevent denials and surprise balances.',
+        panelBrief:
+          'We verify active insurance coverage, benefits, and patient responsibility before services are rendered to prevent denials and surprise patient balances.',
+        intro:
+          'Verifying insurance coverage before services are provided is one of the most important steps in preventing claim denials and unexpected patient balances. Our team verifies active coverage, benefits, and patient responsibility before services are rendered.',
         includes: [
           'Active insurance coverage',
           'Effective dates',
@@ -161,8 +199,12 @@ const en = {
       {
         group: 'front',
         title: 'Provider Network & Participation Verification',
+        titleShort: 'Network Verification',
         tagline: 'Stay properly enrolled with every payer.',
-        intro: 'We monitor network status and keep provider participation records accurate as payer networks change.',
+        panelBrief:
+          'We monitor provider network participation and payer enrollment status so your practice stays properly identified and reimbursed across every insurance plan.',
+        intro:
+          'Insurance networks change frequently. We help ensure providers remain properly enrolled and identified within payer networks.',
         includes: [
           'Verification of provider participation status',
           'Confirmation of in-network and out-of-network status',
@@ -179,8 +221,12 @@ const en = {
       {
         group: 'front',
         title: 'Referral Management',
+        titleShort: 'Referral Management',
         tagline: 'Secure and track required referrals.',
-        intro: 'We obtain, validate, and coordinate referrals so specialist visits proceed without billing delays.',
+        panelBrief:
+          'We obtain, validate, and coordinate specialist referrals with complete documentation so visits proceed smoothly without billing delays or claim rejections.',
+        intro:
+          'Many insurance plans require referrals before specialist services can be performed. We obtain, validate, and coordinate referrals so specialist visits proceed without billing delays.',
         includes: [
           'Obtaining referrals from PCPs',
           'Tracking referral validity',
@@ -197,8 +243,12 @@ const en = {
       {
         group: 'front',
         title: 'Prior Authorization & Retro Authorization',
+        titleShort: 'Prior Authorization',
         tagline: 'Approvals secured before treatment begins.',
-        intro: 'We manage prior, urgent, and retro authorization requests with full documentation and payer follow-up.',
+        panelBrief:
+          'We manage prior, urgent, and retro authorization requests with full documentation and payer follow-up so treatment is approved before services are rendered.',
+        intro:
+          'Certain services require payer approval before treatment is rendered. We manage prior, urgent, and retro authorization requests with full documentation and payer follow-up.',
         includes: [
           'Prior authorization requests',
           'Urgent authorization submissions',
@@ -217,8 +267,12 @@ const en = {
       {
         group: 'billing',
         title: 'Medical Coding Services',
+        titleShort: 'Medical Coding',
         tagline: 'Accurate coding for clean claims.',
-        intro: 'ICD-10, CPT, and HCPCS coding done right — with compliance monitoring and audit support.',
+        panelBrief:
+          'Accurate ICD-10, CPT, and HCPCS coding with modifier review and compliance monitoring helps ensure clean claims and optimized reimbursement every time.',
+        intro:
+          'Accurate coding is essential for clean claims and proper reimbursement. ICD-10, CPT, and HCPCS coding with compliance monitoring and audit support.',
         includes: [
           'ICD-10 diagnosis coding',
           'CPT procedure coding',
@@ -232,8 +286,12 @@ const en = {
       {
         group: 'billing',
         title: 'Charge Entry',
+        titleShort: 'Charge Entry',
         tagline: 'Turn documentation into billable claims.',
-        intro: 'We review superbills, enter charges, and run quality checks before claims are created.',
+        panelBrief:
+          'We review superbills, enter charges accurately, and run quality checks before claims are created to reduce billing errors and speed submission.',
+        intro:
+          'Charge entry converts provider documentation into billable claims. We review superbills, enter charges, and run quality checks before claims are created.',
         includes: [
           'Reviewing superbills',
           'Entering CPT and ICD-10 codes',
@@ -246,8 +304,12 @@ const en = {
       {
         group: 'billing',
         title: 'Claims Submission & Management',
+        titleShort: 'Claims Submission',
         tagline: 'Scrubbed claims, submitted electronically.',
-        intro: 'We prepare, scrub, and submit claims electronically — correcting rejections and tracking every payer response.',
+        panelBrief:
+          'We prepare, scrub, and submit claims electronically while correcting rejections and tracking payer responses for faster acceptance and payment turnaround.',
+        intro:
+          'We prepare, review, and submit claims electronically to insurance payers — correcting rejections and tracking every payer response.',
         includes: [
           'Claim scrubbing',
           'Electronic claim submission',
@@ -260,8 +322,12 @@ const en = {
       {
         group: 'billing',
         title: 'Payment Posting',
+        titleShort: 'Payment Posting',
         tagline: 'Clear visibility into practice revenue.',
-        intro: 'ERA, EOB, and patient payments posted accurately with full reconciliation support.',
+        panelBrief:
+          'We post ERA, EOB, and patient payments with full reconciliation support so your practice has clear, accurate visibility into revenue and cash flow.',
+        intro:
+          'Accurate payment posting provides visibility into practice revenue. ERA, EOB, and patient payments posted with full reconciliation support.',
         includes: [
           'ERA posting',
           'EOB posting',
@@ -274,8 +340,12 @@ const en = {
       {
         group: 'recovery',
         title: 'Denial Management & Appeals',
+        titleShort: 'Denial Management',
         tagline: 'Recover revenue from denied claims.',
-        intro: 'We analyze denials, identify root causes, prepare appeals, and resubmit corrected claims quickly.',
+        panelBrief:
+          'We analyze denied claims, identify root causes, prepare appeals, and resubmit corrections quickly to recover revenue other practices often write off.',
+        intro:
+          'Denied claims represent lost revenue opportunities if not addressed quickly. We analyze denials, identify root causes, prepare appeals, and resubmit corrected claims.',
         includes: [
           'Denial analysis',
           'Root cause identification',
@@ -289,8 +359,12 @@ const en = {
       {
         group: 'recovery',
         title: 'Accounts Receivable (AR) Follow-Up',
+        titleShort: 'AR Follow-Up',
         tagline: 'Proactive follow-up on outstanding claims.',
-        intro: 'We pursue unpaid claims with status checks, payer calls, and aging account management.',
+        panelBrief:
+          'We proactively pursue outstanding claims with status checks, payer calls, and aging account management to improve collections and reduce aging balances.',
+        intro:
+          'Outstanding claims require proactive follow-up to ensure payment. We pursue unpaid claims with status checks, payer calls, and aging account management.',
         includes: [
           'Claim status checks',
           'Insurance follow-up calls',
@@ -303,8 +377,12 @@ const en = {
       {
         group: 'recovery',
         title: 'Patient Billing & Support',
+        titleShort: 'Patient Billing',
         tagline: 'Clear billing communication for patients.',
-        intro: 'We handle patient billing inquiries, statements, and balance explanations with professionalism.',
+        panelBrief:
+          'We handle patient billing inquiries, statements, and balance explanations professionally to improve satisfaction, reduce confusion, and support stronger collections.',
+        intro:
+          'Clear patient communication improves satisfaction and collections. We handle billing inquiries, statements, and balance explanations with professionalism.',
         includes: [
           'Patient billing inquiries',
           'Statement support',
@@ -317,8 +395,12 @@ const en = {
       {
         group: 'enrollment',
         title: 'Credentialing & Provider Enrollment',
+        titleShort: 'Credentialing',
         tagline: 'Faster network participation.',
-        intro: 'We manage initial credentialing, re-credentialing, CAQH, and payer enrollment end to end.',
+        panelBrief:
+          'We manage initial credentialing, re-credentialing, CAQH maintenance, and payer enrollment so providers participate in networks faster with fewer delays.',
+        intro:
+          'We assist providers with enrollment and credentialing requirements — initial credentialing, re-credentialing, CAQH, and payer enrollment end to end.',
         includes: [
           'Initial credentialing',
           'Re-credentialing',

@@ -9,11 +9,14 @@ export default function PromoBar() {
   const t = useT();
   const promo = t.promo.join(SEP) + SEP;
   return (
-    <div className="promo">
-      <div className="row" id="promoRow">
-        <span>{promo}</span>
-        <span>{promo}</span>
+    <>
+      <div className="promo" role="marquee" aria-label="Announcements">
+        <div className="row" id="promoRow">
+          <span>{promo}</span>
+          <span>{promo}</span>
+        </div>
       </div>
-    </div>
+      <div className="promo-spacer" aria-hidden="true" />
+    </>
   );
 }

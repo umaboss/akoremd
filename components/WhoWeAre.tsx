@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import SectionHeader from './SectionHeader';
 import { useT } from './LanguageProvider';
+import { HOME_IMAGES } from '@/lib/homeImages';
 
 export default function WhoWeAre() {
   const t = useT();
@@ -10,7 +11,7 @@ export default function WhoWeAre() {
     <section className="landing-section who-sec" id="about">
       <div className="who-sec-bg" aria-hidden="true" />
       <div className="wrap">
-        <div className="about-split reveal">
+        <div className="about-split">
           <div className="about-copy">
             <SectionHeader
               eyebrow={t.who.eyebrow}
@@ -18,6 +19,7 @@ export default function WhoWeAre() {
               titleAccent={t.who.title_b}
               description={t.who.sub}
               center={false}
+              showImage={false}
               className="about-section-header"
             />
             <p className="about-text">{t.who.body}</p>
@@ -32,7 +34,7 @@ export default function WhoWeAre() {
           <div className="about-visual" data-tilt>
             <div className="about-visual-frame">
               <Image
-                src="/about_mission.png"
+                src={HOME_IMAGES.whoWeAre}
                 alt={t.who.imageAlt}
                 fill
                 sizes="(max-width: 900px) 100vw, 480px"
