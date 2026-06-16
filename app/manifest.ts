@@ -13,7 +13,7 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: 'en',
     icons: [
       {
-        src: '/akoremd-logo1.png',
+        src: '/icon.png',
         sizes: 'any',
         type: 'image/png',
       },

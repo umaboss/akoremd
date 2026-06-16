@@ -183,10 +183,6 @@ export const rootMetadata: Metadata = {
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
   },
   robots: { index: true, follow: true },
-  icons: {
-    icon: '/akoremd-logo1.png',
-    apple: '/akoremd-logo1.png',
-  },
   ...(GOOGLE_SITE_VERIFICATION
     ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
     : {}),
