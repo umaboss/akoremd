@@ -185,12 +185,12 @@ export const rootMetadata: Metadata = {
   robots: { index: true, follow: true },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: absoluteUrl('/favicon.ico'), sizes: '48x48', type: 'image/x-icon' },
+      { url: absoluteUrl('/favicon-32x32.png'), sizes: '32x32', type: 'image/png' },
+      { url: absoluteUrl('/favicon-16x16.png'), sizes: '16x16', type: 'image/png' },
     ],
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon.ico',
+    apple: absoluteUrl('/apple-touch-icon.png'),
+    shortcut: absoluteUrl('/favicon.ico'),
   },
   ...(GOOGLE_SITE_VERIFICATION
     ? { verification: { google: GOOGLE_SITE_VERIFICATION } }

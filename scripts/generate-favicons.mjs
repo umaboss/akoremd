@@ -37,7 +37,6 @@ async function main() {
     writeFile(join(publicDir, 'icon-512.png'), icon512),
     writeFile(join(appDir, 'icon.png'), icon48),
     writeFile(join(appDir, 'apple-icon.png'), icon180),
-    writeFile(join(appDir, 'favicon.ico'), ico),
   ]);
 
   console.log('Favicons generated from akoremd-logo3.png');

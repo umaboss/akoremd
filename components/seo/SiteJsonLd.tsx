@@ -8,7 +8,12 @@ export default function SiteJsonLd() {
     '@id': `${absoluteUrl('/')}#organization`,
     name: SITE_NAME,
     url: absoluteUrl('/'),
-    logo: absoluteUrl('/akoremd-logo3.png'),
+    logo: {
+      '@type': 'ImageObject',
+      url: absoluteUrl('/icon-512.png'),
+      width: 512,
+      height: 512,
+    },
     image: absoluteUrl('/about/about-hero.jpg'),
     description: DEFAULT_DESCRIPTION,
     email: 'support@akoremd.com',
