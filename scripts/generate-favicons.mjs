@@ -5,7 +5,7 @@ import sharp from 'sharp';
 import toIco from 'to-ico';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const source = join(root, 'public', 'akoremd-logo3.png');
+const source = join(root, 'public', 'akoremd-logo4.png');
 const background = { r: 5, g: 10, b: 20, alpha: 1 };
 
 async function squarePng(size) {
@@ -39,7 +39,7 @@ async function main() {
     writeFile(join(appDir, 'apple-icon.png'), icon180),
   ]);
 
-  console.log('Favicons generated from akoremd-logo3.png');
+  console.log('Favicons generated from akoremd-logo4.png');
 }
 
 main().catch((error) => {
