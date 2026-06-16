@@ -38,7 +38,7 @@ export default function WhoWeAre() {
                 alt={t.who.imageAlt}
                 fill
                 sizes="(max-width: 900px) 100vw, 480px"
-                style={{ objectFit: 'cover' }}
+                className="about-hero-photo about-visual-photo"
               />
             </div>
             <div className="about-visual-badge">

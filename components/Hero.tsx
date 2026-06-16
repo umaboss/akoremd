@@ -13,8 +13,8 @@ export default function Hero() {
             {t.hero.eyebrow}
           </span>
           <h1 className="reveal">
-            {t.hero.title_a} <span className="gt">{t.hero.title_traders}</span> {t.hero.title_to}{' '}
-            <span className="gt">{t.hero.title_capital}</span>
+            {t.hero.title_a} <span className="gt">{t.hero.titleHighlight}</span> {t.hero.title_to}{' '}
+            <span className="gt">{t.hero.titleAccent}</span>
           </h1>
           <p className="hero-sub reveal">{t.hero.sub}</p>
           <div className="hero-actions reveal">

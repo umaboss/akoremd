@@ -122,7 +122,7 @@ export default function Services() {
                     src={getServiceImagePath(activeInFilter.index)}
                     alt={detail.title}
                     fill
-                    sizes="(max-width: 900px) 100vw, 280px"
+                    sizes="(max-width: 900px) 100vw, 340px"
                     className="services-panel-photo"
                   />
                 </div>

@@ -3,6 +3,7 @@ import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { buildPageMetadata } from '@/lib/seo';
+import { ABOUT_IMAGES } from '@/lib/aboutImages';
 
 export const metadata = buildPageMetadata('contact');
 
@@ -92,7 +93,7 @@ export default function ContactUs() {
 
         <section className="sec" style={{ paddingTop: 0 }}>
           <div className="wrap reveal">
-            <div className="about-location-card" style={{ backgroundImage: `url('/about_dubai.png')` }}>
+            <div className="about-location-card" style={{ backgroundImage: `url('${ABOUT_IMAGES.headquarters}')` }}>
               <div className="loc-content">
                 <span className="idx" style={{ color: 'var(--teal)' }}>HEADQUARTERS</span>
                 <h3>AkoreMD Billing Center<br />United States</h3>

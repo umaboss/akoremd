@@ -37,7 +37,7 @@ export default function AboutUs() {
               </p>
             </div>
             <div
-              className="reveal"
+              className="reveal about-hero-image"
               style={{
                 ...frameStyle,
                 height: '420px',
@@ -47,10 +47,10 @@ export default function AboutUs() {
             >
               <Image
                 src={ABOUT_IMAGES.hero}
-                alt="Healthcare professional managing medical billing and patient records"
+                alt="AkoreMD team in executive conference room"
                 fill
                 sizes="(max-width: 900px) 100vw, 560px"
-                style={{ objectFit: 'cover' }}
+                className="about-hero-photo"
                 priority
               />
             </div>

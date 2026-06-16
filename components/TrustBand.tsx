@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+import { PARTNER_LOGOS } from '@/lib/partnerLogos';
 import { useT } from './LanguageProvider';
 
 export default function TrustBand() {
@@ -16,10 +18,17 @@ export default function TrustBand() {
           ))}
         </div>
         <div className="trust-logos reveal" aria-label="Supported platforms">
-          {t.trust.logos.map((logo) => (
-            <span className="trust-logo" key={logo}>
-              {logo}
-            </span>
+          {PARTNER_LOGOS.map((partner) => (
+            <div className="trust-logo-item" key={partner.name}>
+              <span className="trust-logo-name">{partner.name}</span>
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                width={80}
+                height={28}
+                className="trust-logo-img"
+              />
+            </div>
           ))}
         </div>
       </div>

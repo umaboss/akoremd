@@ -58,7 +58,7 @@ export default function FullServicesContent() {
                           src={getServiceImagePath(svc.index)}
                           alt={svc.title}
                           fill
-                          sizes="(max-width: 900px) 100vw, 280px"
+                          sizes="(max-width: 900px) 100vw, 340px"
                           className="services-panel-photo"
                         />
                       </div>

@@ -5,48 +5,10 @@ import { usePathname } from 'next/navigation';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useTheme } from './ThemeProvider';
+import { US_STATE_COLLECTIONS } from '@/lib/usStateCollections';
 
 const R = 140;
 const N = 1400;
-
-// Payout pills anchored to globe nodes — revolve with the globe.
-// TODO: replace with the real live payout feed (country + amount).
-const PAYOUTS = [
-  { flag: '🇵🇰', name: 'Pakistan', amt: '$867K' },
-  { flag: '🇳🇵', name: 'Nepal', amt: '$1.3K' },
-  { flag: '🇧🇩', name: 'Bangladesh', amt: '$7.4K' },
-  { flag: '🇮🇳', name: 'India', amt: '$210K' },
-  { flag: '🇱🇦', name: 'Laos', amt: '$38.4K' },
-  { flag: '🇭🇰', name: 'Hong Kong', amt: '$1.5K' },
-  { flag: '🇻🇳', name: 'Vietnam', amt: '$254K' },
-  { flag: '🇹🇭', name: 'Thailand', amt: '$8K' },
-  { flag: '🇵🇭', name: 'Philippines', amt: '$94.5K' },
-  { flag: '🇲🇾', name: 'Malaysia', amt: '$159K' },
-  { flag: '🇸🇬', name: 'Singapore', amt: '$72K' },
-  { flag: '🇮🇩', name: 'Indonesia', amt: '$146K' },
-  { flag: '🇦🇪', name: 'UAE', amt: '$420K' },
-  { flag: '🇬🇧', name: 'UK', amt: '$188K' },
-  { flag: '🇩🇪', name: 'Germany', amt: '$96K' },
-  { flag: '🇧🇷', name: 'Brazil', amt: '$54K' },
-  { flag: '🇿🇦', name: 'South Africa', amt: '$31K' },
-  { flag: '🇯🇵', name: 'Japan', amt: '$77K' },
-  { flag: '🇺🇸', name: 'USA', amt: '$512K' },
-  { flag: '🇨🇦', name: 'Canada', amt: '$134K' },
-  { flag: '🇲🇽', name: 'Mexico', amt: '$41K' },
-  { flag: '🇦🇷', name: 'Argentina', amt: '$27K' },
-  { flag: '🇫🇷', name: 'France', amt: '$112K' },
-  { flag: '🇪🇸', name: 'Spain', amt: '$58K' },
-  { flag: '🇮🇹', name: 'Italy', amt: '$49K' },
-  { flag: '🇹🇷', name: 'Turkey', amt: '$63K' },
-  { flag: '🇪🇬', name: 'Egypt', amt: '$19K' },
-  { flag: '🇳🇬', name: 'Nigeria', amt: '$44K' },
-  { flag: '🇰🇪', name: 'Kenya', amt: '$12K' },
-  { flag: '🇸🇦', name: 'Saudi Arabia', amt: '$305K' },
-  { flag: '🇰🇷', name: 'South Korea', amt: '$88K' },
-  { flag: '🇦🇺', name: 'Australia', amt: '$97K' },
-  { flag: '🇵🇱', name: 'Poland', amt: '$22K' },
-  { flag: '🇲🇦', name: 'Morocco', amt: '$9K' },
-];
 
 // Reusable temporaries to avoid per-frame allocations.
 const _v = new THREE.Vector3();
@@ -183,8 +145,8 @@ function GlobeScene({ labelRefs }: { labelRefs: LabelRefs }) {
 
     // Label anchors: spread evenly along the spiral, sitting just outside the
     // surface so each pill hovers over a real node and revolves with the globe.
-    const anchors = PAYOUTS.map((_, k) => {
-      const idx = Math.floor(((k + 0.5) / PAYOUTS.length) * N) % N;
+    const anchors = US_STATE_COLLECTIONS.map((_, k) => {
+      const idx = Math.floor(((k + 0.5) / US_STATE_COLLECTIONS.length) * N) % N;
       return pts[idx].clone().multiplyScalar(1.06);
     });
 
@@ -352,18 +314,18 @@ export default function GlobeBackground() {
         <GlobeScene labelRefs={labelRefs} />
       </Canvas>
       <div className="globe-labels" aria-hidden="true">
-        {PAYOUTS.map((p, i) => (
+        {US_STATE_COLLECTIONS.map((state, i) => (
           <div
-            key={p.name}
+            key={state.abbr}
             className="glabel"
             ref={(el) => {
               labelRefs.current[i] = el;
             }}
           >
             <span className="gdot" />
-            <span className="gflag">{p.flag}</span>
-            <span className="gname">{p.name}</span>
-            <span className="gamt">{p.amt}</span>
+            <span className="gabbr">{state.abbr}</span>
+            <span className="gname">{state.name}</span>
+            <span className="gamt">{state.amt}</span>
           </div>
         ))}
       </div>

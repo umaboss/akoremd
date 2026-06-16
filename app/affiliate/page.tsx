@@ -39,7 +39,7 @@ export default function AffiliateProgram() {
                 <div className="arow">
                   <div>
                     <div className="v gt">Monthly</div>
-                    <div className="k">Payouts</div>
+                    <div className="k">Payments</div>
                   </div>
                   <div>
                     <div className="v gt">Real-time</div>

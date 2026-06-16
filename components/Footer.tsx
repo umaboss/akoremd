@@ -38,8 +38,8 @@ export default function Footer() {
             <h5>{t.footer.platform}</h5>
             <a href="/features">{t.footer.programs}</a>
             <a href="/services">{t.nav.services}</a>
-            <a href="/rewards">{t.footer.payouts}</a>
-            <a href="/how-it-works">{t.footer.scaling}</a>
+            <a href="/rewards">{t.footer.results}</a>
+            <a href="/how-it-works">{t.footer.howItWorks}</a>
           </div>
           <div className="foot-col">
             <h5>{t.footer.company}</h5>

@@ -20,9 +20,9 @@ const en = {
   hero: {
     eyebrow: 'HIPAA-Compliant Medical Billing',
     title_a: 'Your',
-    title_traders: 'Patients',
+    titleHighlight: 'Patients',
     title_to: 'First. Your Billing,',
-    title_capital: 'On Us.',
+    titleAccent: 'On Us.',
     sub: 'Streamline your revenue cycle, reduce claim denials, and improve cash flow — so your team can focus on exceptional patient care.',
     cta: 'Schedule Free Consultation',
     ctaSecondary: 'View Services',
@@ -30,7 +30,7 @@ const en = {
     imageAlt: 'AkoreMD medical billing dashboard and revenue cycle support',
     stats: [
       { value: '30%', label: 'Fewer denials' },
-      { value: '99%', label: 'Collection rate' },
+      { value: '98.5%', label: 'Collection rate' },
       { value: 'HIPAA', label: 'Compliant' },
     ],
   },
@@ -38,10 +38,9 @@ const en = {
     stats: [
       { value: '500+', label: 'Practices served' },
       { value: '30%', label: 'Fewer denials' },
-      { value: '99%', label: 'Collection rate' },
+      { value: '98.5%', label: 'Collection rate' },
       { value: '4.9★', label: 'Provider rating' },
     ],
-    logos: ['Kareo', 'Athenahealth', 'AdvancedMD', 'eClinicalWorks', 'NextGen', 'DrChrono', 'Office Ally', 'Availity'],
   },
   features: {
     eyebrow: 'Why AkoreMD',
@@ -416,13 +415,13 @@ const en = {
     benefitsLabel: 'Key benefits',
     commonLabel: 'Common services',
   },
-  payouts: {
+  results: {
     eyebrow: 'Results',
     title_a: 'Results that',
     title_b: 'compound.',
     sub: 'Cleaner claims, faster payments, and fewer denials — measurable gains that grow your bottom line every single month.',
-    split: 'improvement',
-    maxSplit: 'BEST IN CLASS',
+    metricLabel: 'improvement',
+    badge: 'BEST IN CLASS',
     hint: 'Hover an icon to explore results',
     cards: [
       {
@@ -442,8 +441,8 @@ const en = {
       },
       {
         cn: 'Collection rate',
-        stat: '99%',
-        items: ['Up to **99%** of collectible revenue', 'Aggressive **AR follow-up**', 'Every dollar pursued'],
+        stat: '98.5%',
+        items: ['Up to **98.5%** of collectible revenue', 'Aggressive **AR follow-up**', 'Every dollar pursued'],
       },
     ],
   },
@@ -500,8 +499,8 @@ const en = {
       'Reliable medical billing and revenue cycle management — so you can focus on patients while we handle the billing.',
     platform: 'Services',
     programs: 'Features',
-    payouts: 'Results',
-    scaling: 'How It Works',
+    results: 'Results',
+    howItWorks: 'How It Works',
     platforms: 'FAQ',
     company: 'Company',
     about: 'About Us',

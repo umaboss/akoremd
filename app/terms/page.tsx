@@ -45,7 +45,7 @@ export default function TermsOfUse() {
                   <a href="#prohibited" className="terms-nav-link">
                     3. Compliance &amp; Acceptable Use
                   </a>
-                  <a href="#payouts" className="terms-nav-link">
+                  <a href="#pricing" className="terms-nav-link">
                     4. Pricing &amp; Payments
                   </a>
                   <a href="#refund" className="terms-nav-link">
@@ -123,7 +123,7 @@ export default function TermsOfUse() {
               </div>
 
               {/* Section 4: Pricing & Payments */}
-              <div id="payouts" className="tile" style={{ padding: '40px' }}>
+              <div id="pricing" className="tile" style={{ padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '24px', color: 'var(--text)', marginBottom: '20px' }}>
                   4. Pricing &amp; Payments
                 </h3>

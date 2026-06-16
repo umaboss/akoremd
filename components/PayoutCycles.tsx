@@ -28,17 +28,17 @@ function rich(s: string) {
 export default function PayoutCycles() {
   const t = useT();
   const [active, setActive] = useState<number | null>(null);
-  const cards = t.payouts.cards;
+  const cards = t.results.cards;
   const bestIdx = cards.length - 1;
 
   return (
-    <section className="landing-section orbit-sec" id="payouts">
+    <section className="landing-section orbit-sec" id="results">
       <div className="wrap">
         <SectionHeader
-          eyebrow={t.payouts.eyebrow}
-          title={t.payouts.title_a}
-          titleAccent={t.payouts.title_b}
-          description={t.payouts.sub}
+          eyebrow={t.results.eyebrow}
+          title={t.results.title_a}
+          titleAccent={t.results.title_b}
+          description={t.results.sub}
         />
 
         <div className={`orbit-stage${active !== null ? ' has-active' : ''}`}>
@@ -54,12 +54,12 @@ export default function PayoutCycles() {
             ) : (
               <article className="orbit-detail-card">
                 {active === bestIdx && (
-                  <span className="orbit-detail-badge">{t.payouts.maxSplit}</span>
+                  <span className="orbit-detail-badge">{t.results.badge}</span>
                 )}
                 <span className="orbit-detail-cn">{cards[active].cn}</span>
                 <div className="orbit-detail-split">
                   {cards[active].stat}
-                  <small>{t.payouts.split}</small>
+                  <small>{t.results.metricLabel}</small>
                 </div>
                 <ul>
                   {cards[active].items.map((item, j) => (
@@ -71,7 +71,7 @@ export default function PayoutCycles() {
                 </ul>
               </article>
             )}
-            {active === null && <p className="orbit-hint">{t.payouts.hint}</p>}
+            {active === null && <p className="orbit-hint">{t.results.hint}</p>}
           </div>
 
           <div className="orbit-icons">

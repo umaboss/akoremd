@@ -8,16 +8,16 @@ export const metadata = buildPageMetadata('rewards');
 
 // TODO: replace placeholders with the real collections ledger feed.
 const LEDGER = [
-  { date: 'Jun 05, 2026', flag: '❤️', trader: 'Cardiology Group', size: 'Multi-site', plan: 'Medicare', amt: '$12,129', tx: 'CLM-bd5cac' },
-  { date: 'Jun 05, 2026', flag: '🦴', trader: 'Orthopedic Clinic', size: '8 providers', plan: 'Aetna', amt: '$8,777', tx: 'CLM-942ddf' },
-  { date: 'Jun 05, 2026', flag: '🩺', trader: 'Internal Medicine', size: '4 providers', plan: 'BCBS', amt: '$4,294', tx: 'CLM-4a51c3' },
-  { date: 'Jun 05, 2026', flag: '🧒', trader: 'Pediatrics Assoc.', size: 'Group', plan: 'Medicaid', amt: '$3,402', tx: 'CLM-cdc7f1' },
-  { date: 'Jun 04, 2026', flag: '🧴', trader: 'Dermatology Clinic', size: 'Solo', plan: 'Cigna', amt: '$2,184', tx: 'CLM-f54c1a' },
-  { date: 'Jun 04, 2026', flag: '🧠', trader: 'Neurology Assoc.', size: '5 providers', plan: 'UnitedHealthcare', amt: '$13,589', tx: 'CLM-feb92b' },
-  { date: 'Jun 04, 2026', flag: '🤰', trader: 'OB-GYN Practice', size: 'Group', plan: 'Humana', amt: '$5,574', tx: 'CLM-d5d093' },
-  { date: 'Jun 04, 2026', flag: '🚑', trader: 'Urgent Care', size: '6 providers', plan: 'Aetna', amt: '$3,130', tx: 'CLM-30c363' },
-  { date: 'Jun 04, 2026', flag: '💊', trader: 'Pain Management', size: 'Solo', plan: 'Medicare', amt: '$2,491', tx: 'CLM-9ebbe5' },
-  { date: 'Jun 04, 2026', flag: '🔬', trader: 'Gastroenterology', size: '3 providers', plan: 'BCBS', amt: '$9,909', tx: 'CLM-72e8b1' },
+  { date: 'Jun 05, 2026', flag: '❤️', practice: 'Cardiology Group', size: 'Multi-site', plan: 'Medicare', amt: '$12,129', tx: 'CLM-bd5cac' },
+  { date: 'Jun 05, 2026', flag: '🦴', practice: 'Orthopedic Clinic', size: '8 providers', plan: 'Aetna', amt: '$8,777', tx: 'CLM-942ddf' },
+  { date: 'Jun 05, 2026', flag: '🩺', practice: 'Internal Medicine', size: '4 providers', plan: 'BCBS', amt: '$4,294', tx: 'CLM-4a51c3' },
+  { date: 'Jun 05, 2026', flag: '🧒', practice: 'Pediatrics Assoc.', size: 'Group', plan: 'Medicaid', amt: '$3,402', tx: 'CLM-cdc7f1' },
+  { date: 'Jun 04, 2026', flag: '🧴', practice: 'Dermatology Clinic', size: 'Solo', plan: 'Cigna', amt: '$2,184', tx: 'CLM-f54c1a' },
+  { date: 'Jun 04, 2026', flag: '🧠', practice: 'Neurology Assoc.', size: '5 providers', plan: 'UnitedHealthcare', amt: '$13,589', tx: 'CLM-feb92b' },
+  { date: 'Jun 04, 2026', flag: '🤰', practice: 'OB-GYN Practice', size: 'Group', plan: 'Humana', amt: '$5,574', tx: 'CLM-d5d093' },
+  { date: 'Jun 04, 2026', flag: '🚑', practice: 'Urgent Care', size: '6 providers', plan: 'Aetna', amt: '$3,130', tx: 'CLM-30c363' },
+  { date: 'Jun 04, 2026', flag: '💊', practice: 'Pain Management', size: 'Solo', plan: 'Medicare', amt: '$2,491', tx: 'CLM-9ebbe5' },
+  { date: 'Jun 04, 2026', flag: '🔬', practice: 'Gastroenterology', size: '3 providers', plan: 'BCBS', amt: '$9,909', tx: 'CLM-72e8b1' },
 ];
 
 const COUNTRIES = [
@@ -292,7 +292,7 @@ export default function Rewards() {
                     <tr key={r.tx}>
                       <td>{r.date}</td>
                       <td>
-                        <span className="rw-flag">{r.flag}</span> {r.trader}
+                        <span className="rw-flag">{r.flag}</span> {r.practice}
                       </td>
                       <td>{r.size}</td>
                       <td>{r.plan}</td>
