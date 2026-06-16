@@ -12,7 +12,7 @@ export const SERVICE_IMAGE_PATHS: Record<number, string> = {
   9: '/services/denial-appeals.jpg',
   10: '/services/ar-follow-up.jpg',
   11: '/Patient-Billing.png',
-  12: '/Credentialing-Provider-Enrollment.png',
+  12: '/Credentialing-Provider-Enrollment1.png',
 };
 
 export function getServiceImagePath(index: number): string {
