@@ -512,10 +512,12 @@ const en = {
     privacy: 'Privacy',
     risk: 'HIPAA notice',
     refund: 'Service policy',
-    riskTitle: 'Compliance notice.',
-    social: ['LinkedIn', 'Twitter', 'Facebook'],
-    disclaimer:
-      ' AkoreMD provides medical billing, coding and revenue cycle administrative support services to healthcare providers. We are a third-party billing service and do not provide medical, legal, financial or coding-compliance advice. All protected health information is handled in accordance with HIPAA. Statistics, collection figures, client names and testimonials shown here are illustrative examples and do not guarantee specific financial results, which vary by practice, specialty and payer mix. Services are governed by the full service agreement.',
+    riskTitle: 'Compliance Notice',
+    social: ['LinkedIn', 'Twitter', 'Facebook'] as const,
+    disclaimer: [
+      'AkoreMD provides medical billing, coding, and revenue cycle administrative support services to healthcare providers. We are a third-party billing service and do not provide medical, legal, financial, or coding-compliance advice. All protected health information is handled in accordance with HIPAA.',
+      'Statistics, collection figures, client names, and testimonials shown on this site are illustrative examples and do not guarantee specific financial results, which vary by practice, specialty, and payer mix. Services are governed by the full service agreement.',
+    ],
     rights: '© 2026 AkoreMD — All rights reserved.',
   },
 };

@@ -183,15 +183,6 @@ export const rootMetadata: Metadata = {
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
   },
   robots: { index: true, follow: true },
-  icons: {
-    icon: [
-      { url: absoluteUrl('/favicon.ico'), sizes: '48x48', type: 'image/x-icon' },
-      { url: absoluteUrl('/favicon-32x32.png'), sizes: '32x32', type: 'image/png' },
-      { url: absoluteUrl('/favicon-16x16.png'), sizes: '16x16', type: 'image/png' },
-    ],
-    apple: absoluteUrl('/apple-touch-icon.png'),
-    shortcut: absoluteUrl('/favicon.ico'),
-  },
   ...(GOOGLE_SITE_VERIFICATION
     ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
     : {}),

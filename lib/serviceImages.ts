@@ -11,7 +11,7 @@ export const SERVICE_IMAGE_PATHS: Record<number, string> = {
   8: '/services/payment-posting.jpg',
   9: '/services/denial-appeals.jpg',
   10: '/services/ar-follow-up.jpg',
-  11: '/Patient-Billing.png',
+  11: '/pexels-karola-g-6627851.jpg',
   12: '/Credentialing-Provider-Enrollment1.png',
 };
 
