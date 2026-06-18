@@ -1,6 +1,4 @@
-import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
-import Footer from '@/components/Footer';
 import { buildPageMetadata } from '@/lib/seo';
 
 export const metadata = buildPageMetadata('terms');
@@ -8,7 +6,6 @@ export const metadata = buildPageMetadata('terms');
 export default function TermsOfUse() {
   return (
     <>
-      <Nav />
       <main>
         {/* Hero Section */}
         <section className="hero">
@@ -179,7 +176,6 @@ export default function TermsOfUse() {
         </section>
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

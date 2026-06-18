@@ -1,5 +1,3 @@
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import FullServicesContent from '@/components/FullServicesContent';
@@ -10,7 +8,6 @@ export const metadata = buildPageMetadata('services');
 export default function ServicesPage() {
   return (
     <>
-      <Nav />
       <main>
         <PageHero
           eyebrow="OUR SERVICES"
@@ -24,7 +21,6 @@ export default function ServicesPage() {
         <FullServicesContent />
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

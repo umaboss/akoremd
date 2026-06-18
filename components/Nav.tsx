@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import AppLink from './AppLink';
 import Logo from './Logo';
 import { useT } from './LanguageProvider';
 
@@ -44,20 +45,20 @@ export default function Nav() {
     <header id="hdr" className={scrolled ? 'scrolled' : undefined}>
       <div className="wrap">
         <nav className="bar" aria-label="Main navigation">
-          <a href="/" className="logo" onClick={closeMenu}>
+          <AppLink href="/" className="logo" onClick={closeMenu}>
             <Logo />
-          </a>
+          </AppLink>
           <div className="nav-links">
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href}>
+              <AppLink key={link.href} href={link.href}>
                 {t.nav[link.key]}
-              </a>
+              </AppLink>
             ))}
           </div>
           <div className="nav-cta">
-            <a href="/contact" className="btn btn-p" data-magnetic>
+            <AppLink href="/contact" className="btn btn-p" data-magnetic>
               {t.nav.buy}
-            </a>
+            </AppLink>
           </div>
           <button
             type="button"
@@ -91,14 +92,14 @@ export default function Nav() {
         <div className="mobile-nav-panel">
           <div className="mobile-nav-links">
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} onClick={closeMenu}>
+              <AppLink key={link.href} href={link.href} onClick={closeMenu}>
                 {t.nav[link.key]}
-              </a>
+              </AppLink>
             ))}
           </div>
-          <a href="/contact" className="btn btn-p btn-lg mobile-nav-cta" onClick={closeMenu}>
+          <AppLink href="/contact" className="btn btn-p btn-lg mobile-nav-cta" onClick={closeMenu}>
             {t.nav.buy}
-          </a>
+          </AppLink>
         </div>
       </div>
     </header>

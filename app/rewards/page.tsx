@@ -1,7 +1,5 @@
-import Nav from '@/components/Nav';
 import Ticker from '@/components/Ticker';
 import FinalCTA from '@/components/FinalCTA';
-import Footer from '@/components/Footer';
 import { buildPageMetadata } from '@/lib/seo';
 
 export const metadata = buildPageMetadata('rewards');
@@ -31,7 +29,6 @@ const COUNTRIES = [
 export default function Rewards() {
   return (
     <>
-      <Nav />
       <main className="rw-dash">
         <div className="wrap">
           {/* Status bar */}
@@ -355,7 +352,6 @@ export default function Rewards() {
         </div>
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

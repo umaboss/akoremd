@@ -1,5 +1,3 @@
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import HowItWorksPageContent from '@/components/HowItWorksPageContent';
@@ -10,7 +8,6 @@ export const metadata = buildPageMetadata('howItWorks');
 export default function HowItWorksPage() {
   return (
     <>
-      <Nav />
       <main>
         <PageHero
           eyebrow="HOW IT WORKS"
@@ -24,7 +21,6 @@ export default function HowItWorksPage() {
         <HowItWorksPageContent />
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

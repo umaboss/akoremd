@@ -1,6 +1,4 @@
-import { ABOUT_IMAGES } from './aboutImages';
-
-/** Homepage section images — shared with About page where noted. */
+/** Homepage section images. */
 export const HOME_IMAGES = {
-  whoWeAre: ABOUT_IMAGES.hero,
+  whoWeAre: '/image_3b524202.png',
 } as const;

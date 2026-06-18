@@ -1,6 +1,4 @@
-import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
-import Footer from '@/components/Footer';
 import AffiliateFAQ from '@/components/AffiliateFAQ';
 import { buildPageMetadata } from '@/lib/seo';
 
@@ -9,7 +7,6 @@ export const metadata = buildPageMetadata('affiliate');
 export default function AffiliateProgram() {
   return (
     <>
-      <Nav />
       <main>
         {/* Section 1: Hero Section */}
         <section className="hero">
@@ -189,7 +186,6 @@ export default function AffiliateProgram() {
         </section>
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

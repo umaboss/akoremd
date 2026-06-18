@@ -502,7 +502,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 }
 .about-visual-photo{
   object-fit:cover;
-  object-position:right 34%;
+  object-position:center;
 }
 .about-visual-badge{
   position:absolute;left:24px;bottom:24px;display:flex;align-items:center;gap:12px;
@@ -1215,7 +1215,7 @@ body.light .who-card:hover{
   object-position: 96% 36%;
 }
 .about-visual-frame .about-hero-photo {
-  object-position: right 34%;
+  object-position: center;
 }
 
 @media(max-width: 1040px) {

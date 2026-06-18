@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
-import Footer from '@/components/Footer';
 import { ABOUT_IMAGES } from '@/lib/aboutImages';
 import { buildPageMetadata } from '@/lib/seo';
 
@@ -17,7 +15,6 @@ const frameStyle = {
 export default function AboutUs() {
   return (
     <>
-      <Nav />
       <main>
         <section className="hero">
           <div className="wrap grid-2">
@@ -131,11 +128,11 @@ export default function AboutUs() {
             <div className="grid-2 reveal" style={{ gap: 48, marginBottom: 48 }}>
               <div style={{ ...frameStyle, height: '420px', borderRadius: '24px' }}>
                 <Image
-                  src={ABOUT_IMAGES.partners}
-                  alt="Healthcare providers supported by AkoreMD medical billing services"
+                  src={ABOUT_IMAGES.missionVisual}
+                  alt="Healthcare provider supported by AkoreMD medical billing services"
                   fill
                   sizes="(max-width: 900px) 100vw, 560px"
-                  style={{ objectFit: 'cover' }}
+                  className="about-hero-photo"
                 />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 24 }}>
@@ -178,7 +175,6 @@ export default function AboutUs() {
         </section>
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

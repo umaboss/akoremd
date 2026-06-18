@@ -6,6 +6,9 @@ import { LanguageProvider } from '@/components/LanguageProvider';
 import GlobeMount from '@/components/GlobeMount';
 import Effects from '@/components/Effects';
 import PromoBar from '@/components/PromoBar';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import RouteTransition from '@/components/RouteTransition';
 import SiteJsonLd from '@/components/seo/SiteJsonLd';
 import GoogleAnalytics from '@/components/seo/GoogleAnalytics';
 import { rootMetadata } from '@/lib/seo';
@@ -48,7 +51,9 @@ export default function RootLayout({
             {/* Fixed scrims + JS-driven chrome + all page micro-interactions. */}
             <Effects />
             <PromoBar />
-            {children}
+            <Nav />
+            <RouteTransition>{children}</RouteTransition>
+            <Footer />
           </LanguageProvider>
         </ThemeProvider>
       </body>

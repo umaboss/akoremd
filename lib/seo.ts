@@ -5,7 +5,7 @@ export const SITE_NAME = 'AkoreMD';
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://akoremd.com';
 export const SITE_TAGLINE = 'Medical Billing & Revenue Cycle Management';
 export const DEFAULT_DESCRIPTION =
-  'AkoreMD helps healthcare providers streamline the revenue cycle, reduce claim denials, and improve cash flow through reliable, HIPAA-compliant medical billing and administrative support.';
+  'AkoreMD | Trusted U.S. Medical Billing & Revenue Cycle Management Partner for Modern Healthcare Practices';
 
 export const DEFAULT_KEYWORDS = [
   'medical billing',

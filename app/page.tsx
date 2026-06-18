@@ -1,4 +1,3 @@
-import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import TrustBand from '@/components/TrustBand';
 import Services from '@/components/Services';
@@ -9,16 +8,13 @@ import PayoutCycles from '@/components/PayoutCycles';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
-import Footer from '@/components/Footer';
 import { buildPageMetadata } from '@/lib/seo';
 
 export const metadata = buildPageMetadata('home');
 
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <main>
+    <main>
         <Hero />
         <TrustBand />
         <Services />
@@ -30,7 +26,5 @@ export default function Home() {
         <FAQ />
         <FinalCTA />
       </main>
-      <Footer />
-    </>
   );
 }

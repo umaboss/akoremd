@@ -1,6 +1,4 @@
-import Nav from '@/components/Nav';
 import FinalCTA from '@/components/FinalCTA';
-import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { buildPageMetadata } from '@/lib/seo';
 import { ABOUT_IMAGES } from '@/lib/aboutImages';
@@ -10,7 +8,6 @@ export const metadata = buildPageMetadata('contact');
 export default function ContactUs() {
   return (
     <>
-      <Nav />
       <main>
         <section className="hero">
           <div className="wrap">
@@ -111,7 +108,6 @@ export default function ContactUs() {
         </section>
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

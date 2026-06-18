@@ -1,5 +1,6 @@
 'use client';
 
+import AppLink from './AppLink';
 import Logo from './Logo';
 import { useT } from './LanguageProvider';
 
@@ -60,9 +61,9 @@ export default function Footer() {
         </div>
         <div className="foot-grid">
           <div className="foot-brand">
-            <a href="/" className="logo">
+            <AppLink href="/" className="logo">
               <Logo />
-            </a>
+            </AppLink>
             <p className="text-sm">{t.footer.brandP}</p>
             <div className="foot-social">
               {t.footer.social.map((name) => (
@@ -75,24 +76,24 @@ export default function Footer() {
           </div>
           <div className="foot-col">
             <h5>{t.footer.platform}</h5>
-            <a href="/features">{t.footer.programs}</a>
-            <a href="/services">{t.nav.services}</a>
-            <a href="/rewards">{t.footer.results}</a>
-            <a href="/how-it-works">{t.footer.howItWorks}</a>
+            <AppLink href="/features">{t.footer.programs}</AppLink>
+            <AppLink href="/services">{t.nav.services}</AppLink>
+            <AppLink href="/rewards">{t.footer.results}</AppLink>
+            <AppLink href="/how-it-works">{t.footer.howItWorks}</AppLink>
           </div>
           <div className="foot-col">
             <h5>{t.footer.company}</h5>
-            <a href="/about">{t.footer.about}</a>
-            <a href="/contact">{t.footer.contact}</a>
-            <a href="/faq">{t.footer.platforms}</a>
-            <a href="/contact">{t.footer.community}</a>
+            <AppLink href="/about">{t.footer.about}</AppLink>
+            <AppLink href="/contact">{t.footer.contact}</AppLink>
+            <AppLink href="/faq">{t.footer.platforms}</AppLink>
+            <AppLink href="/contact">{t.footer.community}</AppLink>
           </div>
           <div className="foot-col">
             <h5>{t.footer.legal}</h5>
-            <a href="/terms">{t.footer.termsOfUse}</a>
-            <a href="/terms#risk">{t.footer.privacy}</a>
-            <a href="/terms#risk">{t.footer.risk}</a>
-            <a href="/terms#refund">{t.footer.refund}</a>
+            <AppLink href="/terms">{t.footer.termsOfUse}</AppLink>
+            <AppLink href="/terms#risk">{t.footer.privacy}</AppLink>
+            <AppLink href="/terms#risk">{t.footer.risk}</AppLink>
+            <AppLink href="/terms#refund">{t.footer.refund}</AppLink>
           </div>
         </div>
         <div className="foot-compliance">

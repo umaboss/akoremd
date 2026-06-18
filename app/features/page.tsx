@@ -1,5 +1,3 @@
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import FeaturesPageContent from '@/components/FeaturesPageContent';
@@ -10,7 +8,6 @@ export const metadata = buildPageMetadata('features');
 export default function FeaturesPage() {
   return (
     <>
-      <Nav />
       <main>
         <PageHero
           eyebrow="WHY CHOOSE US"
@@ -24,7 +21,6 @@ export default function FeaturesPage() {
         <FeaturesPageContent />
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }

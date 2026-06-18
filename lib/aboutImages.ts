@@ -3,6 +3,7 @@ export const ABOUT_IMAGES = {
   hero: '/about-sec.jpg',
   team: '/about/about-team.jpg',
   mission: '/image_e0d96387.png',
+  missionVisual: '/image_3b524202.png',
   partners: '/about/about-partners.jpg',
   headquarters: '/about/about-headquarters.jpg',
 } as const;

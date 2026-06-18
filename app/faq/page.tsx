@@ -1,5 +1,3 @@
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import FaqPageContent from '@/components/FaqPageContent';
@@ -12,7 +10,6 @@ export default function FaqPage() {
   return (
     <>
       <FaqJsonLd />
-      <Nav />
       <main>
         <PageHero
           eyebrow="FAQ"
@@ -26,7 +23,6 @@ export default function FaqPage() {
         <FaqPageContent />
       </main>
       <FinalCTA />
-      <Footer />
     </>
   );
 }
